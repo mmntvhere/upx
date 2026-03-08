@@ -1,0 +1,115 @@
+{
+  "home": {
+    "mainBanner": "Banner principal",
+    "banner1": "Banner 1",
+    "banner2": "Banner 2"
+  },
+  "footer": {
+    "info": "Información",
+    "aboutMe": "Sobre mí",
+    "privacy": "Política de privacidad",
+    "categories": "Categorías",
+    "support": "Soporte",
+    "contactUs": "Contáctanos si tienes preguntas",
+    "contactSupport": "Contactar soporte",
+    "businessOffers": "Propuestas comerciales",
+    "affiliate": "Programa de afiliados",
+    "blogTitle": "Blog del Fundador de UPX",
+    "blogDesc": "Sobre la empresa, negocios y más",
+    "rights": "Todos los derechos reservados",
+    "recommended": "Recomendado",
+    "allLanguages": "Todos los idiomas"
+  },
+  "searchAndFilters": {
+    "search": "Buscar sitios...",
+    "ideal": "Tu sitio ideal",
+    "scrollRight": "Desplazar a la derecha"
+  },
+  "searchHeader": {
+    "title": "Buscar",
+    "close": "Cerrar"
+  },
+  "searchInputBlock": {
+    "placeholder": "Buscar sitios...",
+    "search": "Buscar",
+    "clear": "Limpiar",
+    "topSearches": "Búsquedas principales"
+  },
+  "searchNoResults": {
+    "notFound": "No se encontró nada",
+    "checkSpelling": "Verifica la ortografía",
+    "tryAnother": "o intenta con otra consulta",
+    "clearSearch": "Limpiar búsqueda",
+    "suggested": "Sitios que podrían gustarte",
+    "noPreview": "Sin vista previa"
+  },
+  "siteDescription": {
+    "expand": "Leer más",
+    "collapse": "Colapsar"
+  },
+  "sitePage": {
+    "loading": "Cargando...",
+    "notFound": "Sitio no encontrado",
+    "otherCategories": "Otras categorías",
+    "like": "similar a",
+    "moreSites": "Más sitios como",
+    "disclaimer": "La miniatura y reseña del sitio \"{{name}}\" se presentan bajo uso legítimo para fines de identificación y comentarios. No alojamos, transmitimos ni distribuimos ningún contenido con derechos de autor. El enlace lleva al sitio web oficial."
+  },
+  "breadcrumbs": {
+    "home": "Inicio"
+  },
+  "searchResults": {
+    "noSites": "No se encontraron sitios."
+  },
+  "category": {
+    "seeAll": "Todos los sitios",
+    "noSites": "No se encontraron sitios",
+    "seeAllFor": "Ver todos los sitios de la categoría {{name}}"
+  },
+  "searchResultsByCategory": {
+    "scroll": {
+      "left": "Desplazar a la izquierda",
+      "right": "Desplazar a la derecha"
+    }
+  },
+  "site": {
+    "noPreview": "Sin vista previa",
+    "readReview": "Leer reseña",
+    "open": "Ir al sitio"
+  },
+  "disclaimer": {
+    "label": "Descargo editorial"
+  },
+  "expandable": {
+    "readMore": "Leer más",
+    "hide": "Ocultar"
+  },
+  "languageModal": {
+    "title": "Idiomas",
+    "recommended": "Recomendado",
+    "allLanguages": "Todos los idiomas"
+  },
+  "common": {
+    "readReview": "Leer reseña",
+    "goToSite": "Ir al sitio",
+    "close": "Cerrar",
+    "seeAll": "Todos",
+    "sites": "sitios",
+    "goTo": "Ir a",
+    "review": "Reseña",
+    "home": "Inicio",
+    "category": "Categoría",
+    "faviconAlt": "Icono del sitio"
+  },
+  "viewSwitcher": {
+    "grid": "Cuadrícula",
+    "list": "Lista"
+  },
+  "categoryPage": {
+    "notFound": "Categoría no encontrada",
+    "home": "Inicio",
+    "noSites": "No se encontraron sitios.",
+    "otherCategories": "Otras categorías",
+    "breadcrumbHome": "Inicio"
+  }
+}

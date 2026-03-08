@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Hoofdbanner",
+    "banner1": "Banner 1",
+    "banner2": "Banner 2"
+  },
+  "footer": {
+    "info": "Informatie",
+    "aboutMe": "Over mij",
+    "privacy": "Privacybeleid",
+    "categories": "Categorieën",
+    "support": "Ondersteuning",
+    "contactUs": "Neem contact met ons op als je vragen hebt",
+    "contactSupport": "Neem contact op met de ondersteuning",
+    "businessOffers": "Zakelijke voorstellen",
+    "affiliate": "Partnerprogramma",
+    "blogTitle": "Blog van de oprichter van UPX",
+    "blogDesc": "Over het bedrijf, zaken en meer",
+    "rights": "Alle rechten voorbehouden",
+    "recommended": "Aanbevolen",
+    "language": "Talen",
+    "close": "Sluit taalkeuze",
+    "allLanguages": "Alle talen"
+  },
+  "searchAndFilters": {
+    "search": "Zoek websites...",
+    "ideal": "Jouw ideale website",
+    "scrollRight": "Scroll naar rechts"
+  },
+  "searchHeader": {
+    "title": "Zoeken",
+    "close": "Sluiten"
+  },
+  "searchInputBlock": {
+    "placeholder": "Zoek websites...",
+    "search": "Zoeken",
+    "clear": "Wissen",
+    "topSearches": "Populaire zoekopdrachten"
+  },
+  "searchNoResults": {
+    "notFound": "Niet gevonden",
+    "checkSpelling": "Controleer de spelling",
+    "tryAnother": "of probeer een andere zoekterm",
+    "clearSearch": "Wis zoekopdracht",
+    "suggested": "Websites die je misschien leuk vindt",
+    "noPreview": "Geen voorbeeld beschikbaar"
+  },
+  "siteDescription": {
+    "expand": "Lees meer",
+    "collapse": "Verbergen"
+  },
+  "sitePage": {
+    "loading": "Bezig met laden...",
+    "notFound": "Website niet gevonden",
+    "otherCategories": "Andere categorieën",
+    "like": "vergelijkbaar met",
+    "moreSites": "Meer websites zoals",
+    "disclaimer": "De miniatuur en beoordeling van de website \"{{name}}\" worden weergegeven op basis van eerlijk gebruik voor identificatie en commentaar. We hosten, streamen of verspreiden geen auteursrechtelijk beschermd materiaal. De link leidt naar de officiële website."
+  },
+  "breadcrumbs": {
+    "home": "Startpagina"
+  },
+  "searchResults": {
+    "noSites": "Geen websites gevonden."
+  },
+  "category": {
+    "seeAll": "Alle websites",
+    "noSites": "Geen websites gevonden",
+    "seeAllFor": "Bekijk alle websites in de categorie {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Alle websites",
+    "scroll": {
+      "left": "Scroll naar links",
+      "right": "Scroll naar rechts"
+    }
+  },
+  "site": {
+    "noPreview": "Geen voorbeeld beschikbaar",
+    "readReview": "Lees review",
+    "open": "Openen"
+  },
+  "disclaimer": {
+    "label": "Redactionele opmerking"
+  },
+  "expandable": {
+    "readMore": "Lees meer",
+    "hide": "Verbergen"
+  },
+  "languageModal": {
+    "title": "Talen",
+    "recommended": "Aanbevolen",
+    "allLanguages": "Alle talen"
+  },
+  "common": {
+    "readReview": "Lees review",
+    "goToSite": "Ga naar website",
+    "close": "Sluiten",
+    "seeAll": "Alle",
+    "sites": "websites",
+    "goTo": "Ga naar",
+    "review": "Review",
+    "home": "Startpagina",
+    "category": "Categorie",
+    "faviconAlt": "Website-icoon"
+  },
+  "viewSwitcher": {
+    "grid": "Raster",
+    "list": "Lijst"
+  },
+  "categoryPage": {
+    "notFound": "Categorie niet gevonden",
+    "home": "Startpagina",
+    "noSites": "Geen websites gevonden.",
+    "otherCategories": "Andere categorieën",
+    "breadcrumbHome": "Startpagina"
+  }
+}

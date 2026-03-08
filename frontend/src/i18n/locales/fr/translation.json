@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Bannière principale",
+    "banner1": "Bannière 1",
+    "banner2": "Bannière 2"
+  },
+  "footer": {
+    "info": "Informations",
+    "aboutMe": "À propos de moi",
+    "privacy": "Politique de confidentialité",
+    "categories": "Catégories",
+    "support": "Support",
+    "contactUs": "Contactez-nous si vous avez des questions",
+    "contactSupport": "Contacter le support",
+    "businessOffers": "Offres commerciales",
+    "affiliate": "Programme d'affiliation",
+    "blogTitle": "Blog du fondateur UPX",
+    "blogDesc": "Sur l’entreprise, le business et plus encore",
+    "rights": "Tous droits réservés",
+    "recommended": "Recommandé",
+    "language": "Langues",
+    "close": "Fermer la sélection de langue",
+    "allLanguages": "Toutes les langues"
+  },
+  "searchAndFilters": {
+    "search": "Rechercher des sites...",
+    "ideal": "Votre site idéal",
+    "scrollRight": "Faire défiler vers la droite"
+  },
+  "searchHeader": {
+    "title": "Recherche",
+    "close": "Fermer"
+  },
+  "searchInputBlock": {
+    "placeholder": "Rechercher des sites...",
+    "search": "Rechercher",
+    "clear": "Effacer",
+    "topSearches": "Recherches populaires"
+  },
+  "searchNoResults": {
+    "notFound": "Aucun résultat trouvé",
+    "checkSpelling": "Vérifiez l'orthographe",
+    "tryAnother": "ou essayez une autre recherche",
+    "clearSearch": "Réinitialiser la recherche",
+    "suggested": "Sites que vous pourriez aimer",
+    "noPreview": "Aperçu non disponible"
+  },
+  "siteDescription": {
+    "expand": "Lire la suite",
+    "collapse": "Réduire"
+  },
+  "sitePage": {
+    "loading": "Chargement...",
+    "notFound": "Site non trouvé",
+    "otherCategories": "Autres catégories",
+    "like": "similaires à",
+    "moreSites": "Plus de sites similaires à",
+    "disclaimer": "La miniature et la critique du site « {{name}} » sont présentées dans un but d’identification et de commentaire, conformément au principe d’usage loyal. Nous n’hébergeons, diffusons ni partageons aucun contenu protégé par des droits d’auteur. Le lien mène au site officiel."
+  },
+  "breadcrumbs": {
+    "home": "Accueil"
+  },
+  "searchResults": {
+    "noSites": "Aucun site trouvé."
+  },
+  "category": {
+    "seeAll": "Tous les sites",
+    "noSites": "Aucun site trouvé",
+    "seeAllFor": "Voir tous les sites dans la catégorie {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Tous les sites",
+    "scroll": {
+      "left": "Faire défiler vers la gauche",
+      "right": "Faire défiler vers la droite"
+    }
+  },
+  "site": {
+    "noPreview": "Pas d'aperçu",
+    "readReview": "Lire l’avis",
+    "open": "Ouvrir"
+  },
+  "disclaimer": {
+    "label": "Avertissement éditorial"
+  },
+  "expandable": {
+    "readMore": "Lire la suite",
+    "hide": "Masquer"
+  },
+  "languageModal": {
+    "title": "Langues",
+    "recommended": "Recommandées",
+    "allLanguages": "Toutes les langues"
+  },
+  "common": {
+    "readReview": "Lire l’avis",
+    "goToSite": "Aller au site",
+    "close": "Fermer",
+    "seeAll": "Tous",
+    "sites": "sites",
+    "goTo": "Aller à",
+    "review": "Avis",
+    "home": "Accueil",
+    "category": "Catégorie",
+    "faviconAlt": "Icône du site"
+  },
+  "viewSwitcher": {
+    "grid": "Grille",
+    "list": "Liste"
+  },
+  "categoryPage": {
+    "notFound": "Catégorie introuvable",
+    "home": "Accueil",
+    "noSites": "Aucun site trouvé.",
+    "otherCategories": "Autres catégories",
+    "breadcrumbHome": "Accueil"
+  }
+}

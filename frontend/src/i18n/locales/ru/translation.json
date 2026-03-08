@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Главный баннер",
+    "banner1": "Баннер 1",
+    "banner2": "Баннер 2"
+  },
+  "footer": {
+    "info": "Информация",
+    "aboutMe": "Обо мне",
+    "privacy": "Политика конфиденциальности",
+    "categories": "Категории",
+    "support": "Поддержка",
+    "contactUs": "Свяжитесь с нами, если у вас остались вопросы",
+    "contactSupport": "Обратиться в поддержку",
+    "businessOffers": "Деловые предложения",
+    "affiliate": "Партнёрская программа",
+    "blogTitle": "Блог основателя UPX",
+    "blogDesc": "О компании, бизнесе и не только",
+    "rights": "Все права защищены",
+    "recommended": "Рекомендуемые",
+    "language": "Языки",
+    "close": "Закрыть выбор языка",
+    "allLanguages": "Все языки"
+  },
+  "searchAndFilters": {
+    "search": "Поиск сайтов...",
+    "ideal": "Ваш идеальный сайт",
+    "scrollRight": "Прокрутить вправо"
+  },
+  "searchHeader": {
+    "title": "Поиск",
+    "close": "Закрыть"
+  },
+  "searchInputBlock": {
+    "placeholder": "Поиск сайтов...",
+    "search": "Поиск",
+    "clear": "Очистить",
+    "topSearches": "Популярные запросы"
+  },
+  "searchNoResults": {
+    "notFound": "Ничего не найдено",
+    "checkSpelling": "Проверьте правильность написания",
+    "tryAnother": "или введите другой запрос",
+    "clearSearch": "Очистить поиск",
+    "suggested": "Сайты, которые могут вам понравиться",
+    "noPreview": "Нет превью"
+  },
+  "siteDescription": {
+    "expand": "Читать далее",
+    "collapse": "Свернуть"
+  },
+  "sitePage": {
+    "loading": "Загрузка...",
+    "notFound": "Сайт не найден",
+    "otherCategories": "Другие категории",
+    "like": "похожих на",
+    "moreSites": "Больше сайтов, похожих на {{name}}",
+    "disclaimer": "Миниатюра и обзор сайта «{{name}}» представлены на основе добросовестного использования в целях идентификации и комментария. Мы не размещаем, не транслируем и не распространяем никакой контент, защищённый авторским правом. Ссылка ведёт на официальный сайт."
+  },
+  "breadcrumbs": {
+    "home": "Главная"
+  },
+  "searchResults": {
+    "noSites": "Сайты не найдены."
+  },
+  "category": {
+    "seeAll": "Все сайты",
+    "noSites": "Сайты не найдены",
+    "seeAllFor": "Посмотреть все сайты в категории {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Все сайты",
+    "scroll": {
+      "left": "Прокрутить влево",
+      "right": "Прокрутить вправо"
+    }
+  },
+  "site": {
+    "noPreview": "Превью отсутствует",
+    "readReview": "Читать обзор",
+    "open": "Перейти на сайт"
+  },
+  "disclaimer": {
+    "label": "Редакционный дисклеймер"
+  },
+  "expandable": {
+    "readMore": "Читать далее",
+    "hide": "Скрыть"
+  },
+  "languageModal": {
+    "title": "Языки",
+    "recommended": "Рекомендуемые",
+    "allLanguages": "Все языки"
+  },
+  "common": {
+    "readReview": "Читать обзор",
+    "goToSite": "Перейти на сайт",
+    "close": "Закрыть",
+    "seeAll": "Все",
+    "sites": "сайтов",
+    "goTo": "Перейти на",
+    "review": "Обзор",
+    "home": "Главная",
+    "category": "Категория",
+    "faviconAlt": "Иконка сайта"
+  },
+  "viewSwitcher": {
+    "grid": "Сетка",
+    "list": "Список"
+  },
+  "categoryPage": {
+    "notFound": "Категория не найдена",
+    "home": "Главная",
+    "noSites": "Сайты не найдены.",
+    "otherCategories": "Другие категории",
+    "breadcrumbHome": "Главная"
+  }
+}

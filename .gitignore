@@ -1,0 +1,38 @@
+# General
+.DS_Store
+*.log
+.idea
+.vscode
+*.suo
+*.zip
+.vite
+backend.zip
+
+# Node
+node_modules/
+**/node_modules/
+dist/
+dist-ssr/
+
+# PHP / Laravel
+vendor/
+**/vendor/
+.env
+.env.*
+!.env.example
+.phpactor.json
+.phpunit.result.cache
+.phpunit.cache
+/backend/public/build
+/backend/public/hot
+/backend/public/storage
+/backend/storage/*.key
+/backend/storage/pail
+Homestead.json
+Homestead.yaml
+
+# OS Files
+Thumbs.db
+.DS_Store
+*.tmp
+*.temp

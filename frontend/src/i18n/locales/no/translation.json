@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Hovedbanner",
+    "banner1": "Banner 1",
+    "banner2": "Banner 2"
+  },
+  "footer": {
+    "info": "Informasjon",
+    "aboutMe": "Om meg",
+    "privacy": "Personvernregler",
+    "categories": "Kategorier",
+    "support": "Støtte",
+    "contactUs": "Kontakt oss hvis du har spørsmål",
+    "contactSupport": "Kontakt kundestøtte",
+    "businessOffers": "Forretningsforespørsler",
+    "affiliate": "Affiliateprogram",
+    "blogTitle": "Grunnleggerens blogg",
+    "blogDesc": "Om selskapet, forretninger og mer",
+    "rights": "Alle rettigheter forbeholdt",
+    "recommended": "Anbefalt",
+    "language": "Språk",
+    "close": "Lukk språkvalg",
+    "allLanguages": "Alle språk"
+  },
+  "searchAndFilters": {
+    "search": "Søk etter nettsteder...",
+    "ideal": "Ditt ideelle nettsted",
+    "scrollRight": "Rull til høyre"
+  },
+  "searchHeader": {
+    "title": "Søk",
+    "close": "Lukk"
+  },
+  "searchInputBlock": {
+    "placeholder": "Søk etter nettsteder...",
+    "search": "Søk",
+    "clear": "Fjern",
+    "topSearches": "Populære søk"
+  },
+  "searchNoResults": {
+    "notFound": "Ikke funnet",
+    "checkSpelling": "Sjekk stavemåten",
+    "tryAnother": "eller prøv et annet søk",
+    "clearSearch": "Fjern søk",
+    "suggested": "Nettsteder du kanskje liker",
+    "noPreview": "Ingen forhåndsvisning"
+  },
+  "siteDescription": {
+    "expand": "Les mer",
+    "collapse": "Skjul"
+  },
+  "sitePage": {
+    "loading": "Laster inn...",
+    "notFound": "Nettstedet ble ikke funnet",
+    "otherCategories": "Andre kategorier",
+    "like": "liknende",
+    "moreSites": "Flere nettsteder som ligner på",
+    "disclaimer": "Miniatyrbildet og anmeldelsen av nettstedet \"{{name}}\" er presentert med god tro for identifikasjon og kommentering. Vi verken vert, streamer eller distribuerer noe opphavsrettsbeskyttet innhold. Lenken leder til det offisielle nettstedet."
+  },
+  "breadcrumbs": {
+    "home": "Hjem"
+  },
+  "searchResults": {
+    "noSites": "Ingen nettsteder funnet."
+  },
+  "category": {
+    "seeAll": "Alle nettsteder",
+    "noSites": "Ingen nettsteder funnet",
+    "seeAllFor": "Se alle nettsteder i kategorien {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Alle nettsteder",
+    "scroll": {
+      "left": "Rull til venstre",
+      "right": "Rull til høyre"
+    }
+  },
+  "site": {
+    "noPreview": "Forhåndsvisning mangler",
+    "readReview": "Les anmeldelse",
+    "open": "Åpne"
+  },
+  "disclaimer": {
+    "label": "Redaksjonell merknad"
+  },
+  "expandable": {
+    "readMore": "Les mer",
+    "hide": "Skjul"
+  },
+  "languageModal": {
+    "title": "Språk",
+    "recommended": "Anbefalte",
+    "allLanguages": "Alle språk"
+  },
+  "common": {
+    "readReview": "Les anmeldelse",
+    "goToSite": "Gå til nettstedet",
+    "close": "Lukk",
+    "seeAll": "Alle",
+    "sites": "nettsteder",
+    "goTo": "Gå til",
+    "review": "Anmeldelse",
+    "home": "Hjem",
+    "category": "Kategori",
+    "faviconAlt": "Nettstedsikon"
+  },
+  "viewSwitcher": {
+    "grid": "Rutenett",
+    "list": "Liste"
+  },
+  "categoryPage": {
+    "notFound": "Kategorien ble ikke funnet",
+    "home": "Hjem",
+    "noSites": "Ingen nettsteder funnet.",
+    "otherCategories": "Andre kategorier",
+    "breadcrumbHome": "Hjem"
+  }
+}

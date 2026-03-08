@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #fcfcfc6c;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #ffffff;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #141415;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Универсальный стиль для всех кнопок */
+button {
+  border-radius: 9999px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+/* Единый hover эффект */
+button:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* Сброс фокуса */
+button:focus,
+button:focus-visible {
+  outline: none;
+}
+
+/* Стили для светлой темы */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Скрытие скроллбара */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Фильтр-кнопка с градиентной обводкой */
+.filter-glow-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  color: #e5e5e5;
+  background-color: #1a1a1a;
+  font-weight: 500;
+  position: relative;
+  z-index: 0;
+  border: 1px solid transparent;
+
+  background-image:
+    linear-gradient(#1a1a1a, #1a1a1a),
+    linear-gradient(to right, rgba(255,255,255,0.15), rgba(0,0,0,0));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ховер для фильтр-кнопки такой же как у остальных */
+.filter-glow-button:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.ideal-site-button {
+  position: relative;
+  border-radius: 9999px;
+  background-color: #141414;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.3s ease;
+  z-index: 0;
+}
+
+.ideal-site-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, #a855f7, #3b82f6, #a855f7);
+  background-size: 400% 400%;
+  animation: gradientShift 6s ease infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ⚙️ Пользователям с reduced motion — отключим анимацию */
+@media (prefers-reduced-motion: reduce) {
+  .ideal-site-button::before {
+    animation: none;
+  }
+}
+
+button.search-term-btn {
+  color: #141415 !important;
+}
+svg, svg path {
+  stroke: currentColor;
+  fill: none;
+}
+
+@layer utilities {
+  .main-image-glass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    z-index: 10;
+
+    background: linear-gradient(
+      to top,
+      rgba(20, 20, 20, 0.85) 0%,
+      rgba(20, 20, 20, 0.6) 40%,
+      rgba(20, 20, 20, 0.2) 80%,
+      transparent 100%
+    );
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    /* Только нижние скругления! */
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+
+    /* Убираем верхние */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+
+  .icon-glow-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 9999px;
+  background-color: #1a1a1a;
+  border: 1px solid transparent;
+
+  background-image:
+    linear-gradient(#1a1a1a, #1a1a1a),
+    linear-gradient(to right, rgba(255,255,255,0.15), rgba(0,0,0,0));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 0;
+}
+.icon-glow-button:hover {
+  background-color: #2a2a2a;
+}
+
+
+.filter-glow-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 25px;
+  color: #e5e5e5;
+  background-color: #1a1a1a;
+  font-weight: 500;
+  position: relative;
+  z-index: 0;
+  border: 1px solid transparent;
+
+  background-image:
+    linear-gradient(#1a1a1a, #1a1a1a),
+    linear-gradient(to right, rgba(255,255,255,0.15), rgba(0,0,0,0));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+  .loader {
+    border-color: #D80032;
+    border-top-color: transparent;
+  }
+
+  main {
+    min-height: calc(100vh - 64px - 300px); /* Примерная высота без хедера и футера */
+  }
+
+
+.btn-lang {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: #141415; /* текст всегда чёрный */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.btn-lang:hover {
+  background-color: #f2f2f2; /* только фон */
+  color: #141415; /* ✨ фиксируем цвет текста */
+}
+
+.btn-lang .text-blue-600 {
+  color: #3b82f6;
+}
+}

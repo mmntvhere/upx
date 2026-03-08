@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "メインバナー",
+    "banner1": "バナー1",
+    "banner2": "バナー2"
+  },
+  "footer": {
+    "info": "情報",
+    "aboutMe": "運営者について",
+    "privacy": "プライバシーポリシー",
+    "categories": "カテゴリー",
+    "support": "サポート",
+    "contactUs": "ご不明な点があればご連絡ください",
+    "contactSupport": "サポートに問い合わせる",
+    "businessOffers": "ビジネス提案",
+    "affiliate": "アフィリエイトプログラム",
+    "blogTitle": "UPX創設者のブログ",
+    "blogDesc": "会社・ビジネス・その他について",
+    "rights": "全著作権所有",
+    "recommended": "おすすめ",
+    "language": "言語",
+    "close": "言語選択を閉じる",
+    "allLanguages": "すべての言語"
+  },
+  "searchAndFilters": {
+    "search": "サイトを検索...",
+    "ideal": "あなたに最適なサイト",
+    "scrollRight": "右にスクロール"
+  },
+  "searchHeader": {
+    "title": "検索",
+    "close": "閉じる"
+  },
+  "searchInputBlock": {
+    "placeholder": "サイトを検索...",
+    "search": "検索",
+    "clear": "クリア",
+    "topSearches": "人気の検索ワード"
+  },
+  "searchNoResults": {
+    "notFound": "結果が見つかりません",
+    "checkSpelling": "スペルミスがないかご確認ください",
+    "tryAnother": "または別のキーワードでお試しください",
+    "clearSearch": "検索をクリア",
+    "suggested": "おすすめサイト",
+    "noPreview": "プレビューなし"
+  },
+  "siteDescription": {
+    "expand": "もっと見る",
+    "collapse": "閉じる"
+  },
+  "sitePage": {
+    "loading": "読み込み中...",
+    "notFound": "サイトが見つかりません",
+    "otherCategories": "その他のカテゴリー",
+    "like": "に似た",
+    "moreSites": "{{name}} に似た他のサイト",
+    "disclaimer": "「{{name}}」のプレビューとレビューは、識別およびコメント目的のフェアユースに基づいて表示されています。当サイトでは著作権で保護されたコンテンツのホスティング・配信・共有は行っておりません。リンクは公式サイトにリダイレクトされます。"
+  },
+  "breadcrumbs": {
+    "home": "ホーム"
+  },
+  "searchResults": {
+    "noSites": "サイトが見つかりません。"
+  },
+  "category": {
+    "seeAll": "すべてのサイトを見る",
+    "noSites": "サイトが見つかりません",
+    "seeAllFor": "{{name}}カテゴリーのすべてのサイトを見る"
+  },
+  "searchResultsByCategory": {
+    "allSites": "すべてのサイト",
+    "scroll": {
+      "left": "左にスクロール",
+      "right": "右にスクロール"
+    }
+  },
+  "site": {
+    "noPreview": "プレビューなし",
+    "readReview": "レビューを読む",
+    "open": "開く"
+  },
+  "disclaimer": {
+    "label": "編集上の免責事項"
+  },
+  "expandable": {
+    "readMore": "もっと読む",
+    "hide": "隠す"
+  },
+  "languageModal": {
+    "title": "言語",
+    "recommended": "おすすめ",
+    "allLanguages": "すべての言語"
+  },
+  "common": {
+    "readReview": "レビューを読む",
+    "goToSite": "サイトへ移動",
+    "close": "閉じる",
+    "seeAll": "すべて",
+    "sites": "サイト",
+    "goTo": "移動",
+    "review": "レビュー",
+    "home": "ホーム",
+    "category": "カテゴリー",
+    "faviconAlt": "サイトのアイコン"
+  },
+  "viewSwitcher": {
+    "grid": "グリッド",
+    "list": "リスト"
+  },
+  "categoryPage": {
+    "notFound": "カテゴリーが見つかりません",
+    "home": "ホーム",
+    "noSites": "サイトが見つかりません。",
+    "otherCategories": "その他のカテゴリー",
+    "breadcrumbHome": "ホーム"
+  }
+}

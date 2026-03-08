@@ -1,0 +1,40 @@
+import { Link } from "react-router-dom"
+import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
+import { useLanguage } from "@/hooks/useLanguage"
+import { getLocalizedPath } from "@/utils/routeUtils"
+
+/**
+ * Компонент хлебных крошек
+ *
+ * @param {string} basePath — ссылка на корень (обычно "/")
+ * @param {string} baseLabel — ключ перевода (например, "categoryPage.breadcrumbHome")
+ * @param {object} category — объект категории с icon, name, name_translations
+ */
+const Breadcrumb = ({ basePath = "/", baseLabel = "categoryPage.breadcrumbHome", category }) => {
+  const language = useLanguage()
+  const translatedBase = useTranslateUniversal(baseLabel) || "Home"
+  const translatedName = category?.name || "Category"
+
+  return (
+    <nav className="text-sm text-gray-400 mb-4 flex items-center space-x-2 overflow-hidden whitespace-nowrap">
+      <Link to={getLocalizedPath(basePath, language)} className="hover:text-white shrink-0">
+        {translatedBase}
+      </Link>
+      <span className="text-gray-600 shrink-0">/</span>
+      <span className="flex items-center gap-2 text-white font-medium min-w-0">
+        {category?.icon && (
+          <img
+            src={`/storage/${category.icon}`}
+            alt={translatedName}
+            className="w-5 h-5 object-contain shrink-0"
+          />
+        )}
+        <span className="truncate block max-w-[200px]" title={translatedName}>
+          {translatedName}
+        </span>
+      </span>
+    </nav>
+  )
+}
+
+export default Breadcrumb

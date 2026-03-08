@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Biểu ngữ chính",
+    "banner1": "Biểu ngữ 1",
+    "banner2": "Biểu ngữ 2"
+  },
+  "footer": {
+    "info": "Thông tin",
+    "aboutMe": "Về tôi",
+    "privacy": "Chính sách bảo mật",
+    "categories": "Danh mục",
+    "support": "Hỗ trợ",
+    "contactUs": "Liên hệ với chúng tôi nếu bạn có thắc mắc",
+    "contactSupport": "Liên hệ bộ phận hỗ trợ",
+    "businessOffers": "Đề xuất hợp tác",
+    "affiliate": "Chương trình đối tác",
+    "blogTitle": "Blog của người sáng lập UPX",
+    "blogDesc": "Về công ty, kinh doanh và nhiều hơn nữa",
+    "rights": "Mọi quyền được bảo lưu",
+    "recommended": "Đề xuất",
+    "language": "Ngôn ngữ",
+    "close": "Đóng lựa chọn ngôn ngữ",
+    "allLanguages": "Tất cả ngôn ngữ"
+  },
+  "searchAndFilters": {
+    "search": "Tìm kiếm trang web...",
+    "ideal": "Trang web lý tưởng của bạn",
+    "scrollRight": "Cuộn sang phải"
+  },
+  "searchHeader": {
+    "title": "Tìm kiếm",
+    "close": "Đóng"
+  },
+  "searchInputBlock": {
+    "placeholder": "Tìm kiếm trang web...",
+    "search": "Tìm kiếm",
+    "clear": "Xoá",
+    "topSearches": "Tìm kiếm phổ biến"
+  },
+  "searchNoResults": {
+    "notFound": "Không tìm thấy kết quả",
+    "checkSpelling": "Kiểm tra lại chính tả",
+    "tryAnother": "hoặc thử từ khóa khác",
+    "clearSearch": "Xoá tìm kiếm",
+    "suggested": "Có thể bạn sẽ thích",
+    "noPreview": "Không có bản xem trước"
+  },
+  "siteDescription": {
+    "expand": "Đọc thêm",
+    "collapse": "Thu gọn"
+  },
+  "sitePage": {
+    "loading": "Đang tải...",
+    "notFound": "Không tìm thấy trang web",
+    "otherCategories": "Danh mục khác",
+    "like": "giống như",
+    "moreSites": "Thêm trang web giống như {{name}}",
+    "disclaimer": "Hình ảnh thu nhỏ và đánh giá về trang \"{{name}}\" được cung cấp theo nguyên tắc sử dụng hợp lý với mục đích nhận diện và bình luận. Chúng tôi không lưu trữ hoặc phát tán bất kỳ nội dung có bản quyền nào. Liên kết dẫn đến trang web chính thức."
+  },
+  "breadcrumbs": {
+    "home": "Trang chủ"
+  },
+  "searchResults": {
+    "noSites": "Không tìm thấy trang web."
+  },
+  "category": {
+    "seeAll": "Tất cả trang web",
+    "noSites": "Không tìm thấy trang web",
+    "seeAllFor": "Xem tất cả trang trong danh mục {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Tất cả trang",
+    "scroll": {
+      "left": "Cuộn sang trái",
+      "right": "Cuộn sang phải"
+    }
+  },
+  "site": {
+    "noPreview": "Không có bản xem trước",
+    "readReview": "Đọc đánh giá",
+    "open": "Mở trang"
+  },
+  "disclaimer": {
+    "label": "Lưu ý biên tập"
+  },
+  "expandable": {
+    "readMore": "Đọc thêm",
+    "hide": "Ẩn"
+  },
+  "languageModal": {
+    "title": "Ngôn ngữ",
+    "recommended": "Đề xuất",
+    "allLanguages": "Tất cả ngôn ngữ"
+  },
+  "common": {
+    "readReview": "Đọc đánh giá",
+    "goToSite": "Truy cập trang",
+    "close": "Đóng",
+    "seeAll": "Xem tất cả",
+    "sites": "trang web",
+    "goTo": "Đi đến",
+    "review": "Đánh giá",
+    "home": "Trang chủ",
+    "category": "Danh mục",
+    "faviconAlt": "Biểu tượng trang"
+  },
+  "viewSwitcher": {
+    "grid": "Lưới",
+    "list": "Danh sách"
+  },
+  "categoryPage": {
+    "notFound": "Không tìm thấy danh mục",
+    "home": "Trang chủ",
+    "noSites": "Không tìm thấy trang web.",
+    "otherCategories": "Danh mục khác",
+    "breadcrumbHome": "Trang chủ"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "באנר ראשי",
+    "banner1": "באנר 1",
+    "banner2": "באנר 2"
+  },
+  "footer": {
+    "info": "מידע",
+    "aboutMe": "עליי",
+    "privacy": "מדיניות פרטיות",
+    "categories": "קטגוריות",
+    "support": "תמיכה",
+    "contactUs": "צרו קשר אם יש לכם שאלות",
+    "contactSupport": "צור קשר עם התמיכה",
+    "businessOffers": "הצעות עסקיות",
+    "affiliate": "תוכנית שותפים",
+    "blogTitle": "הבלוג של מייסד UPX",
+    "blogDesc": "על החברה, עסקים ודברים נוספים",
+    "rights": "כל הזכויות שמורות",
+    "recommended": "מומלץ",
+    "language": "שפות",
+    "close": "סגור בחירת שפה",
+    "allLanguages": "כל השפות"
+  },
+  "searchAndFilters": {
+    "search": "חיפוש אתרים...",
+    "ideal": "האתר המושלם עבורך",
+    "scrollRight": "גלול ימינה"
+  },
+  "searchHeader": {
+    "title": "חיפוש",
+    "close": "סגור"
+  },
+  "searchInputBlock": {
+    "placeholder": "חפש אתרים...",
+    "search": "חיפוש",
+    "clear": "נקה",
+    "topSearches": "חיפושים פופולריים"
+  },
+  "searchNoResults": {
+    "notFound": "לא נמצאו תוצאות",
+    "checkSpelling": "בדוק אם יש שגיאות כתיב",
+    "tryAnother": "או נסה חיפוש אחר",
+    "clearSearch": "נקה חיפוש",
+    "suggested": "אתרים שאולי תאהב",
+    "noPreview": "אין תצוגה מקדימה"
+  },
+  "siteDescription": {
+    "expand": "קרא עוד",
+    "collapse": "הסתר"
+  },
+  "sitePage": {
+    "loading": "טוען...",
+    "notFound": "האתר לא נמצא",
+    "otherCategories": "קטגוריות נוספות",
+    "like": "דומים ל",
+    "moreSites": "עוד אתרים דומים ל",
+    "disclaimer": "התצוגה והסקירה של האתר \"{{name}}\" מוצגים בהתאם לשימוש הוגן לצורכי זיהוי והבעת דעה. איננו מאחסנים, משדרים או מפיצים תוכן המוגן בזכויות יוצרים. הקישור מוביל לאתר הרשמי."
+  },
+  "breadcrumbs": {
+    "home": "דף הבית"
+  },
+  "searchResults": {
+    "noSites": "לא נמצאו אתרים."
+  },
+  "category": {
+    "seeAll": "כל האתרים",
+    "noSites": "לא נמצאו אתרים",
+    "seeAllFor": "הצג את כל האתרים בקטגוריה {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "כל האתרים",
+    "scroll": {
+      "left": "גלול שמאלה",
+      "right": "גלול ימינה"
+    }
+  },
+  "site": {
+    "noPreview": "אין תצוגה מקדימה",
+    "readReview": "קרא ביקורת",
+    "open": "פתח"
+  },
+  "disclaimer": {
+    "label": "הבהרה מערכתית"
+  },
+  "expandable": {
+    "readMore": "קרא עוד",
+    "hide": "הסתר"
+  },
+  "languageModal": {
+    "title": "שפות",
+    "recommended": "מומלץ",
+    "allLanguages": "כל השפות"
+  },
+  "common": {
+    "readReview": "קרא ביקורת",
+    "goToSite": "עבור לאתר",
+    "close": "סגור",
+    "seeAll": "הצג הכל",
+    "sites": "אתרים",
+    "goTo": "עבור אל",
+    "review": "ביקורת",
+    "home": "דף הבית",
+    "category": "קטגוריה",
+    "faviconAlt": "סמל האתר"
+  },
+  "viewSwitcher": {
+    "grid": "רשת",
+    "list": "רשימה"
+  },
+  "categoryPage": {
+    "notFound": "הקטגוריה לא נמצאה",
+    "home": "דף הבית",
+    "noSites": "לא נמצאו אתרים.",
+    "otherCategories": "קטגוריות נוספות",
+    "breadcrumbHome": "דף הבית"
+  }
+}

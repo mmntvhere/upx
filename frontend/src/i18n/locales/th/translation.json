@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "แบนเนอร์หลัก",
+    "banner1": "แบนเนอร์ 1",
+    "banner2": "แบนเนอร์ 2"
+  },
+  "footer": {
+    "info": "ข้อมูล",
+    "aboutMe": "เกี่ยวกับฉัน",
+    "privacy": "นโยบายความเป็นส่วนตัว",
+    "categories": "หมวดหมู่",
+    "support": "ฝ่ายสนับสนุน",
+    "contactUs": "หากคุณมีคำถาม โปรดติดต่อเรา",
+    "contactSupport": "ติดต่อฝ่ายสนับสนุน",
+    "businessOffers": "ข้อเสนอทางธุรกิจ",
+    "affiliate": "โปรแกรมพันธมิตร",
+    "blogTitle": "บล็อกของผู้ก่อตั้ง UPX",
+    "blogDesc": "เกี่ยวกับบริษัท ธุรกิจ และอื่นๆ",
+    "rights": "สงวนลิขสิทธิ์ทั้งหมด",
+    "recommended": "แนะนำ",
+    "language": "ภาษา",
+    "close": "ปิดการเลือกภาษา",
+    "allLanguages": "ทุกภาษา"
+  },
+  "searchAndFilters": {
+    "search": "ค้นหาเว็บไซต์...",
+    "ideal": "เว็บไซต์ในอุดมคติของคุณ",
+    "scrollRight": "เลื่อนไปทางขวา"
+  },
+  "searchHeader": {
+    "title": "ค้นหา",
+    "close": "ปิด"
+  },
+  "searchInputBlock": {
+    "placeholder": "ค้นหาเว็บไซต์...",
+    "search": "ค้นหา",
+    "clear": "ล้าง",
+    "topSearches": "คำค้นหายอดนิยม"
+  },
+  "searchNoResults": {
+    "notFound": "ไม่พบผลลัพธ์",
+    "checkSpelling": "โปรดตรวจสอบคำสะกด",
+    "tryAnother": "หรือใช้คำอื่น",
+    "clearSearch": "ล้างการค้นหา",
+    "suggested": "เว็บไซต์ที่คุณอาจสนใจ",
+    "noPreview": "ไม่มีตัวอย่าง"
+  },
+  "siteDescription": {
+    "expand": "อ่านเพิ่มเติม",
+    "collapse": "ย่อ"
+  },
+  "sitePage": {
+    "loading": "กำลังโหลด...",
+    "notFound": "ไม่พบเว็บไซต์",
+    "otherCategories": "หมวดหมู่อื่นๆ",
+    "like": "ที่คล้ายกับ",
+    "moreSites": "เว็บไซต์เพิ่มเติมที่คล้ายกับ {{name}}",
+    "disclaimer": "รูปภาพและรีวิวของ \"{{name}}\" จัดทำขึ้นเพื่อวัตถุประสงค์ในการระบุและแสดงความคิดเห็นตามหลักการใช้งานโดยชอบ เราไม่ได้โฮสต์หรือแจกจ่ายเนื้อหาที่มีลิขสิทธิ์ใดๆ ลิงก์นำไปสู่เว็บไซต์ทางการ"
+  },
+  "breadcrumbs": {
+    "home": "หน้าแรก"
+  },
+  "searchResults": {
+    "noSites": "ไม่พบเว็บไซต์"
+  },
+  "category": {
+    "seeAll": "ดูเว็บไซต์ทั้งหมด",
+    "noSites": "ไม่พบเว็บไซต์",
+    "seeAllFor": "ดูเว็บไซต์ทั้งหมดในหมวด {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "เว็บไซต์ทั้งหมด",
+    "scroll": {
+      "left": "เลื่อนไปทางซ้าย",
+      "right": "เลื่อนไปทางขวา"
+    }
+  },
+  "site": {
+    "noPreview": "ไม่มีตัวอย่าง",
+    "readReview": "อ่านรีวิว",
+    "open": "เข้าสู่เว็บไซต์"
+  },
+  "disclaimer": {
+    "label": "ข้อจำกัดความรับผิดชอบ"
+  },
+  "expandable": {
+    "readMore": "อ่านเพิ่มเติม",
+    "hide": "ซ่อน"
+  },
+  "languageModal": {
+    "title": "ภาษา",
+    "recommended": "แนะนำ",
+    "allLanguages": "ทุกภาษา"
+  },
+  "common": {
+    "readReview": "อ่านรีวิว",
+    "goToSite": "ไปที่เว็บไซต์",
+    "close": "ปิด",
+    "seeAll": "ดูทั้งหมด",
+    "sites": "เว็บไซต์",
+    "goTo": "ไปที่",
+    "review": "รีวิว",
+    "home": "หน้าแรก",
+    "category": "หมวดหมู่",
+    "faviconAlt": "ไอคอนเว็บไซต์"
+  },
+  "viewSwitcher": {
+    "grid": "ตาราง",
+    "list": "รายการ"
+  },
+  "categoryPage": {
+    "notFound": "ไม่พบหมวดหมู่",
+    "home": "หน้าแรก",
+    "noSites": "ไม่พบเว็บไซต์",
+    "otherCategories": "หมวดหมู่อื่นๆ",
+    "breadcrumbHome": "หน้าแรก"
+  }
+}

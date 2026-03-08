@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "البانر الرئيسي",
+    "banner1": "بانر 1",
+    "banner2": "بانر 2"
+  },
+  "footer": {
+    "info": "معلومات",
+    "aboutMe": "من أنا",
+    "privacy": "سياسة الخصوصية",
+    "categories": "الفئات",
+    "support": "الدعم",
+    "contactUs": "اتصل بنا إذا كان لديك أي استفسارات",
+    "contactSupport": "الاتصال بالدعم",
+    "businessOffers": "عروض تجارية",
+    "affiliate": "برنامج الشراكة",
+    "blogTitle": "مدونة مؤسس UPX",
+    "blogDesc": "حول الشركة والأعمال والمزيد",
+    "rights": "جميع الحقوق محفوظة",
+    "recommended": "موصى به",
+    "language": "اللغات",
+    "close": "إغلاق اختيار اللغة",
+    "allLanguages": "جميع اللغات"
+  },
+  "searchAndFilters": {
+    "search": "ابحث عن مواقع...",
+    "ideal": "موقعك المثالي",
+    "scrollRight": "التمرير إلى اليمين"
+  },
+  "searchHeader": {
+    "title": "بحث",
+    "close": "إغلاق"
+  },
+  "searchInputBlock": {
+    "placeholder": "ابحث عن مواقع...",
+    "search": "بحث",
+    "clear": "مسح",
+    "topSearches": "أكثر عمليات البحث شيوعًا"
+  },
+  "searchNoResults": {
+    "notFound": "لا توجد نتائج",
+    "checkSpelling": "تحقق من التهجئة",
+    "tryAnother": "أو جرب استعلامًا آخر",
+    "clearSearch": "مسح البحث",
+    "suggested": "مواقع قد تعجبك",
+    "noPreview": "لا يوجد معاينة"
+  },
+  "siteDescription": {
+    "expand": "قراءة المزيد",
+    "collapse": "إظهار أقل"
+  },
+  "sitePage": {
+    "loading": "جارٍ التحميل...",
+    "notFound": "الموقع غير موجود",
+    "otherCategories": "فئات أخرى",
+    "like": "مماثل لـ",
+    "moreSites": "مزيد من المواقع المشابهة لـ",
+    "disclaimer": "يتم تقديم الصورة المصغّرة والمراجعة لموقع \"{{name}}\" بموجب الاستخدام العادل لأغراض تحديد الهوية والتعليق. نحن لا نستضيف أو نبث أو نوزع أي محتوى محمي بحقوق النشر. الرابط يؤدي إلى الموقع الرسمي."
+  },
+  "breadcrumbs": {
+    "home": "الرئيسية"
+  },
+  "searchResults": {
+    "noSites": "لم يتم العثور على مواقع."
+  },
+  "category": {
+    "seeAll": "جميع المواقع",
+    "noSites": "لم يتم العثور على مواقع",
+    "seeAllFor": "عرض جميع المواقع في فئة {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "جميع المواقع",
+    "scroll": {
+      "left": "التمرير إلى اليسار",
+      "right": "التمرير إلى اليمين"
+    }
+  },
+  "site": {
+    "noPreview": "لا توجد معاينة",
+    "readReview": "قراءة المراجعة",
+    "open": "فتح"
+  },
+  "disclaimer": {
+    "label": "تنويه تحريري"
+  },
+  "expandable": {
+    "readMore": "قراءة المزيد",
+    "hide": "إخفاء"
+  },
+  "languageModal": {
+    "title": "اللغات",
+    "recommended": "موصى بها",
+    "allLanguages": "جميع اللغات"
+  },
+  "common": {
+    "readReview": "قراءة المراجعة",
+    "goToSite": "الذهاب إلى الموقع",
+    "close": "إغلاق",
+    "seeAll": "الكل",
+    "sites": "مواقع",
+    "goTo": "اذهب إلى",
+    "review": "مراجعة",
+    "home": "الرئيسية",
+    "category": "الفئة",
+    "faviconAlt": "أيقونة الموقع"
+  },
+  "viewSwitcher": {
+    "grid": "شبكة",
+    "list": "قائمة"
+  },
+  "categoryPage": {
+    "notFound": "لم يتم العثور على الفئة",
+    "home": "الرئيسية",
+    "noSites": "لم يتم العثور على مواقع.",
+    "otherCategories": "فئات أخرى",
+    "breadcrumbHome": "الرئيسية"
+  }
+}

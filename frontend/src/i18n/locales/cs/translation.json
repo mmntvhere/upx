@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Hlavní banner",
+    "banner1": "Banner 1",
+    "banner2": "Banner 2"
+  },
+  "footer": {
+    "info": "Informace",
+    "aboutMe": "O mně",
+    "privacy": "Zásady ochrany osobních údajů",
+    "categories": "Kategorie",
+    "support": "Podpora",
+    "contactUs": "Kontaktujte nás, pokud máte dotazy",
+    "contactSupport": "Kontaktovat podporu",
+    "businessOffers": "Obchodní nabídky",
+    "affiliate": "Partnerský program",
+    "blogTitle": "Blog zakladatele UPX",
+    "blogDesc": "O společnosti, podnikání a více",
+    "rights": "Všechna práva vyhrazena",
+    "recommended": "Doporučeno",
+    "language": "Jazyky",
+    "close": "Zavřít výběr jazyka",
+    "allLanguages": "Všechny jazyky"
+  },
+  "searchAndFilters": {
+    "search": "Hledat weby...",
+    "ideal": "Váš ideální web",
+    "scrollRight": "Posun doprava"
+  },
+  "searchHeader": {
+    "title": "Hledání",
+    "close": "Zavřít"
+  },
+  "searchInputBlock": {
+    "placeholder": "Hledat weby...",
+    "search": "Hledat",
+    "clear": "Vymazat",
+    "topSearches": "Nejčastější hledání"
+  },
+  "searchNoResults": {
+    "notFound": "Nenalezeno",
+    "checkSpelling": "Zkontrolujte pravopis",
+    "tryAnother": "nebo zkuste jiný dotaz",
+    "clearSearch": "Vymazat hledání",
+    "suggested": "Weby, které by se vám mohly líbit",
+    "noPreview": "Náhled není k dispozici"
+  },
+  "siteDescription": {
+    "expand": "Zobrazit více",
+    "collapse": "Skrýt"
+  },
+  "sitePage": {
+    "loading": "Načítání...",
+    "notFound": "Web nenalezen",
+    "otherCategories": "Další kategorie",
+    "like": "podobné jako",
+    "moreSites": "Více webů podobných jako",
+    "disclaimer": "Miniatura a recenze webu „{{name}}“ jsou uvedeny na základě fair use pro účely identifikace a komentáře. Nehostujeme, nevysíláme ani nešíříme žádný chráněný obsah. Odkaz vede na oficiální web."
+  },
+  "breadcrumbs": {
+    "home": "Domů"
+  },
+  "searchResults": {
+    "noSites": "Žádné weby nenalezeny."
+  },
+  "category": {
+    "seeAll": "Všechny weby",
+    "noSites": "Žádné weby nenalezeny",
+    "seeAllFor": "Zobrazit všechny weby v kategorii {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Všechny weby",
+    "scroll": {
+      "left": "Posun doleva",
+      "right": "Posun doprava"
+    }
+  },
+  "site": {
+    "noPreview": "Náhled není k dispozici",
+    "readReview": "Přečíst recenzi",
+    "open": "Otevřít"
+  },
+  "disclaimer": {
+    "label": "Redakční upozornění"
+  },
+  "expandable": {
+    "readMore": "Zobrazit více",
+    "hide": "Skrýt"
+  },
+  "languageModal": {
+    "title": "Jazyky",
+    "recommended": "Doporučené",
+    "allLanguages": "Všechny jazyky"
+  },
+  "common": {
+    "readReview": "Přečíst recenzi",
+    "goToSite": "Přejít na web",
+    "close": "Zavřít",
+    "seeAll": "Vše",
+    "sites": "weby",
+    "goTo": "Přejít na",
+    "review": "Recenze",
+    "home": "Domů",
+    "category": "Kategorie",
+    "faviconAlt": "Ikona webu"
+  },
+  "viewSwitcher": {
+    "grid": "Mřížka",
+    "list": "Seznam"
+  },
+  "categoryPage": {
+    "notFound": "Kategorie nenalezena",
+    "home": "Domů",
+    "noSites": "Žádné weby nenalezeny.",
+    "otherCategories": "Další kategorie",
+    "breadcrumbHome": "Domů"
+  }
+}

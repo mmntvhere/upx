@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Fő banner",
+    "banner1": "1. banner",
+    "banner2": "2. banner"
+  },
+  "footer": {
+    "info": "Információ",
+    "aboutMe": "Rólunk",
+    "privacy": "Adatvédelmi irányelvek",
+    "categories": "Kategóriák",
+    "support": "Támogatás",
+    "contactUs": "Lépjen velünk kapcsolatba, ha kérdése van",
+    "contactSupport": "Kapcsolatfelvétel az ügyfélszolgálattal",
+    "businessOffers": "Üzleti ajánlatok",
+    "affiliate": "Partnerprogram",
+    "blogTitle": "Az UPX alapítójának blogja",
+    "blogDesc": "A cégről, üzletről és még sok másról",
+    "rights": "Minden jog fenntartva",
+    "recommended": "Ajánlott",
+    "language": "Nyelvek",
+    "close": "Nyelvválasztás bezárása",
+    "allLanguages": "Összes nyelv"
+  },
+  "searchAndFilters": {
+    "search": "Keresés weboldalak között...",
+    "ideal": "Az Ön ideális oldala",
+    "scrollRight": "Görgetés jobbra"
+  },
+  "searchHeader": {
+    "title": "Keresés",
+    "close": "Bezárás"
+  },
+  "searchInputBlock": {
+    "placeholder": "Keresés weboldalak között...",
+    "search": "Keresés",
+    "clear": "Törlés",
+    "topSearches": "Népszerű keresések"
+  },
+  "searchNoResults": {
+    "notFound": "Nincs találat",
+    "checkSpelling": "Ellenőrizze a helyesírást",
+    "tryAnother": "vagy próbáljon meg más keresést",
+    "clearSearch": "Keresés törlése",
+    "suggested": "Ajánlott oldalak Önnek",
+    "noPreview": "Nincs előnézet"
+  },
+  "siteDescription": {
+    "expand": "Bővebben",
+    "collapse": "Bezárás"
+  },
+  "sitePage": {
+    "loading": "Betöltés...",
+    "notFound": "Az oldal nem található",
+    "otherCategories": "További kategóriák",
+    "like": "hasonló ehhez:",
+    "moreSites": "További weboldalak, amelyek hasonlítanak a(z) {{name}} oldalhoz",
+    "disclaimer": "A(z) \"{{name}}\" oldal előnézete és értékelése jóhiszemű felhasználáson alapul, azonosítás és véleményezés céljából. Nem hosztolunk, nem sugárzunk és nem terjesztünk semmilyen szerzői joggal védett tartalmat. A hivatkozás a hivatalos weboldalra mutat."
+  },
+  "breadcrumbs": {
+    "home": "Főoldal"
+  },
+  "searchResults": {
+    "noSites": "Nem található weboldal."
+  },
+  "category": {
+    "seeAll": "Összes weboldal megtekintése",
+    "noSites": "Nem található weboldal",
+    "seeAllFor": "Összes oldal megtekintése a(z) {{name}} kategóriában"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Összes oldal",
+    "scroll": {
+      "left": "Görgetés balra",
+      "right": "Görgetés jobbra"
+    }
+  },
+  "site": {
+    "noPreview": "Nincs előnézet",
+    "readReview": "Értékelés megtekintése",
+    "open": "Megnyitás"
+  },
+  "disclaimer": {
+    "label": "Szerkesztőségi nyilatkozat"
+  },
+  "expandable": {
+    "readMore": "Bővebben",
+    "hide": "Bezárás"
+  },
+  "languageModal": {
+    "title": "Nyelvek",
+    "recommended": "Ajánlott",
+    "allLanguages": "Összes nyelv"
+  },
+  "common": {
+    "readReview": "Értékelés megtekintése",
+    "goToSite": "Weboldal megnyitása",
+    "close": "Bezárás",
+    "seeAll": "Összes",
+    "sites": "weboldal",
+    "goTo": "Megnyitás:",
+    "review": "Értékelés",
+    "home": "Főoldal",
+    "category": "Kategória",
+    "faviconAlt": "Weboldal ikon"
+  },
+  "viewSwitcher": {
+    "grid": "Rács",
+    "list": "Lista"
+  },
+  "categoryPage": {
+    "notFound": "A kategória nem található",
+    "home": "Főoldal",
+    "noSites": "Nem található weboldal.",
+    "otherCategories": "További kategóriák",
+    "breadcrumbHome": "Főoldal"
+  }
+}

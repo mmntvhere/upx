@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "메인 배너",
+    "banner1": "배너 1",
+    "banner2": "배너 2"
+  },
+  "footer": {
+    "info": "정보",
+    "aboutMe": "회사 소개",
+    "privacy": "개인정보 보호정책",
+    "categories": "카테고리",
+    "support": "지원",
+    "contactUs": "궁금한 점이 있다면 문의하세요",
+    "contactSupport": "고객 지원에 문의하기",
+    "businessOffers": "비즈니스 제안",
+    "affiliate": "제휴 프로그램",
+    "blogTitle": "UPX 설립자의 블로그",
+    "blogDesc": "회사, 비즈니스 및 다양한 이야기",
+    "rights": "모든 권리 보유",
+    "recommended": "추천",
+    "language": "언어",
+    "close": "언어 선택 닫기",
+    "allLanguages": "모든 언어"
+  },
+  "searchAndFilters": {
+    "search": "사이트 검색...",
+    "ideal": "당신에게 완벽한 사이트",
+    "scrollRight": "오른쪽으로 스크롤"
+  },
+  "searchHeader": {
+    "title": "검색",
+    "close": "닫기"
+  },
+  "searchInputBlock": {
+    "placeholder": "사이트 검색...",
+    "search": "검색",
+    "clear": "지우기",
+    "topSearches": "인기 검색어"
+  },
+  "searchNoResults": {
+    "notFound": "검색 결과 없음",
+    "checkSpelling": "철자가 정확한지 확인하세요",
+    "tryAnother": "또는 다른 검색어를 입력해 보세요",
+    "clearSearch": "검색 지우기",
+    "suggested": "추천 사이트",
+    "noPreview": "미리보기 없음"
+  },
+  "siteDescription": {
+    "expand": "더 보기",
+    "collapse": "접기"
+  },
+  "sitePage": {
+    "loading": "로딩 중...",
+    "notFound": "사이트를 찾을 수 없습니다",
+    "otherCategories": "다른 카테고리",
+    "like": "와 유사한",
+    "moreSites": "{{name}}와 유사한 더 많은 사이트",
+    "disclaimer": "\"{{name}}\" 사이트의 미리보기 및 리뷰는 식별 및 논평 목적으로 공정 사용 원칙에 따라 제공됩니다. 우리는 저작권이 있는 콘텐츠를 호스팅, 스트리밍 또는 배포하지 않습니다. 링크는 공식 웹사이트로 연결됩니다."
+  },
+  "breadcrumbs": {
+    "home": "홈"
+  },
+  "searchResults": {
+    "noSites": "사이트를 찾을 수 없습니다."
+  },
+  "category": {
+    "seeAll": "모든 사이트 보기",
+    "noSites": "사이트를 찾을 수 없습니다",
+    "seeAllFor": "{{name}} 카테고리의 모든 사이트 보기"
+  },
+  "searchResultsByCategory": {
+    "allSites": "모든 사이트",
+    "scroll": {
+      "left": "왼쪽으로 스크롤",
+      "right": "오른쪽으로 스크롤"
+    }
+  },
+  "site": {
+    "noPreview": "미리보기 없음",
+    "readReview": "리뷰 보기",
+    "open": "열기"
+  },
+  "disclaimer": {
+    "label": "에디토리얼 면책 조항"
+  },
+  "expandable": {
+    "readMore": "더 보기",
+    "hide": "숨기기"
+  },
+  "languageModal": {
+    "title": "언어",
+    "recommended": "추천",
+    "allLanguages": "모든 언어"
+  },
+  "common": {
+    "readReview": "리뷰 보기",
+    "goToSite": "사이트 방문",
+    "close": "닫기",
+    "seeAll": "전체",
+    "sites": "사이트",
+    "goTo": "이동",
+    "review": "리뷰",
+    "home": "홈",
+    "category": "카테고리",
+    "faviconAlt": "사이트 아이콘"
+  },
+  "viewSwitcher": {
+    "grid": "그리드",
+    "list": "리스트"
+  },
+  "categoryPage": {
+    "notFound": "카테고리를 찾을 수 없습니다",
+    "home": "홈",
+    "noSites": "사이트를 찾을 수 없습니다.",
+    "otherCategories": "다른 카테고리",
+    "breadcrumbHome": "홈"
+  }
+}

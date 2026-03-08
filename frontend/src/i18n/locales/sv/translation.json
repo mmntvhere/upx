@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Huvudbanner",
+    "banner1": "Banner 1",
+    "banner2": "Banner 2"
+  },
+  "footer": {
+    "info": "Information",
+    "aboutMe": "Om mig",
+    "privacy": "Integritetspolicy",
+    "categories": "Kategorier",
+    "support": "Support",
+    "contactUs": "Kontakta oss om du har några frågor",
+    "contactSupport": "Kontakta support",
+    "businessOffers": "Affärsförslag",
+    "affiliate": "Affiliateprogram",
+    "blogTitle": "Grundarens blogg – UPX",
+    "blogDesc": "Om företaget, affärer och mer",
+    "rights": "Alla rättigheter förbehållna",
+    "recommended": "Rekommenderade",
+    "language": "Språk",
+    "close": "Stäng språkval",
+    "allLanguages": "Alla språk"
+  },
+  "searchAndFilters": {
+    "search": "Sök efter webbplatser...",
+    "ideal": "Din perfekta webbplats",
+    "scrollRight": "Skrolla åt höger"
+  },
+  "searchHeader": {
+    "title": "Sök",
+    "close": "Stäng"
+  },
+  "searchInputBlock": {
+    "placeholder": "Sök efter webbplatser...",
+    "search": "Sök",
+    "clear": "Rensa",
+    "topSearches": "Populära sökningar"
+  },
+  "searchNoResults": {
+    "notFound": "Inget resultat hittades",
+    "checkSpelling": "Kontrollera stavningen",
+    "tryAnother": "eller prova en annan sökning",
+    "clearSearch": "Rensa sökning",
+    "suggested": "Webbplatser du kanske gillar",
+    "noPreview": "Ingen förhandsvisning"
+  },
+  "siteDescription": {
+    "expand": "Läs mer",
+    "collapse": "Visa mindre"
+  },
+  "sitePage": {
+    "loading": "Laddar...",
+    "notFound": "Webbplatsen hittades inte",
+    "otherCategories": "Andra kategorier",
+    "like": "liknande",
+    "moreSites": "Fler webbplatser som liknar {{name}}",
+    "disclaimer": "Miniatyr och recension för \"{{name}}\" visas enligt principen om god tro för identifiering och kommentarer. Vi är inte värdar för eller distribuerar något upphovsrättsskyddat innehåll. Länken leder till den officiella webbplatsen."
+  },
+  "breadcrumbs": {
+    "home": "Hem"
+  },
+  "searchResults": {
+    "noSites": "Inga webbplatser hittades."
+  },
+  "category": {
+    "seeAll": "Visa alla webbplatser",
+    "noSites": "Inga webbplatser hittades",
+    "seeAllFor": "Visa alla webbplatser i kategorin {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Alla webbplatser",
+    "scroll": {
+      "left": "Skrolla åt vänster",
+      "right": "Skrolla åt höger"
+    }
+  },
+  "site": {
+    "noPreview": "Ingen förhandsvisning",
+    "readReview": "Läs recension",
+    "open": "Gå till webbplats"
+  },
+  "disclaimer": {
+    "label": "Redaktionellt förbehåll"
+  },
+  "expandable": {
+    "readMore": "Läs mer",
+    "hide": "Dölj"
+  },
+  "languageModal": {
+    "title": "Språk",
+    "recommended": "Rekommenderade",
+    "allLanguages": "Alla språk"
+  },
+  "common": {
+    "readReview": "Läs recension",
+    "goToSite": "Gå till webbplats",
+    "close": "Stäng",
+    "seeAll": "Visa alla",
+    "sites": "webbplatser",
+    "goTo": "Gå till",
+    "review": "Recension",
+    "home": "Hem",
+    "category": "Kategori",
+    "faviconAlt": "Webbplatsikon"
+  },
+  "viewSwitcher": {
+    "grid": "Rutnät",
+    "list": "Lista"
+  },
+  "categoryPage": {
+    "notFound": "Kategorin hittades inte",
+    "home": "Hem",
+    "noSites": "Inga webbplatser hittades.",
+    "otherCategories": "Andra kategorier",
+    "breadcrumbHome": "Hem"
+  }
+}

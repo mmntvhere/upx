@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Ana Afiş",
+    "banner1": "Afiş 1",
+    "banner2": "Afiş 2"
+  },
+  "footer": {
+    "info": "Bilgi",
+    "aboutMe": "Hakkımda",
+    "privacy": "Gizlilik Politikası",
+    "categories": "Kategoriler",
+    "support": "Destek",
+    "contactUs": "Sorularınız varsa bizimle iletişime geçin",
+    "contactSupport": "Destekle iletişime geçin",
+    "businessOffers": "İş Teklifleri",
+    "affiliate": "Ortaklık Programı",
+    "blogTitle": "UPX Kurucusunun Blogu",
+    "blogDesc": "Şirket, iş dünyası ve daha fazlası hakkında",
+    "rights": "Tüm hakları saklıdır",
+    "recommended": "Önerilen",
+    "language": "Diller",
+    "close": "Dil seçimini kapat",
+    "allLanguages": "Tüm diller"
+  },
+  "searchAndFilters": {
+    "search": "Site ara...",
+    "ideal": "Size en uygun site",
+    "scrollRight": "Sağa kaydır"
+  },
+  "searchHeader": {
+    "title": "Arama",
+    "close": "Kapat"
+  },
+  "searchInputBlock": {
+    "placeholder": "Site ara...",
+    "search": "Ara",
+    "clear": "Temizle",
+    "topSearches": "Popüler Aramalar"
+  },
+  "searchNoResults": {
+    "notFound": "Sonuç bulunamadı",
+    "checkSpelling": "Yazım hatalarını kontrol edin",
+    "tryAnother": "veya farklı bir arama yapın",
+    "clearSearch": "Aramayı temizle",
+    "suggested": "İlginizi çekebilecek siteler",
+    "noPreview": "Ön izleme yok"
+  },
+  "siteDescription": {
+    "expand": "Devamını oku",
+    "collapse": "Daralt"
+  },
+  "sitePage": {
+    "loading": "Yükleniyor...",
+    "notFound": "Site bulunamadı",
+    "otherCategories": "Diğer kategoriler",
+    "like": "benzeri",
+    "moreSites": "{{name}} benzeri daha fazla site",
+    "disclaimer": "\"{{name}}\" sitesiyle ilgili küçük resim ve inceleme, tanımlama ve yorum amacıyla adil kullanım çerçevesinde sunulmaktadır. Herhangi bir telif hakkı içeriği barındırmıyoruz veya dağıtmıyoruz. Bağlantı resmi siteye yönlendirir."
+  },
+  "breadcrumbs": {
+    "home": "Ana Sayfa"
+  },
+  "searchResults": {
+    "noSites": "Site bulunamadı."
+  },
+  "category": {
+    "seeAll": "Tüm Siteler",
+    "noSites": "Site bulunamadı",
+    "seeAllFor": "{{name}} kategorisindeki tüm siteleri görüntüle"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Tüm Siteler",
+    "scroll": {
+      "left": "Sola kaydır",
+      "right": "Sağa kaydır"
+    }
+  },
+  "site": {
+    "noPreview": "Ön izleme mevcut değil",
+    "readReview": "İncelemeyi oku",
+    "open": "Siteye Git"
+  },
+  "disclaimer": {
+    "label": "Editoryal Uyarı"
+  },
+  "expandable": {
+    "readMore": "Devamını oku",
+    "hide": "Gizle"
+  },
+  "languageModal": {
+    "title": "Diller",
+    "recommended": "Önerilen",
+    "allLanguages": "Tüm diller"
+  },
+  "common": {
+    "readReview": "İncelemeyi oku",
+    "goToSite": "Siteye git",
+    "close": "Kapat",
+    "seeAll": "Tümünü gör",
+    "sites": "site",
+    "goTo": "Git",
+    "review": "İnceleme",
+    "home": "Ana Sayfa",
+    "category": "Kategori",
+    "faviconAlt": "Site simgesi"
+  },
+  "viewSwitcher": {
+    "grid": "Izgara",
+    "list": "Liste"
+  },
+  "categoryPage": {
+    "notFound": "Kategori bulunamadı",
+    "home": "Ana Sayfa",
+    "noSites": "Site bulunamadı.",
+    "otherCategories": "Diğer Kategoriler",
+    "breadcrumbHome": "Ana Sayfa"
+  }
+}

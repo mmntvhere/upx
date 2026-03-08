@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Główny baner",
+    "banner1": "Baner 1",
+    "banner2": "Baner 2"
+  },
+  "footer": {
+    "info": "Informacje",
+    "aboutMe": "O mnie",
+    "privacy": "Polityka prywatności",
+    "categories": "Kategorie",
+    "support": "Wsparcie",
+    "contactUs": "Skontaktuj się z nami, jeśli masz pytania",
+    "contactSupport": "Kontakt z pomocą techniczną",
+    "businessOffers": "Oferty biznesowe",
+    "affiliate": "Program partnerski",
+    "blogTitle": "Blog założyciela UPX",
+    "blogDesc": "O firmie, biznesie i nie tylko",
+    "rights": "Wszelkie prawa zastrzeżone",
+    "recommended": "Polecane",
+    "language": "Języki",
+    "close": "Zamknij wybór języka",
+    "allLanguages": "Wszystkie języki"
+  },
+  "searchAndFilters": {
+    "search": "Szukaj stron...",
+    "ideal": "Twoja idealna strona",
+    "scrollRight": "Przewiń w prawo"
+  },
+  "searchHeader": {
+    "title": "Wyszukiwanie",
+    "close": "Zamknij"
+  },
+  "searchInputBlock": {
+    "placeholder": "Szukaj stron...",
+    "search": "Szukaj",
+    "clear": "Wyczyść",
+    "topSearches": "Najpopularniejsze wyszukiwania"
+  },
+  "searchNoResults": {
+    "notFound": "Nic nie znaleziono",
+    "checkSpelling": "Sprawdź, czy nie ma literówek",
+    "tryAnother": "lub spróbuj innego zapytania",
+    "clearSearch": "Wyczyść wyszukiwanie",
+    "suggested": "Strony, które mogą Ci się spodobać",
+    "noPreview": "Brak podglądu"
+  },
+  "siteDescription": {
+    "expand": "Czytaj więcej",
+    "collapse": "Zwiń"
+  },
+  "sitePage": {
+    "loading": "Ładowanie...",
+    "notFound": "Strona nie została znaleziona",
+    "otherCategories": "Inne kategorie",
+    "like": "podobne do",
+    "moreSites": "Więcej stron podobnych do {{name}}",
+    "disclaimer": "Miniatura i recenzja strony „{{name}}” są udostępnione zgodnie z zasadami dozwolonego użytku w celu identyfikacji i komentarza. Nie hostujemy, nie transmitujemy ani nie rozpowszechniamy żadnych treści chronionych prawem autorskim. Link prowadzi do oficjalnej witryny."
+  },
+  "breadcrumbs": {
+    "home": "Strona główna"
+  },
+  "searchResults": {
+    "noSites": "Nie znaleziono żadnych stron."
+  },
+  "category": {
+    "seeAll": "Wszystkie strony",
+    "noSites": "Nie znaleziono stron",
+    "seeAllFor": "Zobacz wszystkie strony z kategorii {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Wszystkie strony",
+    "scroll": {
+      "left": "Przewiń w lewo",
+      "right": "Przewiń w prawo"
+    }
+  },
+  "site": {
+    "noPreview": "Brak podglądu",
+    "readReview": "Czytaj recenzję",
+    "open": "Przejdź do strony"
+  },
+  "disclaimer": {
+    "label": "Zastrzeżenie redakcyjne"
+  },
+  "expandable": {
+    "readMore": "Czytaj więcej",
+    "hide": "Ukryj"
+  },
+  "languageModal": {
+    "title": "Języki",
+    "recommended": "Polecane",
+    "allLanguages": "Wszystkie języki"
+  },
+  "common": {
+    "readReview": "Czytaj recenzję",
+    "goToSite": "Przejdź do strony",
+    "close": "Zamknij",
+    "seeAll": "Zobacz wszystkie",
+    "sites": "stron",
+    "goTo": "Przejdź do",
+    "review": "Recenzja",
+    "home": "Strona główna",
+    "category": "Kategoria",
+    "faviconAlt": "Ikona strony"
+  },
+  "viewSwitcher": {
+    "grid": "Siatka",
+    "list": "Lista"
+  },
+  "categoryPage": {
+    "notFound": "Nie znaleziono kategorii",
+    "home": "Strona główna",
+    "noSites": "Nie znaleziono stron.",
+    "otherCategories": "Inne kategorie",
+    "breadcrumbHome": "Strona główna"
+  }
+}

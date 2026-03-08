@@ -1,0 +1,121 @@
+{
+  "home": {
+    "mainBanner": "Головний банер",
+    "banner1": "Банер 1",
+    "banner2": "Банер 2"
+  },
+  "footer": {
+    "info": "Інформація",
+    "aboutMe": "Про мене",
+    "privacy": "Політика конфіденційності",
+    "categories": "Категорії",
+    "support": "Підтримка",
+    "contactUs": "Зв'яжіться з нами, якщо у вас залишилися запитання",
+    "contactSupport": "Звернутися до служби підтримки",
+    "businessOffers": "Комерційні пропозиції",
+    "affiliate": "Партнерська програма",
+    "blogTitle": "Блог засновника UPX",
+    "blogDesc": "Про компанію, бізнес та не тільки",
+    "rights": "Усі права захищені",
+    "recommended": "Рекомендовані",
+    "language": "Мови",
+    "close": "Закрити вибір мови",
+    "allLanguages": "Всі мови"
+  },
+  "searchAndFilters": {
+    "search": "Пошук сайтів...",
+    "ideal": "Ваш ідеальний сайт",
+    "scrollRight": "Прокрутити вправо"
+  },
+  "searchHeader": {
+    "title": "Пошук",
+    "close": "Закрити"
+  },
+  
+  "searchInputBlock": {
+    "placeholder": "Пошук сайтів...",
+    "search": "Пошук",
+    "clear": "Очистити",
+    "topSearches": "Популярні запити"
+  },
+  "searchNoResults": {
+    "notFound": "Не знайдено",
+    "checkSpelling": "Перевірте, чи немає помилки у написанні",
+    "tryAnother": "або введіть інший запит",
+    "clearSearch": "Очистити пошук",
+    "suggested": "Сайти, які можуть сподобатися",
+    "noPreview": "Немає прев'ю"
+  },
+  "siteDescription": {
+    "expand": "Читати далі",
+    "collapse": "Згорнути"
+  },
+  "sitePage": {
+  "loading": "Загрузка...",
+  "notFound": "Сайт не знайдено",
+  "otherCategories": "Інші категорії",
+  "like": "схожих на",
+  "moreSites": "Більше сайтів схожих на",
+  "disclaimer": "Мініатюра та огляд сайту \"{{name}}\" представлені на підставі добросовісного використання з метою ідентифікації та коментування. Ми не розміщуємо, не транслюємо та не поширюємо жодного захищеного авторським правом контенту. Посилання веде на офіційний вебсайт."
+},
+
+  "breadcrumbs": {
+    "home": "Головна"
+},
+"searchResults": {
+  "noSites": "Сайти не знайдені."
+},
+
+  "category": {
+    "seeAll": "Усі сайти",
+    "noSites": "Сайти не знайдені",
+    "seeAllFor": "Переглянути усі сайти з категорії {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Усі сайти",
+    "scroll": {
+      "left": "Прокрутити вліво",
+      "right": "Прокрутити вправо"
+    }
+  },
+  "site": {
+  "noPreview": "Прев'ю відсутнє",
+  "readReview": "Читати огляд",
+  "open": "Відкрити"
+},
+"disclaimer": {
+  "label": "Редакційний дисклеймер"
+},
+"expandable": {
+  "readMore": "Читати далі",
+  "hide": "Сховати"
+},
+"languageModal": {
+  "title": "Мови",
+  "recommended": "Рекомендовані",
+  "allLanguages": "Усі мови"
+},
+"common": {
+    "readReview": "Читати огляд",
+    "goToSite": "Перейти на сайт",
+    "close": "Закрити",
+    "seeAll": "Усі",
+    "sites": "сайтів",
+    "goTo": "Перейти на",
+    "review": "Огляд",
+    "home": "Головна",
+    "category": "Категорія",
+    "faviconAlt": "Іконка сайту"
+  },
+  "viewSwitcher": {
+  "grid": "Сітка",
+  "list": "Список"
+},
+"categoryPage": {
+  "notFound": "Категорія не знайдена",
+  "home": "Головна",
+  "noSites": "Сайти не знайдені.",
+  "otherCategories": "Інші категорії",
+  "breadcrumbHome": "Головна"
+}
+}

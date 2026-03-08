@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Hovedbanner",
+    "banner1": "Banner 1",
+    "banner2": "Banner 2"
+  },
+  "footer": {
+    "info": "Information",
+    "aboutMe": "Om mig",
+    "privacy": "Privatlivspolitik",
+    "categories": "Kategorier",
+    "support": "Support",
+    "contactUs": "Kontakt os, hvis du har spørgsmål",
+    "contactSupport": "Kontakt support",
+    "businessOffers": "Forretningstilbud",
+    "affiliate": "Partnerprogram",
+    "blogTitle": "Stifterens UPX-blog",
+    "blogDesc": "Om virksomheden, forretning og mere",
+    "rights": "Alle rettigheder forbeholdes",
+    "recommended": "Anbefalet",
+    "language": "Sprog",
+    "close": "Luk sprogvalg",
+    "allLanguages": "Alle sprog"
+  },
+  "searchAndFilters": {
+    "search": "Søg efter sider...",
+    "ideal": "Din ideelle side",
+    "scrollRight": "Rul til højre"
+  },
+  "searchHeader": {
+    "title": "Søgning",
+    "close": "Luk"
+  },
+  "searchInputBlock": {
+    "placeholder": "Søg efter sider...",
+    "search": "Søg",
+    "clear": "Ryd",
+    "topSearches": "Populære søgninger"
+  },
+  "searchNoResults": {
+    "notFound": "Intet fundet",
+    "checkSpelling": "Tjek for stavefejl",
+    "tryAnother": "eller prøv en anden søgning",
+    "clearSearch": "Ryd søgning",
+    "suggested": "Sider du måske vil kunne lide",
+    "noPreview": "Ingen forhåndsvisning"
+  },
+  "siteDescription": {
+    "expand": "Læs mere",
+    "collapse": "Skjul"
+  },
+  "sitePage": {
+    "loading": "Indlæser...",
+    "notFound": "Siden blev ikke fundet",
+    "otherCategories": "Andre kategorier",
+    "like": "lignende som",
+    "moreSites": "Flere sider lignende",
+    "disclaimer": "Miniaturebilledet og anmeldelsen af \"{{name}}\" er vist i henhold til fair use med henblik på identifikation og kommentarer. Vi hoster, streamer eller distribuerer ikke ophavsretligt beskyttet materiale. Linket fører til den officielle hjemmeside."
+  },
+  "breadcrumbs": {
+    "home": "Hjem"
+  },
+  "searchResults": {
+    "noSites": "Ingen sider fundet."
+  },
+  "category": {
+    "seeAll": "Alle sider",
+    "noSites": "Ingen sider fundet",
+    "seeAllFor": "Se alle sider i kategorien {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Alle sider",
+    "scroll": {
+      "left": "Rul til venstre",
+      "right": "Rul til højre"
+    }
+  },
+  "site": {
+    "noPreview": "Ingen forhåndsvisning",
+    "readReview": "Læs anmeldelse",
+    "open": "Åbn"
+  },
+  "disclaimer": {
+    "label": "Redaktionel ansvarsfraskrivelse"
+  },
+  "expandable": {
+    "readMore": "Læs mere",
+    "hide": "Skjul"
+  },
+  "languageModal": {
+    "title": "Sprog",
+    "recommended": "Anbefalet",
+    "allLanguages": "Alle sprog"
+  },
+  "common": {
+    "readReview": "Læs anmeldelse",
+    "goToSite": "Gå til siden",
+    "close": "Luk",
+    "seeAll": "Alle",
+    "sites": "sider",
+    "goTo": "Gå til",
+    "review": "Anmeldelse",
+    "home": "Hjem",
+    "category": "Kategori",
+    "faviconAlt": "Sideikon"
+  },
+  "viewSwitcher": {
+    "grid": "Gitter",
+    "list": "Liste"
+  },
+  "categoryPage": {
+    "notFound": "Kategori ikke fundet",
+    "home": "Hjem",
+    "noSites": "Ingen sider fundet.",
+    "otherCategories": "Andre kategorier",
+    "breadcrumbHome": "Hjem"
+  }
+}

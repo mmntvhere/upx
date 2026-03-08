@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Banner principal",
+    "banner1": "Banner 1",
+    "banner2": "Banner 2"
+  },
+  "footer": {
+    "info": "Informații",
+    "aboutMe": "Despre mine",
+    "privacy": "Politica de confidențialitate",
+    "categories": "Categorii",
+    "support": "Asistență",
+    "contactUs": "Contactați-ne dacă aveți întrebări",
+    "contactSupport": "Contactați asistența",
+    "businessOffers": "Oferte comerciale",
+    "affiliate": "Program de afiliere",
+    "blogTitle": "Blogul fondatorului UPX",
+    "blogDesc": "Despre companie, afaceri și nu numai",
+    "rights": "Toate drepturile rezervate",
+    "recommended": "Recomandate",
+    "language": "Limbi",
+    "close": "Închide selecția limbii",
+    "allLanguages": "Toate limbile"
+  },
+  "searchAndFilters": {
+    "search": "Căutare site-uri...",
+    "ideal": "Site-ul tău ideal",
+    "scrollRight": "Derulează spre dreapta"
+  },
+  "searchHeader": {
+    "title": "Căutare",
+    "close": "Închide"
+  },
+  "searchInputBlock": {
+    "placeholder": "Căutare site-uri...",
+    "search": "Caută",
+    "clear": "Șterge",
+    "topSearches": "Căutări populare"
+  },
+  "searchNoResults": {
+    "notFound": "Nu s-a găsit nimic",
+    "checkSpelling": "Verificați dacă nu există greșeli de scriere",
+    "tryAnother": "sau încercați altă interogare",
+    "clearSearch": "Șterge căutarea",
+    "suggested": "Site-uri care v-ar putea plăcea",
+    "noPreview": "Previzualizare indisponibilă"
+  },
+  "siteDescription": {
+    "expand": "Citește mai mult",
+    "collapse": "Ascunde"
+  },
+  "sitePage": {
+    "loading": "Se încarcă...",
+    "notFound": "Site-ul nu a fost găsit",
+    "otherCategories": "Alte categorii",
+    "like": "similare cu",
+    "moreSites": "Mai multe site-uri similare cu {{name}}",
+    "disclaimer": "Miniatura și recenzia site-ului „{{name}}” sunt furnizate în conformitate cu principiile utilizării corecte, în scop de identificare și comentariu. Nu găzduim, transmitem sau distribuim niciun conținut protejat prin drepturi de autor. Link-ul duce către site-ul oficial."
+  },
+  "breadcrumbs": {
+    "home": "Acasă"
+  },
+  "searchResults": {
+    "noSites": "Nu s-au găsit site-uri."
+  },
+  "category": {
+    "seeAll": "Toate site-urile",
+    "noSites": "Nu s-au găsit site-uri",
+    "seeAllFor": "Vezi toate site-urile din categoria {{name}}"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Toate site-urile",
+    "scroll": {
+      "left": "Derulează la stânga",
+      "right": "Derulează la dreapta"
+    }
+  },
+  "site": {
+    "noPreview": "Fără previzualizare",
+    "readReview": "Citește recenzia",
+    "open": "Accesează site-ul"
+  },
+  "disclaimer": {
+    "label": "Avertisment editorial"
+  },
+  "expandable": {
+    "readMore": "Citește mai mult",
+    "hide": "Ascunde"
+  },
+  "languageModal": {
+    "title": "Limbi",
+    "recommended": "Recomandate",
+    "allLanguages": "Toate limbile"
+  },
+  "common": {
+    "readReview": "Citește recenzia",
+    "goToSite": "Accesează site-ul",
+    "close": "Închide",
+    "seeAll": "Toate",
+    "sites": "site-uri",
+    "goTo": "Accesează",
+    "review": "Recenzie",
+    "home": "Acasă",
+    "category": "Categorie",
+    "faviconAlt": "Pictogramă site"
+  },
+  "viewSwitcher": {
+    "grid": "Grilă",
+    "list": "Listă"
+  },
+  "categoryPage": {
+    "notFound": "Categoria nu a fost găsită",
+    "home": "Acasă",
+    "noSites": "Nu s-au găsit site-uri.",
+    "otherCategories": "Alte categorii",
+    "breadcrumbHome": "Acasă"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "मुख्य बैनर",
+    "banner1": "बैनर 1",
+    "banner2": "बैनर 2"
+  },
+  "footer": {
+    "info": "जानकारी",
+    "aboutMe": "मेरे बारे में",
+    "privacy": "गोपनीयता नीति",
+    "categories": "श्रेणियाँ",
+    "support": "सहायता",
+    "contactUs": "यदि आपके कोई प्रश्न हैं तो हमसे संपर्क करें",
+    "contactSupport": "सपोर्ट से संपर्क करें",
+    "businessOffers": "व्यवसाय प्रस्ताव",
+    "affiliate": "एफ़िलिएट प्रोग्राम",
+    "blogTitle": "UPX संस्थापक का ब्लॉग",
+    "blogDesc": "कंपनी, व्यवसाय और बहुत कुछ के बारे में",
+    "rights": "सभी अधिकार सुरक्षित",
+    "recommended": "सिफारिश की गई",
+    "language": "भाषाएँ",
+    "close": "भाषा चयन बंद करें",
+    "allLanguages": "सभी भाषाएँ"
+  },
+  "searchAndFilters": {
+    "search": "साइट खोजें...",
+    "ideal": "आपकी आदर्श साइट",
+    "scrollRight": "दाएँ स्क्रॉल करें"
+  },
+  "searchHeader": {
+    "title": "खोजें",
+    "close": "बंद करें"
+  },
+  "searchInputBlock": {
+    "placeholder": "साइट खोजें...",
+    "search": "खोजें",
+    "clear": "साफ़ करें",
+    "topSearches": "लोकप्रिय खोजें"
+  },
+  "searchNoResults": {
+    "notFound": "कोई परिणाम नहीं मिला",
+    "checkSpelling": "वर्तनी की जाँच करें",
+    "tryAnother": "या कोई दूसरा शब्द आज़माएँ",
+    "clearSearch": "खोज साफ़ करें",
+    "suggested": "आपको पसंद आ सकती हैं ये साइटें",
+    "noPreview": "कोई पूर्वावलोकन नहीं"
+  },
+  "siteDescription": {
+    "expand": "और पढ़ें",
+    "collapse": "छिपाएँ"
+  },
+  "sitePage": {
+    "loading": "लोड हो रहा है...",
+    "notFound": "साइट नहीं मिली",
+    "otherCategories": "अन्य श्रेणियाँ",
+    "like": "के समान",
+    "moreSites": "{{name}} जैसी और साइटें",
+    "disclaimer": "\"{{name}}\" साइट की झलक और समीक्षा निष्पक्ष उपयोग के सिद्धांत पर आधारित है, पहचान और टिप्पणी के उद्देश्य से। हम कोई कॉपीराइटेड सामग्री होस्ट, स्ट्रीम या वितरित नहीं करते हैं। लिंक आधिकारिक वेबसाइट पर जाता है।"
+  },
+  "breadcrumbs": {
+    "home": "मुखपृष्ठ"
+  },
+  "searchResults": {
+    "noSites": "कोई साइट नहीं मिली।"
+  },
+  "category": {
+    "seeAll": "सभी साइटें देखें",
+    "noSites": "कोई साइट नहीं मिली",
+    "seeAllFor": "{{name}} श्रेणी की सभी साइटें देखें"
+  },
+  "searchResultsByCategory": {
+    "allSites": "सभी साइटें",
+    "scroll": {
+      "left": "बाएँ स्क्रॉल करें",
+      "right": "दाएँ स्क्रॉल करें"
+    }
+  },
+  "site": {
+    "noPreview": "कोई पूर्वावलोकन नहीं",
+    "readReview": "समीक्षा पढ़ें",
+    "open": "खोलें"
+  },
+  "disclaimer": {
+    "label": "संपादकीय अस्वीकरण"
+  },
+  "expandable": {
+    "readMore": "और पढ़ें",
+    "hide": "छिपाएँ"
+  },
+  "languageModal": {
+    "title": "भाषाएँ",
+    "recommended": "सिफारिश की गई",
+    "allLanguages": "सभी भाषाएँ"
+  },
+  "common": {
+    "readReview": "समीक्षा पढ़ें",
+    "goToSite": "साइट पर जाएँ",
+    "close": "बंद करें",
+    "seeAll": "सभी",
+    "sites": "साइटें",
+    "goTo": "पर जाएँ:",
+    "review": "समीक्षा",
+    "home": "मुखपृष्ठ",
+    "category": "श्रेणी",
+    "faviconAlt": "साइट आइकन"
+  },
+  "viewSwitcher": {
+    "grid": "ग्रिड",
+    "list": "सूची"
+  },
+  "categoryPage": {
+    "notFound": "श्रेणी नहीं मिली",
+    "home": "मुखपृष्ठ",
+    "noSites": "कोई साइट नहीं मिली।",
+    "otherCategories": "अन्य श्रेणियाँ",
+    "breadcrumbHome": "मुखपृष्ठ"
+  }
+}

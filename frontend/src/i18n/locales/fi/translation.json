@@ -1,0 +1,118 @@
+{
+  "home": {
+    "mainBanner": "Pääbanneri",
+    "banner1": "Banneri 1",
+    "banner2": "Banneri 2"
+  },
+  "footer": {
+    "info": "Tietoa",
+    "aboutMe": "Tietoa minusta",
+    "privacy": "Tietosuojakäytäntö",
+    "categories": "Kategoriat",
+    "support": "Tuki",
+    "contactUs": "Ota meihin yhteyttä, jos sinulla on kysyttävää",
+    "contactSupport": "Ota yhteyttä tukeen",
+    "businessOffers": "Liiketoimintatarjoukset",
+    "affiliate": "Kumppanuusohjelma",
+    "blogTitle": "UPX:n perustajan blogi",
+    "blogDesc": "Yrityksestä, liiketoiminnasta ja muusta",
+    "rights": "Kaikki oikeudet pidätetään",
+    "recommended": "Suositellut",
+    "language": "Kielet",
+    "close": "Sulje kielivalikko",
+    "allLanguages": "Kaikki kielet"
+  },
+  "searchAndFilters": {
+    "search": "Etsi sivustoja...",
+    "ideal": "Sinulle sopivin sivusto",
+    "scrollRight": "Vieritä oikealle"
+  },
+  "searchHeader": {
+    "title": "Haku",
+    "close": "Sulje"
+  },
+  "searchInputBlock": {
+    "placeholder": "Etsi sivustoja...",
+    "search": "Haku",
+    "clear": "Tyhjennä",
+    "topSearches": "Suosituimmat haut"
+  },
+  "searchNoResults": {
+    "notFound": "Ei tuloksia",
+    "checkSpelling": "Tarkista kirjoitusvirheet",
+    "tryAnother": "tai kokeile toista hakua",
+    "clearSearch": "Tyhjennä haku",
+    "suggested": "Sivustoja, joista saatat pitää",
+    "noPreview": "Ei esikatselua"
+  },
+  "siteDescription": {
+    "expand": "Näytä lisää",
+    "collapse": "Näytä vähemmän"
+  },
+  "sitePage": {
+    "loading": "Ladataan...",
+    "notFound": "Sivustoa ei löytynyt",
+    "otherCategories": "Muut kategoriat",
+    "like": "samankaltaisia kuin",
+    "moreSites": "Lisää sivustoja kuten",
+    "disclaimer": "Sivuston \"{{name}}\" esikatselu ja arvostelu on esitetty kohtuullisen käytön periaatteella tunnistamis- ja kommentointitarkoituksiin. Emme isännöi, välitä tai jaa tekijänoikeudella suojattua sisältöä. Linkki johtaa viralliselle verkkosivulle."
+  },
+  "breadcrumbs": {
+    "home": "Etusivu"
+  },
+  "searchResults": {
+    "noSites": "Sivustoja ei löytynyt."
+  },
+  "category": {
+    "seeAll": "Kaikki sivustot",
+    "noSites": "Sivustoja ei löytynyt",
+    "seeAllFor": "Näytä kaikki kategoriassa {{name}} olevat sivustot"
+  },
+  "searchResultsByCategory": {
+    "allSites": "Kaikki sivustot",
+    "scroll": {
+      "left": "Vieritä vasemmalle",
+      "right": "Vieritä oikealle"
+    }
+  },
+  "site": {
+    "noPreview": "Ei esikatselua",
+    "readReview": "Lue arvostelu",
+    "open": "Avaa"
+  },
+  "disclaimer": {
+    "label": "Toimituksellinen huomautus"
+  },
+  "expandable": {
+    "readMore": "Lue lisää",
+    "hide": "Piilota"
+  },
+  "languageModal": {
+    "title": "Kielet",
+    "recommended": "Suositellut",
+    "allLanguages": "Kaikki kielet"
+  },
+  "common": {
+    "readReview": "Lue arvostelu",
+    "goToSite": "Siirry sivustolle",
+    "close": "Sulje",
+    "seeAll": "Kaikki",
+    "sites": "sivustoa",
+    "goTo": "Siirry",
+    "review": "Arvostelu",
+    "home": "Etusivu",
+    "category": "Kategoria",
+    "faviconAlt": "Sivuston kuvake"
+  },
+  "viewSwitcher": {
+    "grid": "Ruudukko",
+    "list": "Lista"
+  },
+  "categoryPage": {
+    "notFound": "Kategoriaa ei löytynyt",
+    "home": "Etusivu",
+    "noSites": "Sivustoja ei löytynyt.",
+    "otherCategories": "Muut kategoriat",
+    "breadcrumbHome": "Etusivu"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "home": {
+    "mainBanner": "Main banner",
+    "banner1": "Banner 1",
+    "banner2": "Banner 2"
+  },
+  "footer": {
+    "info": "Information",
+    "aboutMe": "About me",
+    "privacy": "Privacy policy",
+    "categories": "Categories",
+    "support": "Support",
+    "contactUs": "Contact us if you have any questions",
+    "contactSupport": "Contact support",
+    "businessOffers": "Business inquiries",
+    "affiliate": "Affiliate program",
+    "blogTitle": "UPX Founder’s Blog",
+    "blogDesc": "About the company, business and more",
+    "rights": "All rights reserved",
+    "recommended": "Recommended",
+    "allLanguages": "All languages"
+  },
+  "searchAndFilters": {
+    "search": "Search sites...",
+    "ideal": "Your ideal site",
+    "scrollRight": "Scroll right"
+  },
+  "searchHeader": {
+    "title": "Search",
+    "close": "Close"
+  },
+  "searchInputBlock": {
+    "placeholder": "Search sites...",
+    "search": "Search",
+    "clear": "Clear",
+    "topSearches": "Top searches"
+  },
+  "searchNoResults": {
+    "notFound": "Nothing found",
+    "checkSpelling": "Check for spelling errors",
+    "tryAnother": "or try another query",
+    "clearSearch": "Clear search",
+    "suggested": "Sites you might like",
+    "noPreview": "No preview"
+  },
+  "siteDescription": {
+    "expand": "Read more",
+    "collapse": "Collapse"
+  },
+  "sitePage": {
+    "loading": "Loading...",
+    "notFound": "Site not found",
+    "otherCategories": "Other categories",
+    "like": "similar to",
+    "moreSites": "More sites like",
+    "disclaimer": "The thumbnail and review of the site \"{{name}}\" are presented under fair use for identification and commentary purposes. We do not host, stream, or distribute any copyrighted content. The link leads to the official website."
+  },
+  "breadcrumbs": {
+    "home": "Home"
+  },
+  "searchResults": {
+    "noSites": "No sites found."
+  },
+  "category": {
+    "seeAll": "All sites",
+    "noSites": "No sites found",
+    "seeAllFor": "View all sites in the {{name}} category"
+  },
+  "searchResultsByCategory": {
+    "scroll": {
+      "left": "Scroll left",
+      "right": "Scroll right"
+    }
+  },
+  "site": {
+    "noPreview": "No preview",
+    "readReview": "Read review",
+    "open": "Go to site"
+  },
+  "disclaimer": {
+    "label": "Editorial disclaimer"
+  },
+  "expandable": {
+    "readMore": "Read more",
+    "hide": "Hide"
+  },
+  "languageModal": {
+    "title": "Languages",
+    "recommended": "Recommended",
+    "allLanguages": "All languages"
+  },
+  "common": {
+    "readReview": "Read review",
+    "goToSite": "Go to site",
+    "close": "Close",
+    "seeAll": "All",
+    "sites": "sites",
+    "goTo": "Go to",
+    "review": "Review",
+    "home": "Home",
+    "category": "Category",
+    "faviconAlt": "Site icon"
+  },
+  "viewSwitcher": {
+    "grid": "Grid",
+    "list": "List"
+  },
+  "categoryPage": {
+    "notFound": "Category not found",
+    "home": "Home",
+    "noSites": "No sites found.",
+    "otherCategories": "Other categories",
+    "breadcrumbHome": "Home"
+  }
+}
