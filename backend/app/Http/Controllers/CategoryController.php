@@ -78,7 +78,7 @@ class CategoryController extends Controller
         // Мультиязычные поля
         $transFields = ['name', 'description', 'seo_title', 'seo_description', 'disclaimer'];
         foreach ($transFields as $field) {
-            $translations = $request->input("{$field}_translations", []);
+            $translations = $request->input("translations.{$field}", []);
             if ($request->filled($field)) {
                 $translations['en'] = $request->input($field);
             }
@@ -131,7 +131,7 @@ class CategoryController extends Controller
         // Обновляем переводы
         $transFields = ['name', 'description', 'seo_title', 'seo_description', 'disclaimer'];
         foreach ($transFields as $field) {
-            $translations = $request->input("{$field}_translations", []);
+            $translations = $request->input("translations.{$field}", []);
             if ($request->has($field)) {
                 $translations['en'] = $request->input($field);
             }

@@ -129,8 +129,8 @@
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Name ({{ $label }})
                 </label>
-                <input type="text" name="name_translations[{{ $locale }}]"
-                       value="{{ old("name_translations.$locale", $category->name_translations[$locale] ?? '') }}"
+                <input type="text" name="translations[name][{{ $locale }}]"
+                       value="{{ old("translations.name.$locale", $category->getTranslation('name', $locale)) }}"
                        class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">
             </div>
 
@@ -139,8 +139,8 @@
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Description ({{ $label }})
                 </label>
-                <textarea name="description_translations[{{ $locale }}]" rows="2"
-                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("description_translations.$locale", $category->description_translations[$locale] ?? '') }}</textarea>
+                <textarea name="translations[description][{{ $locale }}]" rows="2"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.description.$locale", $category->getTranslation('description', $locale)) }}</textarea>
             </div>
 
             {{-- SEO Title --}}
@@ -148,8 +148,8 @@
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     SEO Title ({{ $label }})
                 </label>
-                <input type="text" name="seo_title_translations[{{ $locale }}]"
-                       value="{{ old("seo_title_translations.$locale", $category->seo_title_translations[$locale] ?? '') }}"
+                <input type="text" name="translations[seo_title][{{ $locale }}]"
+                       value="{{ old("translations.seo_title.$locale", $category->getTranslation('seo_title', $locale)) }}"
                        class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">
             </div>
 
@@ -158,8 +158,8 @@
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     SEO Description ({{ $label }})
                 </label>
-                <textarea name="seo_description_translations[{{ $locale }}]" rows="2"
-                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("seo_description_translations.$locale", $category->seo_description_translations[$locale] ?? '') }}</textarea>
+                <textarea name="translations[seo_description][{{ $locale }}]" rows="2"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.seo_description.$locale", $category->getTranslation('seo_description', $locale)) }}</textarea>
             </div>
 
             {{-- Disclaimer --}}
@@ -167,8 +167,8 @@
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Disclaimer ({{ $label }})
                 </label>
-                <textarea name="disclaimer_translations[{{ $locale }}]" rows="2"
-                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("disclaimer_translations.$locale", $category->disclaimer_translations[$locale] ?? '') }}</textarea>
+                <textarea name="translations[disclaimer][{{ $locale }}]" rows="2"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.disclaimer.$locale", $category->getTranslation('disclaimer', $locale)) }}</textarea>
             </div>
         </div>
     </div>

@@ -51,7 +51,7 @@ const SitePage = () => {
     site.category?.sites?.filter((s) => s.id !== site.id) || []
 
   return (
-    <main className="bg-[#141415] min-h-screen text-white pb-10 relative">
+    <main className="bg-[#141415] text-white pb-10 relative">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Breadcrumbs site={site} />
         <MainImage site={site} />
@@ -68,10 +68,10 @@ const SitePage = () => {
         )}
       </div>
 
-      <div className="w-full h-px my-10 bg-gradient-to-r from-transparent via-zinc-600 to-transparent" />
+      <div className="w-full h-px my-6 bg-gradient-to-r from-transparent via-zinc-600 to-transparent" />
 
       {site.allCategories?.length > 0 && (
-        <div className="mt-12 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mt-8 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-semibold mb-4 text-white">
             {t("sitePage.otherCategories")}
           </h2>

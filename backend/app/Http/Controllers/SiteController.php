@@ -123,8 +123,7 @@ public function store(Request $request)
     // 🌍 Сохраняем мультиязычные поля JSON-формата
     $fields = ['description', 'review', 'seo_title', 'seo_description', 'pros', 'cons'];
     foreach ($fields as $field) {
-        $translations = $request->input("{$field}_translations", []);
-        // Если основное поле заполнено в форме, используем его как английский перевод
+        $translations = $request->input("translations.{$field}", []);
         if ($request->filled($field)) {
             $translations['en'] = $request->input($field);
         }
@@ -204,7 +203,7 @@ public function store(Request $request)
     // 🌍 Обновляем JSON-поля переводов
     $fields = ['description', 'review', 'seo_title', 'seo_description', 'pros', 'cons'];
     foreach ($fields as $field) {
-        $translations = $request->input("{$field}_translations", []);
+        $translations = $request->input("translations.{$field}", []);
         if ($request->has($field)) {
             $translations['en'] = $request->input($field);
         }

@@ -24,24 +24,21 @@ class TranslationController extends Controller
         foreach (Category::all() as $category) {
             foreach ($languages as $lang) {
                 foreach ([
-                    'name' => 'name_translations',
-                    'description' => 'description_translations',
-                    'seo_title' => 'seo_title_translations',
-                    'seo_description' => 'seo_description_translations',
-                    'disclaimer' => 'disclaimer_translations'
-                ] as $field => $translationField) {
+                    'name',
+                    'description',
+                    'seo_title',
+                    'seo_description',
+                    'disclaimer'
+                ] as $field) {
 
-                    $original = $category->{$field};
+                    $original = $category->getTranslation($field, 'en');
                     if (!$original) continue;
 
-                    $translations = $category->{$translationField} ?? [];
-
-                    if (isset($translations[$lang])) continue; // уже переведено
+                    if ($category->hasTranslation($field, $lang)) continue; // уже переведено
 
                     try {
                         $translated = $deepl->translateSingle($original, 'EN', $lang);
-                        $translations[$lang] = $translated;
-                        $category->{$translationField} = $translations;
+                        $category->setTranslation($field, $lang, $translated);
                     } catch (\Throwable $e) {
                         $failed[] = "Category {$category->id} field {$field} lang {$lang}: {$e->getMessage()}";
                         Log::error(end($failed));
@@ -57,20 +54,18 @@ class TranslationController extends Controller
         foreach (Site::all() as $site) {
             foreach ($languages as $lang) {
                 foreach ([
-                    'description' => 'description_translations',
-                    'review' => 'review_translations',
-                    'pros' => 'pros_translations',
-                    'cons' => 'cons_translations',
-                    'seo_title' => 'seo_title_translations',
-                    'seo_description' => 'seo_description_translations'
-                ] as $field => $translationField) {
+                    'description',
+                    'review',
+                    'pros',
+                    'cons',
+                    'seo_title',
+                    'seo_description'
+                ] as $field) {
 
-                    $original = $site->{$field};
+                    $original = $site->getTranslation($field, 'en');
                     if (!$original) continue;
 
-                    $translations = $site->{$translationField} ?? [];
-
-                    if (isset($translations[$lang])) continue;
+                    if ($site->hasTranslation($field, $lang)) continue;
 
                     try {
                         if (is_array($original)) {
@@ -79,13 +74,12 @@ class TranslationController extends Controller
                                 $translatedArray[] = $deepl->translateSingle($item, 'EN', $lang);
                                 usleep(300000);
                             }
-                            $translations[$lang] = $translatedArray;
+                            $site->setTranslation($field, $lang, $translatedArray);
                         } else {
-                            $translations[$lang] = $deepl->translateSingle($original, 'EN', $lang);
+                            $translated = $deepl->translateSingle($original, 'EN', $lang);
+                            $site->setTranslation($field, $lang, $translated);
                             usleep(300000);
                         }
-
-                        $site->{$translationField} = $translations;
                     } catch (\Throwable $e) {
                         $failed[] = "Site {$site->id} field {$field} lang {$lang}: {$e->getMessage()}";
                         Log::error(end($failed));

@@ -132,7 +132,7 @@ const CategoryPage = () => {
 
       {/* 🔗 SEO-перелинковка */}
       {otherCategories.length > 0 && (
-        <div className="mt-12 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mt-8 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-semibold mb-4 text-white">{otherCategoriesTitle}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {otherCategories.map((cat) => (

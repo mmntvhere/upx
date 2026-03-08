@@ -181,6 +181,90 @@
     </div>
 </div>
 
+        {{-- 🌍 Translations --}}
+@php
+    $locales = collect(config('locales'))->except('en');
+@endphp
+
+<hr class="my-6">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
+    <h2 class="text-xl font-bold text-gray-800 dark:text-white">🌍 Translations</h2>
+    
+    <div class="flex items-center space-x-2">
+        <label for="translation-language-selector" class="text-sm font-medium text-gray-700 dark:text-gray-300">Edit Language:</label>
+        <select id="translation-language-selector" class="px-3 py-2 border rounded-md bg-white dark:bg-gray-900 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            @foreach ($locales as $locale => $label)
+                <option value="{{ $locale }}">🌐 {{ $label }} ({{ strtoupper($locale) }})</option>
+            @endforeach
+        </select>
+    </div>
+</div>
+
+<div id="translations-container">
+@foreach ($locales as $locale => $label)
+    <div class="translation-block hidden bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md p-5 mb-4" data-locale="{{ $locale }}">
+        <h3 class="font-bold text-lg mb-4 text-gray-800 dark:text-white">Translating to: {{ $label }}</h3>
+
+        <div class="space-y-4">
+            {{-- Description --}}
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Description ({{ $label }})
+                </label>
+                <textarea name="translations[description][{{ $locale }}]" rows="2"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.description.$locale") }}</textarea>
+            </div>
+
+            {{-- Review --}}
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Review ({{ $label }})
+                </label>
+                <textarea name="translations[review][{{ $locale }}]" rows="4"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.review.$locale") }}</textarea>
+            </div>
+
+            {{-- Pros --}}
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Pros ({{ $label }})
+                </label>
+                <textarea name="translations[pros][{{ $locale }}]" rows="2"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.pros.$locale") }}</textarea>
+            </div>
+
+            {{-- Cons --}}
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Cons ({{ $label }})
+                </label>
+                <textarea name="translations[cons][{{ $locale }}]" rows="2"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.cons.$locale") }}</textarea>
+            </div>
+
+            {{-- SEO Title --}}
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    SEO Title ({{ $label }})
+                </label>
+                <input type="text" name="translations[seo_title][{{ $locale }}]"
+                       value="{{ old("translations.seo_title.$locale") }}"
+                       class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">
+            </div>
+
+            {{-- SEO Description --}}
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                    SEO Description ({{ $label }})
+                </label>
+                <textarea name="translations[seo_description][{{ $locale }}]" rows="2"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.seo_description.$locale") }}</textarea>
+            </div>
+        </div>
+    </div>
+@endforeach
+</div>
+
         {{-- Is Active --}}
         <div class="flex items-center">
             <input type="hidden" name="is_active" value="0">
@@ -231,6 +315,27 @@
                     document.getElementById('show_everywhere').checked = false;
                 });
             });
+
+            // ✅ Логика переключения вкладок перевода
+            const translationSelector = document.getElementById('translation-language-selector');
+            const translationBlocks = document.querySelectorAll('.translation-block');
+            
+            function updateVisibleTranslation() {
+                if (!translationSelector) return;
+                const selected = translationSelector.value;
+                translationBlocks.forEach(block => {
+                    if(block.dataset.locale === selected) {
+                        block.classList.remove('hidden');
+                    } else {
+                        block.classList.add('hidden');
+                    }
+                });
+            }
+            
+            if (translationSelector) {
+                translationSelector.addEventListener('change', updateVisibleTranslation);
+                updateVisibleTranslation();
+            }
         });
     </script>
 @endpush
