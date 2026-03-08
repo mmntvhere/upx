@@ -10,7 +10,9 @@ export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(getShortLang(i18n.language))
 
   useEffect(() => {
-    i18n.changeLanguage(language)
+    if (i18n.language !== language) {
+      i18n.changeLanguage(language)
+    }
   }, [language])
 
   // Слушаем внешние изменения i18n и синхронизируем

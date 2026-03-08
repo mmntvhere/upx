@@ -12,7 +12,10 @@ export const CategoryProvider = ({ children }) => {
   const [error, setError] = useState(null)
 
   const refreshCategories = async () => {
-    setLoading(true)
+    // Включаем лоадер только если данных еще нет совсем
+    if (categories.length === 0) {
+      setLoading(true)
+    }
     try {
       const data = await fetchCategories()
       setCategories(data)

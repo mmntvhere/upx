@@ -27,11 +27,15 @@ const LanguageRouter = () => {
       : DEFAULT_LANGUAGE
 
     if (hasLangPrefix) {
-      i18n.changeLanguage(currentPrefix)
-      localStorage.setItem('lang', currentPrefix)
+      if (i18n.language !== currentPrefix) {
+        i18n.changeLanguage(currentPrefix)
+        localStorage.setItem('lang', currentPrefix)
+      }
     } else {
-      i18n.changeLanguage(validLang)
-      localStorage.setItem('lang', validLang)
+      if (i18n.language !== validLang) {
+        i18n.changeLanguage(validLang)
+        localStorage.setItem('lang', validLang)
+      }
     }
   }, [location.pathname])
 
