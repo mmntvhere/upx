@@ -79,7 +79,7 @@ const CategoryPage = () => {
   }
 
   return (
-    <main className="bg-[#141415] min-h-screen text-white pb-10">
+    <main className="bg-[#141415] text-white pb-10">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         {/* 🔗 Хлебные крошки */}
         <Breadcrumb basePath="/" baseLabel="categoryPage.breadcrumbHome" category={category} />

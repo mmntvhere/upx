@@ -253,9 +253,6 @@ svg, svg path {
     border-top-color: transparent;
   }
 
-  main {
-    min-height: calc(100vh - 64px - 300px); /* Примерная высота без хедера и футера */
-  }
 
 
 .btn-lang {
