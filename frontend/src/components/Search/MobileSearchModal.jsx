@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion"
+import useBodyScrollLock from "@/hooks/useBodyScrollLock"
 
 const MobileSearchModal = ({ isOpen = false, onClose = () => { }, children }) => {
   const [isVisible, setIsVisible] = useState(false)         // 💡 Видимость контента
@@ -8,18 +9,12 @@ const MobileSearchModal = ({ isOpen = false, onClose = () => { }, children }) =>
 
   // 🌐 Переводы (если понадобятся в UI, например, кнопки или заголовки)
 
-  // 📦 Блокирует скролл body, когда модалка открыта
-  useEffect(() => {
-    if (isOpen) {
-      setIsVisible(true)
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = ""
-    }
+  // Глобальная блокировка скролла
+  useBodyScrollLock(isOpen)
 
-    return () => {
-      document.body.style.overflow = ""
-    }
+  // 📦 Управляем видимостью
+  useEffect(() => {
+    if (isOpen) setIsVisible(true)
   }, [isOpen])
 
   // 🚪 Закрытие по кнопке

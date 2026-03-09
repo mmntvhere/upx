@@ -34,14 +34,6 @@ const SearchOverlay = ({ onClose, categories = [] }) => {
   const navigate = useLocalNavigate()
   const scrollRefs = useRef({})
 
-  useEffect(() => {
-    const original = document.body.style.overflow
-    document.body.style.overflow = "hidden"
-    return () => {
-      document.body.style.overflow = original
-    }
-  }, [])
-
   const scroll = (categoryId, direction) => {
     const container = scrollRefs.current[categoryId]
     if (!container) return
