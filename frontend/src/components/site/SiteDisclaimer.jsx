@@ -6,10 +6,7 @@ const SiteDisclaimer = ({ siteName }) => {
   const [height, setHeight] = useState("auto")
   const contentRef = useRef(null)
 
-  const tDisclaimer = useTranslateUniversal(
-    "sitePage.disclaimer",
-    `Thumbnail and review of the site "{{name}}" shown under fair use for identification and commentary. We do not host, stream, or distribute any copyrighted content. Link leads to the official website.`
-  )
+  const tDisclaimer = useTranslateUniversal("sitePage.disclaimer", "", { name: siteName })
 
   useEffect(() => {
     if (contentRef.current) {
@@ -33,7 +30,7 @@ const SiteDisclaimer = ({ siteName }) => {
         ref={contentRef}
         className="text-[11px] sm:text-[11.5px] md:text-[12px] leading-relaxed text-[#A1A1AA] transition-all"
       >
-        {tDisclaimer.replace("{{name}}", siteName)}
+        {tDisclaimer}
       </p>
 
       {!expanded && (

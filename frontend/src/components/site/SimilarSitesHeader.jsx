@@ -2,18 +2,29 @@ import React from "react"
 import LocalLink from "@/components/LocalLink"
 import { ArrowRight } from "lucide-react"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
+import { useLanguage } from "@/hooks/useLanguage"
 
 const SimilarSitesHeader = ({ site }) => {
-
+  const currentLang = useLanguage()
 
   // UI-тексты
   const tLike = useTranslateUniversal("sitePage.like", "like")
-  const tMoreSites = useTranslateUniversal("sitePage.moreSites", "More sites like")
+  const tMoreSites = useTranslateUniversal("sitePage.moreSites", "More sites like", { name: site?.name })
 
   if (!site || !site.category) return null
 
   const { category } = site
-  const count = category.sites?.length || 0
+  
+  // 🧼 Фильтруем сайты по текущему языку
+  const filteredSites = (category.sites || []).filter((s) => {
+    const langs = s.enabled_languages
+    // Если список языков пуст — доступно везде. Иначе только если текущий язык в списке
+    return !langs || langs.length === 0 || langs.includes(currentLang)
+  })
+  
+  // Исключаем текущий сайт из списка "похожих"
+  const similarSites = filteredSites.filter(s => s.id !== site.id)
+  const count = similarSites.length
 
   // Перевод названия категории
   const translatedCategory = category?.name
@@ -32,7 +43,7 @@ const SimilarSitesHeader = ({ site }) => {
         <h2 className="text-white text-base md:text-lg font-bold">
           {count > 0
             ? `${count}+ ${translatedCategory} ${tLike} ${site.name}`
-            : `${tMoreSites} ${site.name}`}
+            : tMoreSites}
         </h2>
       </div>
 

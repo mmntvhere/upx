@@ -47,8 +47,13 @@ const SitePage = () => {
   // 🎯 Переводы: review
   const review = site.review
 
-  const categorySites =
-    site.category?.sites?.filter((s) => s.id !== site.id) || []
+  // 🎯 Фильтруем похожие сайты по категории и языку
+  const categorySites = (site.category?.sites || [])
+    .filter((s) => s.id !== site.id)
+    .filter((s) => {
+      const langs = s.enabled_languages
+      return !langs || langs.length === 0 || langs.includes(language)
+    })
 
   return (
     <main className="bg-[#141415] text-white pb-10 relative">

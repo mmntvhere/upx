@@ -3,8 +3,10 @@ import LocalLink from "@/components/LocalLink"
 import { ChevronRightIcon } from "@heroicons/react/20/solid"
 import SiteHeaderRow from "../site/SiteHeaderRow"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
+import { useLanguage } from "@/hooks/useLanguage"
 
 const MainImage = ({ site }) => {
+  const currentLang = useLanguage()
   const tGoTo = useTranslateUniversal("common.goTo", "Go to")
   const tReview = useTranslateUniversal("common.review", "Review")
   const tGoToSite = useTranslateUniversal("common.goToSite", "Go to site")
@@ -13,11 +15,22 @@ const MainImage = ({ site }) => {
 
   if (!site.main_image) return null
 
-  const relatedSites =
-    site.category?.sites?.filter((s) => s.slug !== site.slug).slice(0, 9) || []
+  const relatedSites = (site.category?.sites || [])
+    .filter((s) => s.slug !== site.slug)
+    .filter((s) => {
+      const langs = s.enabled_languages
+      return !langs || langs.length === 0 || langs.includes(currentLang)
+    })
+    .slice(0, 9)
+
+  // Фильтруем все сайты категории для корректного счетчика в кнопке "See All"
+  const allRelatedSitesForLang = (site.category?.sites || []).filter((s) => {
+    const langs = s.enabled_languages
+    return !langs || langs.length === 0 || langs.includes(currentLang)
+  })
 
   return (
-    <div className="flex flex-col lg:flex-row gap-4 mb-">
+    <div className="flex flex-col lg:flex-row gap-4 mb-2">
       {/* 🖼 Главное изображение */}
       <div
         className="w-full rounded-[12px] sm:rounded-[16px] md:rounded-[20px] lg:rounded-[25px] overflow-hidden relative group
@@ -131,7 +144,7 @@ const MainImage = ({ site }) => {
             >
               {tSeeAll}{" "}
               <span className="text-[#D80032] font-semibold">
-                {site.category?.sites?.length}
+                {allRelatedSitesForLang.length}
               </span>{" "}
               {tSites}
             </LocalLink>
