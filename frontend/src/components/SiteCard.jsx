@@ -45,23 +45,26 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
       role="group"
       aria-label={`Сайт ${site.name}`}
     >
-      <div className="relative w-full aspect-[155/208] rounded-2xl overflow-visible group transition-all duration-300">
-        {!isPreviewError && previewUrl ? (
-          <img
-            src={previewUrl}
-            alt={`Превью сайта ${site.name}`}
-            loading="lazy"
-            onError={() => setPreviewError(true)}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-2xl"
-          />
-        ) : (
-          <div
-            className="w-full h-full flex items-center justify-center bg-zinc-700 text-white text-xs rounded-2xl"
-            aria-hidden="true"
-          >
-            {tNoPreview}
-          </div>
-        )}
+      <div className="relative w-full aspect-[155/208] group overflow-visible">
+        {/* Внутренний контейнер для обрезки при увеличении */}
+        <div className="w-full h-full rounded-2xl overflow-hidden relative">
+          {!isPreviewError && previewUrl ? (
+            <img
+              src={previewUrl}
+              alt={`Превью сайта ${site.name}`}
+              loading="lazy"
+              onError={() => setPreviewError(true)}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+          ) : (
+            <div
+              className="w-full h-full flex items-center justify-center bg-zinc-700 text-white text-xs"
+              aria-hidden="true"
+            >
+              {tNoPreview}
+            </div>
+          )}
+        </div>
 
         {!isFaviconError && faviconUrl && (
           <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 z-20">

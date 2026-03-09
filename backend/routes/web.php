@@ -7,6 +7,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SiteSortController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\Admin\TranslationController;
+use App\Http\Controllers\Admin\BannerController;
 
 // 🔹 Главная страница
 Route::get('/', function () {
@@ -45,6 +46,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('categories', CategoryController::class)->except(['show']);
         Route::resource('sites', SiteController::class)->except(['show']);
         Route::resource('tags', TagController::class)->except(['show']);
+        Route::resource('banners', BannerController::class);
 
         // 🧩 Удаление изображений у сайтов
         Route::delete('/sites/{site}/remove-image/{field}', [SiteController::class, 'removeImage'])

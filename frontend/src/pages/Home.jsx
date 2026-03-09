@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState, useMemo } from "react"
 import useLocalNavigate from "@/hooks/useLocalNavigate"
 import { fetchCategories } from "../api/categoryApi"
+import { fetchBanners } from "../api/bannerApi"
 import CategorySection from "../components/CategorySection"
 import CategoryGrid from "../components/CategoryGrid"
 import SearchAndFilters from "../components/SearchAndFilters"
@@ -20,6 +21,20 @@ const Home = ({ setMobileModalOpen }) => {
   const sliders = useRef({})
   const navigate = useLocalNavigate()
   const { t } = useTranslation()
+
+  const [banners, setBanners] = useState([])
+
+  useEffect(() => {
+    const loadBanners = async () => {
+      const data = await fetchBanners()
+      setBanners(data)
+    }
+    loadBanners()
+  }, [])
+
+  const mainBanner = banners.find(b => b.position === 'main')
+  const sideTop = banners.find(b => b.position === 'side_top')
+  const sideBottom = banners.find(b => b.position === 'side_bottom')
 
   // 🟣 Обновляем Layout: скрыть футер при открытии модалки
   useEffect(() => {
@@ -61,27 +76,57 @@ const Home = ({ setMobileModalOpen }) => {
       {/* 🎯 Баннеры */}
       <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
-          <div className="col-span-1 lg:col-span-2 aspect-[16/7] lg:aspect-auto lg:min-h-[280px] bg-[#7100FF] rounded-2xl overflow-hidden relative">
-            <img
-              src="/assets/banner-main.jpg"
-              alt={t("home.mainBanner")}
-              className="w-full h-full object-cover"
-            />
+          {/* Main Banner Slot */}
+          <div className="col-span-1 lg:col-span-2 aspect-[16/7] lg:aspect-auto lg:h-[280px] bg-[#7100FF] rounded-2xl overflow-hidden relative">
+            {mainBanner ? (
+              <a href={mainBanner.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                <img
+                  src={`/storage/${mainBanner.image}`}
+                  alt={mainBanner.title || "Main Banner"}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+                />
+              </a>
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-white/20">
+                <span className="text-sm font-medium">Main Banner Slot</span>
+              </div>
+            )}
           </div>
-          <div className="hidden lg:flex flex-col justify-between gap-4">
-            <div className="flex-1 bg-[#7100FF] rounded-2xl overflow-hidden relative">
-              <img
-                src="/assets/banner-small-1.jpg"
-                alt={t("home.banner1")}
-                className="w-full h-full object-cover"
-              />
+
+          {/* Side Banners Column */}
+          <div className="hidden lg:flex flex-col gap-4 lg:h-[280px]">
+            {/* Side TOP */}
+            <div className="h-[calc(50%-8px)] bg-[#7100FF] rounded-2xl overflow-hidden relative">
+              {sideTop ? (
+                <a href={sideTop.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                  <img
+                    src={`/storage/${sideTop.image}`}
+                    alt={sideTop.title || "Side Banner Top"}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+                  />
+                </a>
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-white/20">
+                   <span className="text-sm">Side Top Slot</span>
+                </div>
+              )}
             </div>
-            <div className="flex-1 bg-[#7100FF] rounded-2xl overflow-hidden relative">
-              <img
-                src="/assets/banner-small-2.jpg"
-                alt={t("home.banner2")}
-                className="w-full h-full object-cover"
-              />
+
+            {/* Side BOTTOM */}
+            <div className="h-[calc(50%-8px)] bg-[#7100FF] rounded-2xl overflow-hidden relative">
+              {sideBottom ? (
+                <a href={sideBottom.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                  <img
+                    src={`/storage/${sideBottom.image}`}
+                    alt={sideBottom.title || "Side Banner Bottom"}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+                  />
+                </a>
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-white/20">
+                   <span className="text-sm">Side Bottom Slot</span>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -99,7 +144,7 @@ const Home = ({ setMobileModalOpen }) => {
       {activeCategoryId && selectedCategory ? (
         <CategoryGrid category={selectedCategory} />
       ) : (
-        <section className="mt-10 space-y-4">
+        <section className="mt-6 space-y-4">
           {categories.map((category) => (
             <CategorySection
               key={category.id}

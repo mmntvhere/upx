@@ -53,7 +53,7 @@ const SearchAndFilters = ({
   return (
     <div className="w-full max-w-[1280px] mx-auto mt-6 space-y-3">
       {/* 🔍 Поиск и кнопка "Підібрати" */}
-      <div className="px-4 sm:px-6 lg:px-8 mt-6">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex gap-2 w-full">
           {/* 🔎 Кнопка поиска */}
           <button
