@@ -1,5 +1,5 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
+import useLocalNavigate from "@/hooks/useLocalNavigate"
 import LangFlags from "@/components/LangFlags"
 import { useLanguage } from "@/hooks/useLanguage"
 import { getLocalizedPath } from "@/utils/routeUtils"
@@ -10,7 +10,7 @@ const SiteListCard = ({ site, onClick }) => {
     ? `/storage/${site.main_image}`
     : site?.preview || ""
 
-  const navigate = useNavigate()
+  const navigate = useLocalNavigate()
 
   return (
     <div

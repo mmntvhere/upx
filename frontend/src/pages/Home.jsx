@@ -1,6 +1,6 @@
 // src/pages/Home.jsx
 import React, { useEffect, useRef, useState, useMemo } from "react"
-import { useNavigate } from "react-router-dom"
+import useLocalNavigate from "@/hooks/useLocalNavigate"
 import { fetchCategories } from "../api/categoryApi"
 import CategorySection from "../components/CategorySection"
 import CategoryGrid from "../components/CategoryGrid"
@@ -18,7 +18,7 @@ const Home = ({ setMobileModalOpen }) => {
   const [selectedSite, setSelectedSite] = useState(null)
 
   const sliders = useRef({})
-  const navigate = useNavigate()
+  const navigate = useLocalNavigate()
   const { t } = useTranslation()
 
   // 🟣 Обновляем Layout: скрыть футер при открытии модалки

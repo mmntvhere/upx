@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useMemo } from "react"
 import { createPortal } from "react-dom"
-import { useNavigate } from "react-router-dom"
+import useLocalNavigate from "@/hooks/useLocalNavigate"
 import MobileSearchModal from "./Search/MobileSearchModal"
 import SearchHeader from "./Search/SearchHeader"
 import SearchInputBlock from "./Search/SearchInputBlock"
@@ -31,7 +31,7 @@ const SearchOverlay = ({ onClose, categories = [] }) => {
 
   const suggestedSites = useMemo(() => getRandomSites(categories, 10, currentLang), [categories, currentLang])
 
-  const navigate = useNavigate()
+  const navigate = useLocalNavigate()
   const scrollRefs = useRef({})
 
   useEffect(() => {

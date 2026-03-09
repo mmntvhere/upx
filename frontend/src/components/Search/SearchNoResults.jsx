@@ -1,5 +1,5 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
+import useLocalNavigate from "@/hooks/useLocalNavigate"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 
 /**
@@ -7,7 +7,7 @@ import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
  * Также показывает предложенные сайты.
  */
 const SearchNoResults = ({ setInputValue, suggestedSites = [], onClose }) => {
-  const navigate = useNavigate()
+  const navigate = useLocalNavigate()
 
   // 📦 Переводы UI
   const tNotFound = useTranslateUniversal("searchNoResults.notFound", "Nothing found")

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { ArrowUpRight, ArrowLeftRight } from "lucide-react"
-import { Link } from "react-router-dom"
+import LocalLink from "@/components/LocalLink"
 import clsx from "clsx"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 import { useLanguage } from "@/hooks/useLanguage"
@@ -56,27 +56,27 @@ const MobileStickyBanner = ({ site }) => {
 
       {/* Нижний блок с двумя ссылками */}
       <div className="flex justify-between items-center text-white text-xs font-medium">
-        <Link
-          to="/"
-          className="flex flex-col items-center justify-center flex-1 bg-white/10 rounded-lg py-2 mr-2 hover:bg-white/20 transition"
-        >
-          <ArrowLeftRight className="w-5 h-5 mb-1" />
-          {tHome}
-        </Link>
+          <LocalLink
+            to="/"
+            className="flex flex-col items-center justify-center flex-1 bg-white/10 rounded-lg py-2 mr-2 hover:bg-white/20 transition"
+          >
+            <ArrowLeftRight className="w-5 h-5 mb-1" />
+            {tHome}
+          </LocalLink>
 
-        <Link
-          to={`/${category?.slug || ""}`}
-          className="flex flex-col items-center justify-center flex-1 bg-white/10 rounded-lg py-2 ml-2 hover:bg-white/20 transition"
-        >
-          {category?.icon && (
-            <img
-              src={`/storage/${category.icon}`}
-              alt={category.name}
-              className="w-5 h-5 mb-1 object-contain"
-            />
-          )}
-          <span className="truncate max-w-[100px]">{categoryName}</span>
-        </Link>
+          <LocalLink
+            to={`/${category?.slug || ""}`}
+            className="flex flex-col items-center justify-center flex-1 bg-white/10 rounded-lg py-2 ml-2 hover:bg-white/20 transition"
+          >
+            {category?.icon && (
+              <img
+                src={`/storage/${category.icon}`}
+                alt={category.name}
+                className="w-5 h-5 mb-1 object-contain"
+              />
+            )}
+            <span className="truncate max-w-[100px]">{categoryName}</span>
+          </LocalLink>
       </div>
     </div>
   )

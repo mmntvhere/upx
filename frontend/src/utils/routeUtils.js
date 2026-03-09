@@ -6,6 +6,18 @@ import { SUPPORTED_LANG_CODES, DEFAULT_LANGUAGE } from '../i18n/languageConfig';
  * Otherwise, prepends the language code.
  */
 export const getLocalizedPath = (path, lang) => {
+  if (typeof path !== 'string') return path;
+
+  // Ignore external links, mailto, tel, and anchor links
+  if (path.startsWith('http') || path.startsWith('mailto:') || path.startsWith('tel:') || path.startsWith('#')) {
+    return path;
+  }
+
+  // Handle root level explicitly
+  if (path === '/' && lang && lang !== DEFAULT_LANGUAGE) {
+    return `/${lang}`;
+  }
+
   if (!lang || lang === DEFAULT_LANGUAGE) {
     return path.startsWith('/') ? path : `/${path}`;
   }

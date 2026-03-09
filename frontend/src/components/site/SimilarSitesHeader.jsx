@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import LocalLink from "@/components/LocalLink"
 import { ArrowRight } from "lucide-react"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 
@@ -38,13 +38,13 @@ const SimilarSitesHeader = ({ site }) => {
 
       {/* Правая часть — кнопка */}
       {count > 0 && (
-        <Link
+        <LocalLink
           to={`/${category.slug}`}
           className="filter-glow-button mt-3 md:mt-0 inline-flex items-center px-4 py-1.5 border border-zinc-500 text-sm font-medium text-zinc-300 rounded-lg"
         >
           +{count} {translatedCategory}
           <ArrowRight className="w-4 h-4 ml-2" />
-        </Link>
+        </LocalLink>
       )}
     </div>
   )

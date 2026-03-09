@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom"
+import LocalLink from "@/components/LocalLink"
 import { ChevronRightIcon } from "@heroicons/react/20/solid"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 import { useLanguage } from "@/hooks/useLanguage"
-import { getLocalizedPath } from "@/utils/routeUtils"
 
 const Breadcrumbs = ({ site }) => {
   const language = useLanguage()
@@ -12,19 +11,19 @@ const Breadcrumbs = ({ site }) => {
   return (
     <nav className="text-sm text-gray-400 mb-6 flex items-center gap-1 sm:gap-2 whitespace-nowrap overflow-hidden text-ellipsis">
       {/* 🏠 Главная */}
-      <Link
-        to={getLocalizedPath("/", language)}
+      <LocalLink
+        to="/"
         className="hover:text-white shrink-0 truncate"
       >
         {tHome}
-      </Link>
+      </LocalLink>
       <ChevronRightIcon className="w-4 h-4 text-gray-500 shrink-0" />
 
       {/* 📁 Категория */}
       {site.category && (
         <>
-          <Link
-            to={getLocalizedPath(`/${site.category.slug}`, language)}
+          <LocalLink
+            to={`/${site.category.slug}`}
             className="flex items-center gap-1 hover:text-white shrink-0 truncate"
           >
             {site.category.icon && (
@@ -35,7 +34,7 @@ const Breadcrumbs = ({ site }) => {
               />
             )}
             <span className="truncate">{tCategoryName}</span>
-          </Link>
+          </LocalLink>
           <ChevronRightIcon className="w-4 h-4 text-gray-500 shrink-0" />
         </>
       )}

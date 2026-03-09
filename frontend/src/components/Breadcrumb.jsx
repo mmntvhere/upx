@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom"
+import LocalLink from "@/components/LocalLink"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 import { useLanguage } from "@/hooks/useLanguage"
-import { getLocalizedPath } from "@/utils/routeUtils"
 
 /**
  * Компонент хлебных крошек
@@ -17,9 +16,9 @@ const Breadcrumb = ({ basePath = "/", baseLabel = "categoryPage.breadcrumbHome",
 
   return (
     <nav className="text-sm text-gray-400 mb-4 flex items-center space-x-2 overflow-hidden whitespace-nowrap">
-      <Link to={getLocalizedPath(basePath, language)} className="hover:text-white shrink-0">
+      <LocalLink to={basePath} className="hover:text-white shrink-0">
         {translatedBase}
-      </Link>
+      </LocalLink>
       <span className="text-gray-600 shrink-0">/</span>
       <span className="flex items-center gap-2 text-white font-medium min-w-0">
         {category?.icon && (

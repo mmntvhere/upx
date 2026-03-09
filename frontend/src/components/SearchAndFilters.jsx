@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import useLocalNavigate from "@/hooks/useLocalNavigate"
 import { Search, Sparkles } from "lucide-react"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 import { useTranslation } from "react-i18next"
@@ -12,7 +12,7 @@ const SearchAndFilters = ({
 }) => {
   const scrollRef = useRef(null)
   const [isScrollable, setIsScrollable] = useState(false)
-  const navigate = useNavigate()
+  const navigate = useLocalNavigate()
 
   const { i18n } = useTranslation()
   const currentLang = i18n.language

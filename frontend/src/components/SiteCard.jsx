@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from "react"
-import { useNavigate } from "react-router-dom"
+import useLocalNavigate from "@/hooks/useLocalNavigate"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal" // 🔤 Подключаем мультиязычный перевод
 import LangFlags from "./LangFlags"
 
 const SiteCard = ({ site, onClick, isGrid = false }) => {
-  const navigate = useNavigate()
+  const navigate = useLocalNavigate()
   const tNoPreview = useTranslateUniversal("site.noPreview", "No Preview")
   const [isPreviewError, setPreviewError] = useState(false)
   const [isFaviconError, setFaviconError] = useState(false)

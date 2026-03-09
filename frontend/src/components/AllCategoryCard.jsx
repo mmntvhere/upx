@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom"
+import useLocalNavigate from "@/hooks/useLocalNavigate"
 import { getLocalizedPath } from "@/utils/routeUtils"
 
 /**
  * Карточка категории: отображает иконку, название и список сайтов
  */
 const AllCategoryCard = ({ category }) => {
-  const navigate = useNavigate()
+  const navigate = useLocalNavigate()
 
   // Обрезаем до 4 сайтов для превью
   const displayedSites = category?.sites?.slice(0, 4) || []

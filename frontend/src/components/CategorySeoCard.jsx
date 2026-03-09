@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom"
-
+import LocalLink from "@/components/LocalLink"
 const CategorySeoCard = ({ category }) => {
 
   const name = category.name
@@ -8,7 +7,7 @@ const CategorySeoCard = ({ category }) => {
   const displayedSites = category.sites.slice(0, 4)
 
   return (
-    <Link
+    <LocalLink
       to={`/${category.slug}`}
       className="filter-glow-area relative cursor-pointer rounded-2xl p-[2px] group transition hover:shadow-lg"
     >
@@ -77,7 +76,7 @@ const CategorySeoCard = ({ category }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </LocalLink>
   )
 }
 

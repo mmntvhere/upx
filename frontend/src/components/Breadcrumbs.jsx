@@ -1,9 +1,5 @@
 // /src/components/Breadcrumbs.jsx
-import { Link } from "react-router-dom"
-import { ChevronRightIcon } from "@heroicons/react/20/solid"
-import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
-import { useLanguage } from "@/hooks/useLanguage"
-import { getLocalizedPath } from "@/utils/routeUtils"
+import LocalLink from "@/components/LocalLink"
 
 /**
  * Хлебные крошки (навигация по категориям)
@@ -25,23 +21,23 @@ const Breadcrumbs = ({ category }) => {
   return (
     <nav className="text-sm text-gray-500 flex items-center gap-2 mb-4">
       {/* 🏠 Главная */}
-      <Link
-        to={getLocalizedPath("/", language)}
+      <LocalLink
+        to="/"
         className="hover:underline text-orange-500 font-semibold"
       >
         Home
-      </Link>
+      </LocalLink>
 
       {/* ⬆️ Родительская категория */}
       {category?.parent && (
         <>
           <span>›</span>
-          <Link
-            to={getLocalizedPath(`/${category.parent.slug}`, language)}
+          <LocalLink
+            to={`/${category.parent.slug}`}
             className="hover:underline text-gray-500"
           >
             {translatedParentName}
-          </Link>
+          </LocalLink>
         </>
       )}
 

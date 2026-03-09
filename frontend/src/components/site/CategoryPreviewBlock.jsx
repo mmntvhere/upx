@@ -1,6 +1,6 @@
 // src/components/site/CategoryPreviewBlock.jsx
 import React from "react"
-import { Link } from "react-router-dom"
+import LocalLink from "@/components/LocalLink"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 
 
@@ -39,7 +39,7 @@ const CategoryPreviewBlock = ({ category, currentSiteSlug }) => {
       <div className="space-y-3 flex-1 overflow-hidden">
         {previewSites.map((site, index) => {
           return (
-            <Link
+            <LocalLink
               to={`/review/${site.slug}`}
               key={site.id}
               className="flex items-center justify-between gap-2 px-2 py-1 rounded-md hover:bg-white/5 transition group"
@@ -61,18 +61,18 @@ const CategoryPreviewBlock = ({ category, currentSiteSlug }) => {
                 </div>
               </div>
               <span className="text-white/30 group-hover:text-white text-sm">›</span>
-            </Link>
+            </LocalLink>
           )
         })}
       </div>
 
       {/* Кнопка See All */}
-      <Link
+      <LocalLink
         to={`/${category.slug}`}
         className="mt-6 text-sm font-medium text-center text-white border border-white/10 rounded-xl py-2 hover:bg-white/5 transition"
       >
         {tSeeAll} <span className="text-[#D80032] font-semibold">{category.sites.length}</span> {tSites}
-      </Link>
+      </LocalLink>
     </div>
   )
 }

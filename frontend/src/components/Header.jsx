@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import LocalLink from "./LocalLink"
 
 const Header = () => {
 
@@ -7,9 +7,9 @@ const Header = () => {
       <div className="px-4 sm:px-6 lg:px-8 max-w-[1280px] mx-auto py-4">
         <div className="flex justify-between items-center">
           {/* 🔗 Логотип-кнопка */}
-          <Link to="/" className="mx-auto md:mx-0">
+          <LocalLink to="/" className="mx-auto md:mx-0">
             <img src="/logo.svg" alt="Logo" className="h-6 md:h-8" />
-          </Link>
+          </LocalLink>
 
           {/* 🧭 Навигация (десктоп) */}
           <nav className="hidden md:flex space-x-2 bg-[#1f1f1f] rounded-xl p-1">

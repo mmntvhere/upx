@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import LocalLink from "@/components/LocalLink"
 import { ChevronRightIcon } from "@heroicons/react/20/solid"
 import SiteHeaderRow from "../site/SiteHeaderRow"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
@@ -102,12 +102,12 @@ const MainImage = ({ site }) => {
 
                 {/* Кнопки при наведении */}
                 <div className="absolute inset-y-0 left-[44px] right-3 hidden group-hover:flex gap-2 items-center z-10">
-                  <Link
+                  <LocalLink
                     to={`/review/${s.slug}`}
                     className="flex-1 text-center px-3 py-1.5 text-xs bg-white/10 text-white rounded-xl font-medium hover:bg-white/20 transition"
                   >
                     {tReview}
-                  </Link>
+                  </LocalLink>
                   {s.link && (
                     <a
                       href={s.link}
@@ -125,7 +125,7 @@ const MainImage = ({ site }) => {
 
           {/* Кнопка See All */}
           <div className="filter-glow-button mt-4">
-            <Link
+            <LocalLink
               to={`/${site.category?.slug}`}
               className="text-sm text-white text-center block"
             >
@@ -134,7 +134,7 @@ const MainImage = ({ site }) => {
                 {site.category?.sites?.length}
               </span>{" "}
               {tSites}
-            </Link>
+            </LocalLink>
           </div>
         </div>
       )}
