@@ -15,8 +15,8 @@ const SiteListCard = ({ site, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="relative w-full h-[300px] rounded-[24px] overflow-hidden cursor-pointer shadow-lg group transition-transform duration-300 hover:scale-[1.01] bg-[#141415]"
-      style={{ isolation: "isolate", backfaceVisibility: "hidden" }}
+      className="relative w-full h-[300px] rounded-[24px] overflow-hidden cursor-pointer shadow-lg group transition-transform duration-300 hover:-translate-y-1 bg-[#141415]"
+      style={{ isolation: "isolate" }}
     >
       {/* 🖼 Фоновое изображение */}
       {imageSrc && (

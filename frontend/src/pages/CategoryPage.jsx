@@ -15,6 +15,8 @@ import Breadcrumb from "@/components/Breadcrumb"
 import CategorySeoTitle from "@/components/CategorySeoTitle"
 import { useLanguage } from "@/hooks/useLanguage"
 import { useCategories } from "@/contexts/CategoryContext"
+import useLocalNavigate from "@/hooks/useLocalNavigate"
+import NotFound from "./NotFound"
 
 const CategoryPage = () => {
   const { categories, loading } = useCategories()
@@ -23,6 +25,7 @@ const CategoryPage = () => {
   const [showModal, setShowModal] = useState(false)
   const [viewType, setViewType] = useState("list")
   const [isMobile, setIsMobile] = useState(false)
+  const navigate = useLocalNavigate()
 
   // 🔄 Находим нужную категорию синхронно из кэша
   const category = categories.find((cat) => cat.slug === slug)
@@ -60,8 +63,12 @@ const CategoryPage = () => {
   }, [showModal])
 
   const handleSiteClick = (site) => {
-    setSelectedSite(site)
-    setShowModal(true)
+    if (window.innerWidth < 1024) {
+      setSelectedSite(site)
+      setShowModal(true)
+    } else {
+      navigate(`/review/${site.slug}`)
+    }
   }
 
   const handleCloseModal = () => {
@@ -75,7 +82,7 @@ const CategoryPage = () => {
   }
 
   if (!category) {
-    return <div className="text-white p-4">{notFoundText}</div>
+    return <NotFound />
   }
 
   return (

@@ -114,5 +114,11 @@
     "noSites": "Geen websites gevonden.",
     "otherCategories": "Andere categorieën",
     "breadcrumbHome": "Startpagina"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Pagina niet gevonden",
+    "description": "De pagina die u zoekt is mogelijk verwijderd, heeft een andere naam gekregen of is tijdelijk niet beschikbaar.",
+    "backHome": "Terug naar Startpagina"
   }
 }

@@ -114,5 +114,11 @@
     "noSites": "未找到网站。",
     "otherCategories": "其他分类",
     "breadcrumbHome": "首页"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "页面未找到",
+    "description": "您寻找的页面可能已被移除、更改名称或暂时不可用。",
+    "backHome": "返回首页"
   }
 }

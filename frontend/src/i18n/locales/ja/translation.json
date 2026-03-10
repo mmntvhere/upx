@@ -114,5 +114,11 @@
     "noSites": "サイトが見つかりません。",
     "otherCategories": "その他のカテゴリー",
     "breadcrumbHome": "ホーム"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "ページが見つかりません",
+    "description": "お探しのページは削除されたか、名前が変更されたか、一時的に利用できなくなっている可能性があります。",
+    "backHome": "ホームに戻る"
   }
 }

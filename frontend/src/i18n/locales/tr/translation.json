@@ -114,5 +114,11 @@
     "noSites": "Site bulunamadı.",
     "otherCategories": "Diğer Kategoriler",
     "breadcrumbHome": "Ana Sayfa"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Sayfa bulunamadı",
+    "description": "Aradığınız sayfa kaldırılmış, adı değiştirilmiş veya geçici olarak kullanım dışı olabilir.",
+    "backHome": "Ana Sayfaya Dön"
   }
 }

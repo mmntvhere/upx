@@ -114,5 +114,11 @@
     "noSites": "Aucun site trouvé.",
     "otherCategories": "Autres catégories",
     "breadcrumbHome": "Accueil"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Page non trouvée",
+    "description": "La page que vous recherchez a peut-être été supprimée, a changé de nom ou est temporairement indisponible.",
+    "backHome": "Retour à l'accueil"
   }
 }

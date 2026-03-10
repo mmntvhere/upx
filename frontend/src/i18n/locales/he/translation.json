@@ -114,5 +114,11 @@
     "noSites": "לא נמצאו אתרים.",
     "otherCategories": "קטגוריות נוספות",
     "breadcrumbHome": "דף הבית"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "הדף לא נמצא",
+    "description": "ייתכן שהדף שאתה מחפש הוסר, שמו שונה או שהוא לא זמין זמנית.",
+    "backHome": "חזרה לדף הבית"
   }
 }

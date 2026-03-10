@@ -114,5 +114,11 @@
     "noSites": "Nem található weboldal.",
     "otherCategories": "További kategóriák",
     "breadcrumbHome": "Főoldal"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Az oldal nem található",
+    "description": "Lehetséges, hogy a keresett oldalt eltávolították, megváltoztatták a nevét, vagy ideiglenesen nem elérhető.",
+    "backHome": "Vissza a Főoldalra"
   }
 }

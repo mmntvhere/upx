@@ -114,5 +114,11 @@
     "noSites": "Žádné weby nenalezeny.",
     "otherCategories": "Další kategorie",
     "breadcrumbHome": "Domů"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Stránka nenalezena",
+    "description": "Stránka, kterou hledáte, mohla být odstraněna, byl změněn její název nebo je dočasně nedostupná.",
+    "backHome": "Zpět na hlavní stránku"
   }
 }

@@ -3,6 +3,7 @@ import Layout from '@/layout/Layout'
 import Home from '@/pages/Home'
 import CategoryPage from '@/pages/CategoryPage'
 import SitePage from '@/pages/SitePage'
+import NotFound from '@/pages/NotFound'
 
 const AppRouter = () => {
   return (
@@ -13,6 +14,7 @@ const AppRouter = () => {
         <Route index element={<Home />} />
         <Route path="review/:slug" element={<SitePage />} />
         <Route path=":slug" element={<CategoryPage />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
 
       {/* 🌐 Версии с языковым префиксом */}
@@ -24,9 +26,14 @@ const AppRouter = () => {
           <Route index element={<Home />} />
           <Route path="review/:slug" element={<SitePage />} />
           <Route path=":slug" element={<CategoryPage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       ))}
 
+      {/* Глобальный редирект на 404 (все пути, не попавшие в префиксы) */}
+      <Route element={<Layout />}>
+        <Route path="*" element={<NotFound />} />
+      </Route>
     </Routes>
   )
 }

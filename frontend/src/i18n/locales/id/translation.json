@@ -114,5 +114,11 @@
     "noSites": "Nessun sito trovato.",
     "otherCategories": "Altre categorie",
     "breadcrumbHome": "Home"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Halaman tidak ditemukan",
+    "description": "Halaman yang Anda cari mungkin telah dihapus, namanya diubah, atau sementara tidak tersedia.",
+    "backHome": "Kembali ke Beranda"
   }
 }

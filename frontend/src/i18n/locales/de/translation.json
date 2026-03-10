@@ -114,5 +114,11 @@
     "noSites": "Keine Websites gefunden.",
     "otherCategories": "Weitere Kategorien",
     "breadcrumbHome": "Startseite"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Seite nicht gefunden",
+    "description": "Die von Ihnen gesuchte Seite wurde möglicherweise entfernt, umbenannt oder ist vorübergehend nicht erreichbar.",
+    "backHome": "Zurück zur Startseite"
   }
 }

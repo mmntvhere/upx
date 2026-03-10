@@ -114,5 +114,11 @@
     "noSites": "Inga webbplatser hittades.",
     "otherCategories": "Andra kategorier",
     "breadcrumbHome": "Hem"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Sidan hittades inte",
+    "description": "Sidan du letar efter kan ha tagits bort, bytt namn eller är tillfälligt otillgänglig.",
+    "backHome": "Tillbaka till Startsidan"
   }
 }

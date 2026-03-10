@@ -114,5 +114,11 @@
     "noSites": "Sivustoja ei löytynyt.",
     "otherCategories": "Muut kategoriat",
     "breadcrumbHome": "Etusivu"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Sivua ei löytynyt",
+    "description": "Etsimäsi sivu on saatettu poistaa, sen nimeä on muutettu tai se on väliaikaisesti poissa käytöstä.",
+    "backHome": "Takaisin alkuun"
   }
 }

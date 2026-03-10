@@ -114,5 +114,11 @@
     "noSites": "Không tìm thấy trang web.",
     "otherCategories": "Danh mục khác",
     "breadcrumbHome": "Trang chủ"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Không tìm thấy trang",
+    "description": "Trang bạn đang tìm kiếm có thể đã bị xóa, bị đổi tên hoặc tạm thời không truy cập được.",
+    "backHome": "Quay lại Trang chủ"
   }
 }

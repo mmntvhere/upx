@@ -114,5 +114,11 @@
     "noSites": "Ingen sider fundet.",
     "otherCategories": "Andre kategorier",
     "breadcrumbHome": "Hjem"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Siden blev ikke fundet",
+    "description": "Den side, du leder efter, er muligvis blevet fjernet, har fået ændret navn eller er midlertidigt utilgængelig.",
+    "backHome": "Tilbage til forsiden"
   }
 }

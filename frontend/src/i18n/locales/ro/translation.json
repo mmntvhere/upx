@@ -114,5 +114,11 @@
     "noSites": "Nu s-au găsit site-uri.",
     "otherCategories": "Alte categorii",
     "breadcrumbHome": "Acasă"
+  },
+  "notFound": {
+    "title": "404",
+    "subTitle": "Pagina nu a fost găsită",
+    "description": "Pagina pe care o căutați este posibil să fi fost eliminată, să i se fi schimbat numele sau este temporar indisponibilă.",
+    "backHome": "Înapoi Acasă"
   }
 }

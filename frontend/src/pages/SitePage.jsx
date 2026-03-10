@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { fetchSiteBySlug } from "../api/siteApi"
 import { useLanguage } from "@/hooks/useLanguage"
+import NotFound from "./NotFound"
 
 import { useTranslation } from "react-i18next"
 import Breadcrumbs from "../components/site/Breadcrumbs"
@@ -40,7 +41,7 @@ const SitePage = () => {
   if (isLoading)
     return <div className="text-white p-4">{t("sitePage.loading")}</div>
   if (!site)
-    return <div className="text-white p-4">{t("sitePage.notFound")}</div>
+    return <NotFound />
 
 
 
