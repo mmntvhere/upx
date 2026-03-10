@@ -7,7 +7,6 @@ import ExpandableText from "../components/ExpandableText"
 import CategoryGridView from "../components/CategoryGridView"
 import CategoryListView from "../components/CategoryListView"
 import ViewSwitcher from "../components/ViewSwitcher"
-import FilterButton from "../components/FilterButton"
 import MobileSiteModal from "../components/MobileSiteModal"
 import CategorySeoCard from "../components/CategorySeoCard"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
@@ -102,10 +101,7 @@ const CategoryPage = () => {
         )}
 
         {/* 🧭 Управление отображением */}
-        <div className="flex items-center justify-between mb-6 gap-4">
-          <div className="flex-grow">
-            <FilterButton onClick={() => console.log("Открыть фильтр")} />
-          </div>
+        <div className="flex items-center justify-end mb-6 gap-4">
           {isMobile && (
             <ViewSwitcher viewType={viewType} onChange={setViewType} />
           )}

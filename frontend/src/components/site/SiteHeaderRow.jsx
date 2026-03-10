@@ -1,9 +1,11 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { Flag } from "lucide-react"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
+import ReportModal from "./ReportModal"
 
 const SiteHeaderRow = ({ site, onGoToHidden }) => {
   const goToRef = useRef(null)
+  const [isReportModalOpen, setIsReportModalOpen] = useState(false)
 
   // Мультиязычные строки
   const tGoTo = useTranslateUniversal("common.goTo", "Go to")
@@ -85,11 +87,18 @@ const SiteHeaderRow = ({ site, onGoToHidden }) => {
             type="button"
             className="icon-glow-button flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center"
             title="Report site"
+            onClick={() => setIsReportModalOpen(true)}
           >
             <Flag className="w-[18px] h-[18px] text-[#EDF2F4]" />
           </button>
         </div>
       </div>
+
+      <ReportModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+        site={site}
+      />
     </div>
   )
 }

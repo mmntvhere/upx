@@ -19,7 +19,6 @@ const SearchAndFilters = ({
 
   // 🔁 Переводы UI текста
   const searchLabel = useTranslateUniversal("searchAndFilters.search")
-  const idealLabel = useTranslateUniversal("searchAndFilters.ideal")
   const scrollRightLabel = useTranslateUniversal("searchAndFilters.scrollRight")
 
   // 📐 Проверка, нужно ли показывать кнопку прокрутки (если контент выходит за пределы экрана)
@@ -59,22 +58,11 @@ const SearchAndFilters = ({
           <button
             onClick={onOpenSearch}
             type="button"
-            className="filter-glow-button h-[38px] sm:h-[44px] flex items-center justify-start gap-2 px-4 text-white text-sm font-medium whitespace-nowrap grow basis-3/4"
+            className="filter-glow-button h-[38px] sm:h-[44px] flex items-center justify-start gap-2 px-4 text-white text-sm font-medium whitespace-nowrap w-full"
             aria-label={searchLabel}
           >
             <Search className="w-4 h-4 text-white shrink-0" />
             <span className="truncate text-left w-full">{searchLabel}</span>
-          </button>
-
-          {/* ✨ Кнопка "Підібрати ідеальний сайт" */}
-          <button
-            onClick={() => console.log("Підібрати")}
-            type="button"
-            className="ideal-site-button h-[38px] sm:h-[44px] flex items-center justify-center gap-2 px-4 text-white text-sm font-medium whitespace-nowrap grow basis-1/4"
-            aria-label={idealLabel}
-          >
-            <Sparkles size={18} strokeWidth={2} />
-            <span>{idealLabel}</span>
           </button>
         </div>
       </div>
