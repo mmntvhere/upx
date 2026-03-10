@@ -52,13 +52,13 @@ const CategorySection = ({
     >
       {/* 🔠 Заголовок + кнопка + стрелки */}
       <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-          <div className="flex items-center gap-2 min-w-0">
+        <div className="flex items-center justify-between gap-2 mb-4">
+          <div className="flex items-center gap-2 flex-1 min-w-0">
             {category.icon && (
               <img
                 src={`/storage/${category.icon}`}
                 alt={`${name} icon`}
-                className="w-8 h-8 object-contain"
+                className="w-8 h-8 object-contain shrink-0"
                 loading="lazy"
               />
             )}

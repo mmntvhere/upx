@@ -57,17 +57,17 @@ const MobileMenu = ({ isOpen, onClose, onOpenSearch }) => {
             {/* 🛠 Функциональные иконки и Язык */}
             <motion.div variants={itemVariants} className="flex items-center justify-between px-5 py-4 border-b border-white/5 relative z-20">
               <div className="flex items-center gap-3">
-                <button className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-white/10 transition">
+                <button className="w-10 h-10 p-0 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-white/10 transition">
                   <Mail className="w-5 h-5" />
                 </button>
-                <button className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-white/10 transition">
+                <button className="w-10 h-10 p-0 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-white/10 transition">
                   <Twitter className="w-5 h-5" />
                 </button>
-                <button className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-white/10 transition relative">
+                <button className="w-10 h-10 p-0 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-white/10 transition relative">
                   <ShoppingBag className="w-5 h-5" />
                   <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#121212]"></span>
                 </button>
-                <button className="w-10 h-10 rounded-full flex items-center justify-center text-[#ffbb00] bg-white/5 transition">
+                <button className="w-10 h-10 p-0 rounded-full flex items-center justify-center text-[#ffbb00] bg-white/5 transition">
                   <Moon className="w-5 h-5 fill-current" />
                 </button>
               </div>
