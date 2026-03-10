@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 import MobileSiteModalWrapper from "../components/MobileSiteModalWrapper"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
-import { IoLocationOutline } from "react-icons/io5"
+import useLocalNavigate from "@/hooks/useLocalNavigate"
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion"
+
 const MobileSiteModal = ({ site, onClose }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const scrollYRef = useRef(0)
+  const navigate = useLocalNavigate()
 
   // Переводы
   const tReadReview = useTranslateUniversal("common.readReview", "Read review")
@@ -21,31 +22,13 @@ const MobileSiteModal = ({ site, onClose }) => {
 
   useEffect(() => {
     if (site) {
-      scrollYRef.current = window.scrollY
-
-      // Блокируем фон
-      document.body.style.position = "fixed"
-      document.body.style.top = `-${scrollYRef.current}px`
-      document.body.style.overflow = "hidden"
-      document.body.style.width = "100%"
-
       setIsOpen(true)
-    }
-
-    return () => {
-      const y = document.body.style.top
-      document.body.style.position = ""
-      document.body.style.top = ""
-      document.body.style.overflow = ""
-      document.body.style.width = ""
-
-      window.scrollTo({ top: -parseInt(y || "0", 10), behavior: "auto" })
     }
   }, [site])
 
   const handleClose = () => {
     setIsOpen(false)
-    setTimeout(onClose, 300)
+    onClose() // Call parent immediately, parent handles the final unmount timeout
   }
 
   if (!site) return null
@@ -109,12 +92,15 @@ const MobileSiteModal = ({ site, onClose }) => {
 
       {/* 🔘 Кнопки */}
       <div className="px-4 pb-6 space-y-3">
-        <a
-          href={`/review/${site.slug}`}
-          className="block text-center w-full bg-zinc-900 text-white text-sm py-2 rounded-full"
+        <button
+          onClick={() => {
+            handleClose()
+            setTimeout(() => navigate(`/review/${site.slug}`), 100)
+          }}
+          className="block text-center w-full bg-zinc-900 text-white text-sm py-2 rounded-full border-none outline-none"
         >
           {tReadReview}
-        </a>
+        </button>
         <a
           href={site.link}
           target="_blank"
