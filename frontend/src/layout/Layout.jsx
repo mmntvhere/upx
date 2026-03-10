@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useLocation, Outlet } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 const Layout = () => {
   const location = useLocation()
@@ -19,6 +20,7 @@ const Layout = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#141415] text-white relative">
+      <SEO />
       {/* 🔝 Шапка */}
       <Header />
 

@@ -303,16 +303,33 @@ public function create()
     // 📦 API: получение сайта по slug со связанными сущностями
     public function showBySlug($slug)
     {
+        $locale = request()->header('Accept-Language', 'en');
+
         $site = Site::with([
-            'category.sites' => function ($query) use ($slug) {
-                $query->where('slug', '!=', $slug)->orderBy('position');
+            'category.sites' => function ($query) use ($slug, $locale) {
+                $query->where('slug', '!=', $slug)
+                      ->where('is_active', true)
+                      ->where(function ($q) use ($locale) {
+                          $q->whereJsonContains('enabled_languages', $locale)
+                            ->orWhereNull('enabled_languages')
+                            ->orWhere('enabled_languages', '[]');
+                      })
+                      ->orderBy('position');
             },
             'tags'
         ])->where('slug', $slug)->firstOrFail();
 
         // 📎 Необходимые SEO-категории (как и раньше, для перелинковки)
-        $site->allCategories = \App\Models\Category::with(['sites' => function ($query) {
-            $query->whereNotNull('favicon')->where('is_active', true)->orderBy('position')->limit(5);
+        $site->allCategories = \App\Models\Category::with(['sites' => function ($query) use ($locale) {
+            $query->whereNotNull('favicon')
+                  ->where('is_active', true)
+                  ->where(function ($q) use ($locale) {
+                      $q->whereJsonContains('enabled_languages', $locale)
+                        ->orWhereNull('enabled_languages')
+                        ->orWhere('enabled_languages', '[]');
+                  })
+                  ->orderBy('position')
+                  ->limit(5);
         }])->get();
 
         return new \App\Http\Resources\SiteResource($site);

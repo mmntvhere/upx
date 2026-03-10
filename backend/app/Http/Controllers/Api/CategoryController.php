@@ -9,9 +9,17 @@ class CategoryController extends Controller
 {
     public function index()
     {
+        $locale = request()->header('Accept-Language', 'en');
+
         $categories = Category::where('is_active', true)
-            ->with(['sites' => function ($query) {
-                $query->where('is_active', true)->orderBy('position');
+            ->with(['sites' => function ($query) use ($locale) {
+                $query->where('is_active', true)
+                      ->where(function ($q) use ($locale) {
+                          $q->whereJsonContains('enabled_languages', $locale)
+                            ->orWhereNull('enabled_languages')
+                            ->orWhere('enabled_languages', '[]');
+                      })
+                      ->orderBy('position');
             }])
             ->get();
 

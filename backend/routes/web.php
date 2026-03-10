@@ -14,6 +14,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// 🔹 Карта сайта (XML с мультиязычной разметкой)
+Route::get('/sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index']);
+
 // 🔹 Дашборд после входа
 Route::get('/dashboard', function () {
     return view('dashboard');
