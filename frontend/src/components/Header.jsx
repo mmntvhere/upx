@@ -35,9 +35,11 @@ const Header = () => {
 
   return (
     <>
-      <header className={`sticky top-0 z-[60] w-full transition-all duration-300 border-b ${
+      <header className={`${
+        isMobileMenuOpen ? "fixed" : "sticky md:relative"
+      } top-0 z-[60] w-full transition-colors duration-300 border-b md:backdrop-blur-none md:bg-[#141415] md:shadow-none ${
         isScrolled || isMobileMenuOpen
-          ? "bg-[#0a0a0a]/85 backdrop-blur-2xl border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+          ? "bg-[#0a0a0a]/85 backdrop-blur-2xl border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] md:border-transparent"
           : "bg-[#141415] border-transparent"
       }`}>
         <div className="px-4 sm:px-6 lg:px-8 max-w-[1280px] mx-auto h-[60px] md:h-[72px] flex items-center justify-between relative">
