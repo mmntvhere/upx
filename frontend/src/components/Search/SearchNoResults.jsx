@@ -52,8 +52,8 @@ const SearchNoResults = ({ setInputValue, suggestedSites = [], onClose }) => {
             <div
               key={i}
               onClick={() => {
-                navigate(`/review/${site.slug}`)
                 onClose()
+                setTimeout(() => navigate(`/review/${site.slug}`), 100)
               }}
               className="cursor-pointer"
             >

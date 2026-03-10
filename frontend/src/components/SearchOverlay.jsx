@@ -46,8 +46,8 @@ const SearchOverlay = ({ onClose, categories = [] }) => {
 
   const handleSeeAll = (category) => {
     if (category.slug) {
-      navigate(`/${category.slug}`)
-      onClose()
+      handleClose()
+      setTimeout(() => navigate(`/${category.slug}`), 100)
     }
   }
 

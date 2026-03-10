@@ -97,8 +97,8 @@ const SearchResultsByCategory = ({
               ref={(el) => (scrollRefs.current[category.id] = el)}
               sites={sortedSites}
               onSiteClick={(site) => {
-                navigate(`/review/${site.slug}`)
                 onClose()
+                setTimeout(() => navigate(`/review/${site.slug}`), 100)
               }}
             />
           </div>

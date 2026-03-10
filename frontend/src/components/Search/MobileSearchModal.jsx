@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef } from "react"
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion"
 import useBodyScrollLock from "@/hooks/useBodyScrollLock"
 
 const MobileSearchModal = ({ isOpen = false, onClose = () => { }, children }) => {
-  const [isVisible, setIsVisible] = useState(false)         // 💡 Видимость контента
   const modalRef = useRef(null)                             // 🔎 Ссылка на сам модальный блок
 
   // 🌐 Переводы (если понадобятся в UI, например, кнопки или заголовки)
@@ -12,27 +11,16 @@ const MobileSearchModal = ({ isOpen = false, onClose = () => { }, children }) =>
   // Глобальная блокировка скролла
   useBodyScrollLock(isOpen)
 
-  // 📦 Управляем видимостью
-  useEffect(() => {
-    if (isOpen) setIsVisible(true)
-  }, [isOpen])
-
-  // 🚪 Закрытие по кнопке
-  const handleClose = () => {
-    setIsVisible(false)
-    setTimeout(onClose, 300)
-  }
-
   // 🧱 Закрытие по клику вне окна
   const handleBackdropClick = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
-      handleClose()
+      onClose()
     }
   }
 
   return (
     <AnimatePresence>
-      {isOpen && isVisible && (
+      {isOpen && (
         <motion.div
           key="modal-wrapper"
           initial={{ opacity: 0 }}
@@ -51,13 +39,7 @@ const MobileSearchModal = ({ isOpen = false, onClose = () => { }, children }) =>
             className="w-full sm:max-w-[620px] mt-[12px] rounded-t-3xl sm:rounded-2xl bg-white text-black max-h-[calc(100dvh-200px)] overflow-y-auto sm:overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* 🧩 Контент, переданный внутрь модального окна */}
             {children}
-
-            {/* 👇 Пример UI текста — можно удалить, если не нужен */}
-            {/* <button onClick={handleClose} className="text-center text-sm text-gray-600 py-4 w-full">
-              {tClose}
-            </button> */}
           </motion.div>
         </motion.div>
       )}
