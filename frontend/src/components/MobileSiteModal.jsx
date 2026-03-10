@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import MobileSiteModalWrapper from "../components/MobileSiteModalWrapper"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
@@ -8,6 +8,7 @@ import { motion } from "framer-motion"
 
 const MobileSiteModal = ({ site, onClose }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const scrollYRef = useRef(0)
   const navigate = useLocalNavigate()
 
   // Переводы
@@ -22,7 +23,26 @@ const MobileSiteModal = ({ site, onClose }) => {
 
   useEffect(() => {
     if (site) {
+      scrollYRef.current = window.scrollY
+      
+      // Strict iOS lock
+      document.body.style.position = "fixed"
+      document.body.style.top = `-${scrollYRef.current}px`
+      document.body.style.width = "100%"
+      document.body.style.overflow = "hidden"
+      document.documentElement.style.overflow = "hidden"
+
       setIsOpen(true)
+    }
+
+    return () => {
+      document.body.style.position = ""
+      document.body.style.top = ""
+      document.body.style.width = ""
+      document.body.style.overflow = ""
+      document.documentElement.style.overflow = ""
+      
+      window.scrollTo(0, scrollYRef.current)
     }
   }, [site])
 
