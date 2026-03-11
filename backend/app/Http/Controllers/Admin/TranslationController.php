@@ -41,19 +41,26 @@ class TranslationController extends Controller
     public function translateSingle(Request $request, \App\Services\DeeplTranslationService $deepl)
     {
         $validated = $request->validate([
-            'model_type' => 'required|in:site,category',
+            'model_type' => 'required|in:site,category,page',
             'model_id'   => 'required|integer',
             'target_lang'=> 'required|string|size:2'
         ]);
 
-        $modelClass = $validated['model_type'] === 'site' ? \App\Models\Site::class : \App\Models\Category::class;
+        $modelClass = match ($validated['model_type']) {
+            'site' => \App\Models\Site::class,
+            'category' => \App\Models\Category::class,
+            'page' => \App\Models\Page::class,
+        };
+
         $model = $modelClass::findOrFail($validated['model_id']);
         $lang = $validated['target_lang'];
 
         // Поля для перевода
-        $fields = $validated['model_type'] === 'site' 
-            ? ['description', 'review', 'seo_title', 'seo_description']
-            : ['name', 'description', 'seo_title', 'seo_description', 'disclaimer'];
+        $fields = match ($validated['model_type']) {
+            'site' => ['description', 'review', 'seo_title', 'seo_description'],
+            'category' => ['name', 'description', 'seo_title', 'seo_description', 'disclaimer'],
+            'page' => ['title', 'content', 'seo_title', 'seo_description'],
+        };
 
         $results = [];
 

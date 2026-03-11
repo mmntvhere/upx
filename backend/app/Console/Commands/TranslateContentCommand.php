@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Models\Category;
 use App\Models\Site;
+use App\Models\Page;
 use App\Services\DeeplTranslationService;
 
 class TranslateContentCommand extends Command
@@ -13,7 +14,7 @@ class TranslateContentCommand extends Command
      * Имя команды для запуска из консоли.
      * Можно указать конкретную модель: php artisan translate:content --model=category
      */
-    protected $signature = 'translate:content {--model=all : Модель для перевода (all, site, category)}';
+    protected $signature = 'translate:content {--model=all : Модель для перевода (all, site, category, page)}';
 
     /**
      * Описание команды
@@ -44,8 +45,46 @@ class TranslateContentCommand extends Command
             $this->translateSites($deepl, $languages);
         }
 
+        if ($model === 'all' || $model === 'page') {
+            $this->translatePages($deepl, $languages);
+        }
+
         $this->info("✅ Процесс массового перевода успешно завершен!");
         return 0;
+    }
+
+    protected function translatePages(DeeplTranslationService $deepl, array $languages)
+    {
+        $pages = Page::all();
+        $this->info("Перевод Статических Страниц...");
+        $bar = $this->output->createProgressBar(count($pages));
+
+        foreach ($pages as $page) {
+            foreach ($languages as $lang) {
+                foreach (['title', 'content', 'seo_title', 'seo_description'] as $field) {
+                    $original = $page->getTranslation($field, 'en', false);
+                    if (empty($original)) continue;
+
+                    if ($page->hasTranslation($field, $lang) && !empty($page->getTranslation($field, $lang))) {
+                        continue;
+                    }
+
+                    try {
+                        $translated = $deepl->translateSingle($original, 'EN', $lang);
+                        if ($translated) {
+                            $page->setTranslation($field, $lang, $translated);
+                        }
+                        usleep(100000);
+                    } catch (\Throwable $e) {
+                        $this->error("\nОшибка перевода страницы {$page->id} ({$lang}): " . $e->getMessage());
+                    }
+                }
+            }
+            $page->save();
+            $bar->advance();
+        }
+        $bar->finish();
+        $this->newLine(2);
     }
 
     protected function translateCategories(DeeplTranslationService $deepl, array $languages)
