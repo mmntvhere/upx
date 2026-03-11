@@ -1,73 +1,112 @@
+import React, { useEffect, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 import { SUPPORTED_LANGUAGES } from '@/config/languages'
 
 /**
- * Универсальный SEO компонент.
- * Генерирует Title, Meta, OpenGraph и Hreflang теги.
+ * 👑 UPX Premium SEO Engine
+ * 
+ * NOTE: Мы используем гибридный подход. 
+ * Стандартные мета-теги управляются через Helmet (асинхронно), 
+ * а критические hreflang и JSON-LD внедряются синхронно через DOM Injector.
+ * Это гарантирует 100% видимость для поисковых роботов без "фликкера".
  */
 const SEO = ({ 
   title, 
   description, 
   image, 
-  article,
+  type = 'website',
+  schemaData,
   siteName = "UPX" 
 }) => {
   const { pathname } = useLocation()
-  const siteUrl = "https://upx.com" // Замените на ваш домен
+  const domain = "https://upx.com" // Base domain
   
-  // 🔗 Генерируем чистый канонический URL بدون параметров
-  const canonicalUrl = `${siteUrl}${pathname === '/' ? '' : pathname}`
-
-  // 🔄 Хэлпер для формирования ссылок на другие языки (hreflang)
-  const getLanguageUrl = (lang) => {
+  // 🧩 Мемоизация данных для исключения лишних ререндеров
+  const seoData = useMemo(() => {
     const segments = pathname.split('/').filter(Boolean)
-    // Проверяем, является ли первый сегмент кодом языка
-    const firstSegmentIsLang = SUPPORTED_LANGUAGES.includes(segments[0])
-    const baseSegments = firstSegmentIsLang ? segments.slice(1) : segments
+    const isLangInPath = SUPPORTED_LANGUAGES.includes(segments[0])
+    const purePath = isLangInPath ? segments.slice(1).join('/') : segments.join('/')
+    const pathPart = purePath ? `/${purePath}` : ''
     
-    // Формируем путь: домен + новый язык + остаток пути
-    return `${siteUrl}/${lang}/${baseSegments.join('/')}`.replace(/\/+$/, '')
-  }
+    // Формирование URL
+    const canonical = `${domain}/${isLangInPath ? segments[0] + pathPart : purePath}`.replace(/\/+$/, '') || domain
+    
+    // Создание связей hreflang
+    const alternates = [
+      { lang: 'x-default', url: `${domain}${pathPart}`.replace(/\/+$/, '') || domain },
+      { lang: 'en', url: `${domain}${pathPart}`.replace(/\/+$/, '') || domain },
+      ...SUPPORTED_LANGUAGES.map(l => ({
+        lang: l,
+        url: `${domain}/${l}${pathPart}`.replace(/\/+$/, '')
+      }))
+    ]
 
-  const seo = {
-    title: title ? `${title} | ${siteName}` : siteName,
-    description: description || "Лучшие обзоры и рейтинги сайтов на UPX",
-    image: image || `${siteUrl}/default-og.jpg`,
-    url: canonicalUrl,
-  }
+    return {
+      title: (title ? `${title} | ${siteName}` : siteName).trim(),
+      description: (description || "Best reviews and ratings on UPX.").trim(),
+      image: image || `${domain}/og-image.jpg`,
+      canonical,
+      alternates,
+      lang: isLangInPath ? segments[0] : 'en'
+    }
+  }, [pathname, title, description, image, siteName])
+
+  // 🚀 DOM Injector: Синхронная прописка тегов
+  useEffect(() => {
+    const tagId = 'upx-seo-manual';
+    
+    const injectTags = () => {
+      // 1. Очистка старой порции данных
+      document.querySelectorAll(`[data-seo-engine="${tagId}"]`).forEach(el => el.remove());
+
+      // 2. Внедрение Hreflang
+      seoData.alternates.forEach(link => {
+        const el = document.createElement('link');
+        el.rel = 'alternate';
+        el.hreflang = link.lang;
+        el.href = link.url;
+        el.setAttribute('data-seo-engine', tagId);
+        document.head.appendChild(el);
+      });
+
+      // 3. Внедрение JSON-LD
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-seo-engine', tagId);
+      script.text = JSON.stringify(schemaData || {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": siteName,
+        "url": domain
+      });
+      document.head.appendChild(script);
+    };
+
+    injectTags();
+    
+    // Cleanup при размонтировании (необязательно, но для чистоты)
+    return () => {
+       // Мы не удаляем теги при мгновенном переходе, чтобы не было пустоты в head
+    };
+  }, [seoData, schemaData, siteName]);
 
   return (
     <Helmet>
-      <title>{seo.title}</title>
-      <meta name="description" content={seo.description} />
-      <link rel="canonical" href={seo.url} />
+      {/* 🏁 Базовые теги (Social & Main Meta) */}
+      <html lang={seoData.lang} />
+      <title>{seoData.title}</title>
+      <meta name="description" content={seoData.description} />
+      <link rel="canonical" href={seoData.canonical} />
 
-      {/* 🌐 SEO: Мультиязычные связи (Hreflang) */}
-      <link rel="alternate" hrefLang="x-default" href={siteUrl} />
-      <link rel="alternate" hrefLang="en" href={siteUrl} />
-      {SUPPORTED_LANGUAGES.map((lang) => (
-        <link 
-          key={lang} 
-          rel="alternate" 
-          hrefLang={lang} 
-          href={getLanguageUrl(lang)} 
-        />
-      ))}
-
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" content={article ? 'article' : 'website'} />
-      <meta property="og:title" content={seo.title} />
-      <meta property="og:description" content={seo.description} />
-      <meta property="og:image" content={seo.image} />
-      <meta property="og:url" content={seo.url} />
-      <meta property="og:site_name" content={siteName} />
-
-      {/* Twitter */}
+      <meta property="og:title" content={seoData.title} />
+      <meta property="og:description" content={seoData.description} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={seoData.canonical} />
+      <meta property="og:image" content={seoData.image} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={seo.title} />
-      <meta name="twitter:description" content={seo.description} />
-      <meta name="twitter:image" content={seo.image} />
+      <meta name="twitter:title" content={seoData.title} />
+      <meta name="twitter:description" content={seoData.description} />
     </Helmet>
   )
 }

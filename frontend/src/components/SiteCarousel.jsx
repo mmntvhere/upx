@@ -12,18 +12,18 @@ import { motion, LayoutGroup } from "framer-motion"
 const SiteCarousel = ({ categoryId, sites = [], sliders, onSiteClick }) => {
   const currentLang = useLanguage()
 
-  // 🧼 Фильтрация по языку
-  const filteredSites = sites.filter(site => {
-    const langs = site.enabled_languages
-    return !langs || langs.length === 0 || langs.includes(currentLang)
-  })
+  // 🔽 Сортировка по position_per_lang для текущего языка
+  const sortedSites = React.useMemo(() => {
+    if (!sites || sites.length === 0) return [];
+    
+    return [...sites].sort((a, b) => {
+      const aPos = a.position_per_lang?.[currentLang] ?? a.position ?? 999
+      const bPos = b.position_per_lang?.[currentLang] ?? b.position ?? 999
+      return aPos - bPos
+    });
+  }, [sites, currentLang]);
 
-  // 🔽 Сортировка по position_per_lang
-  const sortedSites = [...filteredSites].sort((a, b) => {
-    const aPos = a.position_per_lang?.[currentLang] ?? 9999
-    const bPos = b.position_per_lang?.[currentLang] ?? 9999
-    return aPos - bPos
-  })
+  if (sortedSites.length === 0) return null;
 
   return (
     <div
@@ -40,7 +40,6 @@ const SiteCarousel = ({ categoryId, sites = [], sliders, onSiteClick }) => {
 
       <LayoutGroup id={`category-${categoryId}`}>
         <motion.div 
-          layout
           className="flex gap-4 items-start pl-4 sm:pl-0 pr-0"
         >
           {sortedSites.map((site) => (

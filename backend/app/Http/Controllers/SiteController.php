@@ -43,6 +43,7 @@ class SiteController extends Controller
         'categories' => \App\Models\Category::all(),
         'categoryId' => $categoryId,
         'language' => $language,
+        'languages' => config('languages.supported', []), // ✅ добавлен фоллбэк на пустой массив
     ]);
 }
 

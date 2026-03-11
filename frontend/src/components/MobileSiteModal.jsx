@@ -61,15 +61,15 @@ const MobileSiteModal = ({ site, onClose }) => {
           {site.favicon && (
             <img
               src={`/storage/${site.favicon}`}
-              alt="Favicon"
+              alt={`Favicon ${site.name}`}
               className="w-6 h-6 rounded"
             />
           )}
-          <span className="font-medium text-[17px]">{site.name}</span>
+          <h2 className="font-medium text-[17px] m-0">{site.name}</h2>
         </div>
         <button
           onClick={handleClose}
-          className="w-6 h-6 p-0 flex items-center justify-center bg-transparent border-none outline-none"
+          className="w-6 h-6 p-0 flex items-center justify-center bg-transparent border-none outline-none cursor-pointer"
           aria-label={tClose}
           style={{ color: "rgb(111, 116, 128)" }}
         >
@@ -82,50 +82,57 @@ const MobileSiteModal = ({ site, onClose }) => {
         </button>
       </div>
 
-      {/* 📷 Изображение */}
+      {/* 📷 Изображение: Жесткое ограничение 5 строками с запасом высоты, чтобы не лезло на кнопки */}
       {imageSrc && (
         <div className="relative px-4 pt-2">
-          <div className="overflow-hidden rounded-[20px] h-[220px] sm:h-[260px] relative">
-            <div className="absolute bottom-[-1px] left-0 w-full h-4 z-10 pointer-events-none rounded-b-[20px] shadow-[0_8px_20px_rgba(0,0,0,0.4)]" />
+          <div className="overflow-hidden rounded-[20px] h-[220px] sm:h-[260px] relative bg-zinc-100">
+            {/* 🌈 Исправленный градиент: теперь он привязан к нижней части и не 'плывет' */}
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/40 to-transparent z-10 pointer-events-none" />
+            
             <motion.img
               src={imageSrc}
-              alt={site.name}
-              initial={{ y: 0 }}
-              animate={{ y: ["0%", "-10%", "0%"] }}
+              alt={`Превью ${site.name}`}
+              initial={{ scale: 1 }}
+              animate={{ scale: 1.05 }}
               transition={{
-                duration: 6,
-                ease: "easeInOut",
-                repeat: 0,
+                duration: 10,
+                ease: "linear",
+                repeat: Infinity,
+                repeatType: "reverse",
               }}
-              className="w-full h-auto object-cover"
+              className="w-full h-full object-cover"
+              loading="eager"
             />
           </div>
         </div>
       )}
 
-      {/* 📝 Описание */}
+      {/* 📝 Описание: Четкое ограничение 5 строками */}
       {translatedDescription && (
-        <div className="text-sm text-zinc-700 px-4 pt-6 pb-4">
+        <div className="text-sm text-zinc-600 px-5 pt-6 mb-4 leading-relaxed line-clamp-5 overflow-hidden break-words max-h-[140px]">
           {translatedDescription}
         </div>
       )}
 
-      {/* 🔘 Кнопки */}
+      {/* 🔘 Кнопки: Оптимизированы для SEO как реальные ссылки */}
       <div className="px-4 pb-6 space-y-3">
-        <button
-          onClick={() => {
-            handleClose()
-            setTimeout(() => navigate(`/review/${site.slug}`), 100)
+        <a
+          href={`/review/${site.slug}`}
+          onClick={(e) => {
+             e.preventDefault();
+             handleClose();
+             setTimeout(() => navigate(`/review/${site.slug}`), 150);
           }}
-          className="block text-center w-full bg-zinc-900 text-white text-sm py-2 rounded-full border-none outline-none"
+          className="block text-center w-full bg-zinc-900 text-white text-sm py-2.5 rounded-full no-underline font-medium"
         >
           {tReadReview}
-        </button>
+        </a>
+        
         <a
           href={site.link}
           target="_blank"
-          rel="noopener noreferrer"
-          className="block text-center w-full text-white text-sm py-2 rounded-full flex items-center justify-center gap-2"
+          rel="nofollow noopener noreferrer"
+          className="block text-center w-full text-white text-sm py-2.5 rounded-full flex items-center justify-center gap-2 no-underline font-medium"
           style={{ backgroundColor: "#d80032" }}
         >
           {tGoToSite} <span className="font-semibold">{site.name}</span>

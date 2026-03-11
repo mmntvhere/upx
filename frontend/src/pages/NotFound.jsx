@@ -6,6 +6,7 @@ import { Home } from 'lucide-react'
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 import CategorySeoCard from "@/components/CategorySeoCard"
 import { useCategories } from "@/contexts/CategoryContext"
+import SEO from "@/components/SEO"
 
 const NotFound = () => {
   const { t } = useTranslation()
@@ -14,6 +15,10 @@ const NotFound = () => {
 
   return (
     <div className="flex flex-col w-full pb-10">
+      <SEO 
+        title={t('notFound.pageTitle', 'Page Not Found')} 
+        description={t('notFound.pageDescription', 'The page you are looking for does not exist.')} 
+      />
       <div className="flex items-center justify-center min-h-[60vh] px-4 py-16 relative overflow-hidden">
         {/* Background Glows */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primaryLink/10 rounded-full blur-[120px] pointer-events-none"></div>

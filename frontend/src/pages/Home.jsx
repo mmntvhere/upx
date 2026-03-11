@@ -13,8 +13,10 @@ import { useLanguage } from "@/hooks/useLanguage"
 import { useCategories } from "@/contexts/CategoryContext"
 
 import { motion, AnimatePresence } from "framer-motion"
+import SEO from "@/components/SEO"
 
 const Home = ({ setMobileModalOpen }) => {
+  const { t } = useTranslation()
   const { categories, loading: categoriesLoading, error: categoriesError, refreshCategories } = useCategories()
   const [activeCategoryId, setActiveCategoryId] = useState(null)
   const [showSearch, setShowSearch] = useState(false)
@@ -22,7 +24,6 @@ const Home = ({ setMobileModalOpen }) => {
 
   const sliders = useRef({})
   const navigate = useLocalNavigate()
-  const { t } = useTranslation()
 
   const [banners, setBanners] = useState([])
   const [bannersLoading, setBannersLoading] = useState(true)
@@ -115,7 +116,12 @@ const Home = ({ setMobileModalOpen }) => {
   }
 
   return (
-    <main className="bg-[#141415] w-full text-white pb-[72px]">
+    <>
+      <SEO 
+        title={t("home.seoTitle", "UPX - Best Site Reviews")} 
+        description={t("home.seoDescription", "Top rated sites and reviews on UPX.")}
+      />
+      <main className="bg-[#141415] w-full text-white pb-[72px]">
       {/* 🎯 Баннеры */}
       <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
@@ -239,7 +245,8 @@ const Home = ({ setMobileModalOpen }) => {
           onClose={() => setSelectedSite(null)}
         />
       )}
-    </main>
+      </main>
+    </>
   )
 }
 

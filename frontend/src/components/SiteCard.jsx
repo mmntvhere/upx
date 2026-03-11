@@ -37,7 +37,6 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
 
   return (
     <motion.div
-      layout
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}

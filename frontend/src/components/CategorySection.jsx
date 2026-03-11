@@ -38,11 +38,9 @@ const CategorySection = ({
   const scrollLeftLabel = useTranslateUniversal("searchResultsByCategory.scroll.left", "Scroll left")
   const scrollRightLabel = useTranslateUniversal("searchResultsByCategory.scroll.right", "Scroll right")
 
-  // 🧼 Фильтрация сайтов по языку
-  const filteredSites = (category.sites || []).filter((site) => {
-    const langs = site.enabled_languages
-    return !langs || langs.length === 0 || langs.includes(currentLang)
-  })
+  // ✨ Теперь мы доверяем бэкенду. API уже фильтрует сайты по Accept-Language.
+  // Повторная фильтрация здесь приводила к багам при несинхронном обновлении контекста языка.
+  const filteredSites = category.sites || []
 
   return (
     <section

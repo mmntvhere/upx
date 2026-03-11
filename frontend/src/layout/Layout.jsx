@@ -20,7 +20,6 @@ const Layout = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#141415] text-white relative">
-      <SEO />
       {/* 🔝 Шапка */}
       <Header />
 
