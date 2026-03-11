@@ -10,10 +10,11 @@ const axiosInstance = axios.create({
   },
 })
 
-// Подставляем текущий язык в каждый запрос
+// Подставляем текущий язык в каждый запрос (в формате 'en' или 'ru')
 axiosInstance.interceptors.request.use((config) => {
-  const lang = i18n.language || "en"
-  config.headers["Accept-Language"] = lang
+  const fullLang = i18n.language || "en"
+  const shortLang = fullLang.split("-")[0]
+  config.headers["Accept-Language"] = shortLang
   return config
 })
 

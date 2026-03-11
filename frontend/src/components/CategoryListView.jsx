@@ -15,17 +15,6 @@ const CategoryListView = ({ sites, onSiteClick, isSlice = false, excludeSiteId }
     )
   }
 
-  // 🔍 Логируем перед фильтрацией
-  console.log(
-    "📋 ListView - сайты до фильтрации:",
-    sites.map((s) => ({
-      name: s.name,
-      slug: s.slug,
-      pos: s.position_per_lang?.[currentLang] ?? "—",
-      langs: s.enabled_languages?.length ? s.enabled_languages : "Universal"
-    }))
-  )
-
   // 🧼 Фильтрация по языку
   let filteredSites = sites.filter((site) => {
     const langs = site.enabled_languages
@@ -37,24 +26,15 @@ const CategoryListView = ({ sites, onSiteClick, isSlice = false, excludeSiteId }
     filteredSites = filteredSites.filter((site) => site.id !== excludeSiteId)
   }
 
-  // 🔽 Сортировка по позиции
-  filteredSites.sort((a, b) => {
-    const aPos = a.position_per_lang?.[currentLang] ?? 9999
-    const bPos = b.position_per_lang?.[currentLang] ?? 9999
-    return aPos - bPos
-  })
-
-  // ✂️ Обрезка по количеству
-  if (isSlice) {
-    filteredSites = window.innerWidth < 1024
-      ? filteredSites.slice(0, 5)
-      : filteredSites.slice(0, 6)
-  }
+  // 🔽 Финальный список для рендеринга (без внутренней сортировки)
+  const finalSites = isSlice 
+    ? (window.innerWidth < 1024 ? filteredSites.slice(0, 5) : filteredSites.slice(0, 6))
+    : filteredSites
 
   return (
     <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {filteredSites.map((site) => (
+        {finalSites.map((site) => (
           <SiteListCard
             key={site.slug}
             site={site}

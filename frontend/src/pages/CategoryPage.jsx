@@ -17,6 +17,7 @@ import { useCategories } from "@/contexts/CategoryContext"
 import useLocalNavigate from "@/hooks/useLocalNavigate"
 import NotFound from "./NotFound"
 import SEO from "@/components/SEO"
+import SortFilter from "../components/SortFilter"
 
 const CategoryPage = () => {
   const { categories, loading } = useCategories()
@@ -25,6 +26,8 @@ const CategoryPage = () => {
   const [showModal, setShowModal] = useState(false)
   const [viewType, setViewType] = useState("list")
   const [isMobile, setIsMobile] = useState(false)
+  const [sortBy, setBy] = useState("popular")
+  const { language } = useLanguage()
   const navigate = useLocalNavigate()
 
   // 🔄 Находим нужную категорию синхронно из кэша
@@ -76,6 +79,26 @@ const CategoryPage = () => {
     setTimeout(() => setSelectedSite(null), 300)
   }
 
+  // 📈 Логика сортировки
+  const sortedSites = React.useMemo(() => {
+    if (!category?.sites) return []
+    const sites = [...category.sites]
+    
+    switch (sortBy) {
+      case "new":
+        // Новинки — по ID (самые свежие сверху)
+        return sites.sort((a, b) => b.id - a.id)
+      case "top":
+        // Топ — по рейтингу (самые высокооцененные сверху)
+        return sites.sort((a, b) => (parseFloat(b.rating) || 0) - (parseFloat(a.rating) || 0))
+      case "popular":
+      default:
+        // Популярные — доверяем порядку с бэкенда.
+        // Бэкенд уже отсортировал их в CategoryController по позициям и языкам.
+        return sites
+    }
+  }, [category?.sites, sortBy, language])
+
   return (
     <>
       <SEO 
@@ -104,22 +127,30 @@ const CategoryPage = () => {
             )}
 
             {/* 🧭 Управление отображением */}
-            <div className="flex items-center justify-end mb-6 gap-4">
-              {isMobile && (
+            <div className="flex items-center justify-between mb-10 gap-4">
+              <div className="flex items-center gap-4 shrink-0">
+                <SortFilter currentSort={sortBy} onChange={setBy} />
+                <div className="hidden lg:block h-4 w-px bg-white/10 mx-2" />
+                <div className="hidden lg:block text-zinc-500 text-[10px] uppercase tracking-[0.2em] font-bold">
+                  {sortedSites.length} verified
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-end shrink-0">
                 <ViewSwitcher viewType={viewType} onChange={setViewType} />
-              )}
+              </div>
             </div>
 
             {/* 🧱 Сайты */}
-            {category.sites?.length ? (
+            {sortedSites.length ? (
               viewType === "list" ? (
                 <CategoryListView
-                  sites={category.sites}
+                  sites={sortedSites}
                   onSiteClick={handleSiteClick}
                 />
               ) : (
                 <CategoryGridView
-                  sites={category.sites}
+                  sites={sortedSites}
                   viewType={viewType}
                   onSiteClick={handleSiteClick}
                 />

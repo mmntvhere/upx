@@ -15,24 +15,16 @@ const CategoryGridView = ({ sites, onSiteClick }) => {
     )
   }
 
-
- // 🧼 Фильтруем сайты по языку
-const filteredSites = sites.filter((site) => {
-  const langs = site.enabled_languages
-  return !langs || langs.length === 0 || langs.includes(currentLang)
-})
-
-// 🔽 Сортировка по позиции
-const sortedSites = [...filteredSites].sort((a, b) => {
-  const aPos = a.position_per_lang?.[currentLang] ?? 9999
-  const bPos = b.position_per_lang?.[currentLang] ?? 9999
-  return aPos - bPos
-})
+  // 🧼 Фильтруем сайты по языку
+  const filteredSites = sites.filter((site) => {
+    const langs = site.enabled_languages
+    return !langs || langs.length === 0 || langs.includes(currentLang)
+  })
 
   return (
     <div className="w-full">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-        {sortedSites.map((site) => (
+        {filteredSites.map((site) => (
           <SiteCard
             key={site.slug}
             site={site}
