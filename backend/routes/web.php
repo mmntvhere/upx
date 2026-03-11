@@ -62,6 +62,7 @@ Route::middleware('auth')->group(function () {
         })->name('translate.form');
 
         Route::post('/translate', [TranslationController::class, 'autoTranslate'])->name('translate.auto');
+        Route::post('/translate/single', [TranslationController::class, 'translateSingle'])->name('translate.single');
     });
 });
 

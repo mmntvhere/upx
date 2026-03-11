@@ -38,8 +38,15 @@ class SiteController extends Controller
     }
     // ❗ Если категория all или не выбрана — ничего не фильтруем вообще
 
+    // ⬇️ Динамическая сортировка для текущего языка
+    if (!empty($language)) {
+        $query->orderByRaw("COALESCE(CAST(JSON_UNQUOTE(JSON_EXTRACT(position_per_lang, '$.\"{$language}\"')) AS SIGNED), position) ASC");
+    } else {
+        $query->orderBy('position');
+    }
+
     return view('admin.sites.index', [
-        'sites' => $query->orderBy('position')->paginate(20),
+        'sites' => $query->paginate(200), // Увеличен лимит для корректного drag-and-drop
         'categories' => \App\Models\Category::all(),
         'categoryId' => $categoryId,
         'language' => $language,
@@ -287,7 +294,7 @@ public function create()
                             ->orWhereNull('enabled_languages')
                             ->orWhere('enabled_languages', '[]');
                       })
-                      ->orderBy('position');
+                      ->orderByRaw("COALESCE(CAST(JSON_UNQUOTE(JSON_EXTRACT(position_per_lang, '$.\"{$locale}\"')) AS SIGNED), position) ASC");
             },
             'tags'
         ])->where('slug', $slug)->firstOrFail();
@@ -301,7 +308,7 @@ public function create()
                         ->orWhereNull('enabled_languages')
                         ->orWhere('enabled_languages', '[]');
                   })
-                  ->orderBy('position')
+                  ->orderByRaw("COALESCE(CAST(JSON_UNQUOTE(JSON_EXTRACT(position_per_lang, '$.\"{$locale}\"')) AS SIGNED), position) ASC")
                   ->limit(5);
         }])->get();
 

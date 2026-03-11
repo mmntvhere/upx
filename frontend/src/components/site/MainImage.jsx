@@ -71,53 +71,50 @@ const MainImage = ({ site }) => {
 
       {/* 📦 Сайты той же категории */}
       {relatedSites.length > 0 && (
-        <div className="hidden lg:flex flex-col justify-between w-full max-w-[260px] h-[460px]">
+        <div className="ui-site-sidebar">
           {/* Заголовок */}
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center gap-2 mb-4 px-1">
             {site.category?.icon && (
               <img
                 src={`/storage/${site.category.icon}`}
                 alt={site.category.name}
-                className="w-6 h-6"
+                className="w-5 h-5 object-contain"
               />
             )}
-            <h2 className="text-white text-lg font-semibold">
+            <h2 className="ui-title-section !text-base">
               {site.category?.name}
             </h2>
           </div>
 
           {/* Список сайтов */}
-          <div className="space-y-3 flex-1 overflow-auto pr-1">
+          <div className="space-y-1.5 flex-1 overflow-auto hide-scrollbar">
             {relatedSites.map((s) => (
-              <div
-                key={s.id}
-                className="flex items-center justify-between group hover:bg-white/5 px-3 py-2 rounded-lg transition relative"
-              >
+              <div key={s.id} className="ui-sidebar-row group">
                 {/* Левая часть: фавикон и имя */}
-                <div className="flex items-center gap-2 shrink-0">
+                <div className="flex items-center gap-2.5 min-w-0">
                   {s.favicon ? (
                     <img
                       src={`/storage/${s.favicon}`}
                       alt={s.name}
-                      className="w-5 h-5 rounded-sm shrink-0"
+                      className="w-5 h-5 rounded-md shrink-0 shadow-sm"
                     />
                   ) : (
-                    <div className="w-5 h-5 bg-gray-600 text-white rounded-full text-xs flex items-center justify-center font-bold shrink-0">
+                    <div className="w-5 h-5 bg-white/10 text-white/40 rounded-md text-[10px] flex items-center justify-center font-bold shrink-0">
                       ?
                     </div>
                   )}
-                  <span className="text-sm text-[#EDF2F4] truncate max-w-[130px] group-hover:hidden">
+                  <span className="text-sm text-white/80 truncate font-medium">
                     {s.name}
                   </span>
                 </div>
 
-                <ChevronRightIcon className="w-4 h-4 text-white opacity-60 group-hover:hidden transition shrink-0" />
+                <ChevronRightIcon className="w-4 h-4 text-white/20 shrink-0" />
 
-                {/* Кнопки при наведении */}
-                <div className="absolute inset-y-0 left-[44px] right-3 hidden group-hover:flex gap-2 items-center z-10">
+                {/* ⚡️ Кнопки при наведении (Анимация из CSS) */}
+                <div className="ui-sidebar-actions">
                   <LocalLink
                     to={`/review/${s.slug}`}
-                    className="flex-1 text-center px-3 py-1.5 text-xs bg-white/10 text-white rounded-xl font-medium hover:bg-white/20 transition"
+                    className="flex-1 text-center py-1.5 text-[11px] bg-white/10 text-white rounded-lg font-semibold hover:bg-white/20 transition-colors"
                   >
                     {tReview}
                   </LocalLink>
@@ -126,7 +123,7 @@ const MainImage = ({ site }) => {
                       href={s.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center px-3 py-1.5 text-xs bg-[#D80032]/70 text-white rounded-xl font-medium hover:bg-[#D80032] transition"
+                      className="flex-1 text-center py-1.5 text-[11px] bg-[#D80032] text-white rounded-lg font-semibold hover:bg-[#ff003c] transition-colors shadow-lg shadow-red-500/20"
                     >
                       {tGoToSite}
                     </a>
@@ -137,13 +134,13 @@ const MainImage = ({ site }) => {
           </div>
 
           {/* Кнопка See All */}
-          <div className="filter-glow-button mt-4">
+          <div className="mt-4">
             <LocalLink
               to={`/${site.category?.slug}`}
-              className="text-sm text-white text-center block"
+              className="ui-card bg-white/5 hover:bg-white/10 py-2.5 text-xs text-white text-center block font-medium transition-colors"
             >
               {tSeeAll}{" "}
-              <span className="text-[#D80032] font-semibold">
+              <span className="text-primaryLink font-bold">
                 {allRelatedSitesForLang.length}
               </span>{" "}
               {tSites}

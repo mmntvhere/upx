@@ -47,7 +47,7 @@ const Home = ({ setMobileModalOpen }) => {
 
   // Skeleton component for banners
   const BannerSkeleton = ({ className }) => (
-    <div className={`bg-[#212122] animate-pulse overflow-hidden relative ${className}`}>
+    <div className={`ui-banner-skeleton ${className}`}>
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
     </div>
   )
@@ -123,13 +123,13 @@ const Home = ({ setMobileModalOpen }) => {
       />
       <main className="bg-[#141415] w-full text-white pb-[72px]">
       {/* 🎯 Баннеры */}
-      <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="ui-container">
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
           {/* Main Banner Slot */}
           <RenderBanner 
             banner={mainBanner} 
             slotLabel="Main Selection" 
-            className="col-span-1 lg:col-span-2 w-full aspect-[16/7] lg:aspect-auto lg:h-[280px] rounded-2xl overflow-hidden shadow-2xl border border-white/5" 
+            className="ui-banner-main col-span-1 lg:col-span-2" 
           />
 
           {/* Side Banners Column */}
@@ -137,12 +137,12 @@ const Home = ({ setMobileModalOpen }) => {
             <RenderBanner 
               banner={sideTop} 
               slotLabel="Top Choice" 
-              className="h-[calc(50%-8px)] rounded-2xl overflow-hidden border border-white/5" 
+              className="ui-banner-side h-[calc(50%-8px)]" 
             />
             <RenderBanner 
               banner={sideBottom} 
               slotLabel="Featured Site" 
-              className="h-[calc(50%-8px)] rounded-2xl overflow-hidden border border-white/5" 
+              className="ui-banner-side h-[calc(50%-8px)]" 
             />
           </div>
         </section>
@@ -170,16 +170,16 @@ const Home = ({ setMobileModalOpen }) => {
           </motion.div>
         ) : categoriesLoading ? (
           /* 🦴 Скелетоны при первой загрузке */
-          <div key="skeletons" className="mt-6 space-y-12">
+          <div key="skeletons" className="ui-container mt-6 space-y-12">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+              <div key={i} className="space-y-4">
                 <div className="flex justify-between items-center">
-                   <div className="w-48 h-8 bg-white/5 rounded-lg animate-pulse" />
-                   <div className="w-24 h-8 bg-white/5 rounded-full animate-pulse" />
+                   <div className="ui-skeleton-text w-48 h-8" />
+                   <div className="ui-skeleton-text w-24 h-8 rounded-full" />
                 </div>
                 <div className="flex gap-4 overflow-hidden">
                    {[1, 2, 3, 4].map((j) => (
-                     <div key={j} className="min-w-[280px] h-[320px] bg-white/5 rounded-2xl animate-pulse" />
+                     <div key={j} className="ui-skeleton-card" />
                    ))}
                 </div>
               </div>
@@ -187,9 +187,9 @@ const Home = ({ setMobileModalOpen }) => {
           </div>
         ) : categoriesError ? (
           /* ⚠️ Ошибка при загрузке */
-          <div key="error" className="flex flex-col items-center justify-center py-20 px-6 text-center">
-            <div className="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mb-4">
-               <svg className="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div key="error" className="ui-error-container">
+            <div className="ui-error-icon">
+               <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                </svg>
             </div>
@@ -197,7 +197,7 @@ const Home = ({ setMobileModalOpen }) => {
             <p className="text-white/50 mb-6 max-w-sm">{t('errors.checkConnection', 'Please check your internet connection and try again.')}</p>
             <button 
               onClick={refreshCategories}
-              className="px-8 py-3 bg-[#7100FF] hover:bg-[#8220FF] active:scale-95 transition-all rounded-xl font-semibold"
+              className="px-8 py-3 bg-[#7100FF] hover:bg-[#8220FF] active:scale-95 transition-all rounded-xl font-semibold text-white"
             >
               {t('errors.retry', 'Retry')}
             </button>

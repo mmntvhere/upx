@@ -39,6 +39,126 @@ h1 {
   line-height: 1.1;
 }
 
+@layer components {
+  /* 📦 Базовая карточка */
+  .ui-card {
+    @apply rounded-[24px] sm:rounded-[32px] bg-[#1c1c1e] border border-white/5 shadow-xl transition-all duration-300;
+  }
+  
+  .ui-card-hover {
+    @apply hover:border-white/10 hover:shadow-2xl hover:shadow-primaryLink/5 active:scale-[0.98];
+  }
+
+  /* 🏗 Контейнер секции */
+  .ui-container {
+    @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* 🏷 Заголовки */
+  .ui-title-main {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 leading-tight;
+  }
+
+  .ui-title-section {
+    @apply text-xl sm:text-2xl font-bold text-white tracking-tight;
+  }
+
+  /* ⚡️ Градиенты и бордеры */
+  .ui-line-gradient {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent;
+  }
+
+  /* 📖 Оформление контента (Rich Text / CMS) */
+  .ui-prose {
+    @apply prose prose-invert prose-zinc max-w-none 
+           prose-headings:text-white prose-headings:font-bold 
+           prose-p:text-white/80 prose-p:leading-relaxed prose-p:text-lg
+           prose-a:text-primaryLink hover:prose-a:text-primaryLinkHover prose-a:no-underline prose-a:font-semibold
+           prose-strong:text-white prose-strong:font-bold
+           prose-li:text-white/80 prose-li:text-lg
+           prose-img:rounded-2xl prose-img:border prose-img:border-white/10
+           prose-hr:border-white/10;
+  }
+
+  /* 🧭 Навигация и Ссылки */
+  .ui-nav-link-mobile {
+    @apply snap-center shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200;
+  }
+  
+  .ui-nav-link-mobile-active {
+    @apply bg-white text-black drop-shadow-lg scale-105;
+  }
+
+  .ui-nav-link-mobile-inactive {
+    @apply bg-white/5 text-white/60 hover:bg-white/10 hover:text-white;
+  }
+
+  .ui-nav-link-desktop {
+    @apply px-4 py-3 rounded-xl transition-all flex items-center text-white/60 hover:bg-white/5 hover:text-white;
+  }
+
+  .ui-nav-link-desktop-active {
+    @apply bg-white/10 text-white font-semibold;
+  }
+
+  /* 🎯 Баннеры и Спец-блоки */
+  .ui-banner-main {
+    @apply w-full aspect-[16/7] lg:aspect-auto lg:h-[280px] rounded-2xl overflow-hidden shadow-2xl border border-white/5;
+  }
+
+  .ui-banner-side {
+    @apply rounded-2xl overflow-hidden border border-white/5 bg-[#1c1c1e];
+  }
+
+  .ui-banner-skeleton {
+    @apply bg-[#212122] animate-pulse overflow-hidden relative;
+  }
+
+  /* 🦴 Скелетоны для контента */
+  .ui-skeleton-card {
+    @apply min-w-[280px] h-[320px] bg-white/5 rounded-2xl animate-pulse;
+  }
+
+  .ui-skeleton-text {
+    @apply bg-white/5 rounded-lg animate-pulse;
+  }
+
+  /* ⚠️ Сообщения об ошибках */
+  .ui-error-container {
+    @apply flex flex-col items-center justify-center py-20 px-6 text-center;
+  }
+
+  .ui-error-icon {
+    @apply w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mb-4 text-red-500;
+  }
+
+  /* 🕸 Сетки */
+  .ui-seo-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+  }
+
+  /* 📑 Боковая панель (Similar Sites Sidebar) */
+  .ui-site-sidebar {
+    @apply hidden lg:flex flex-col w-full max-w-[280px] h-[460px] p-4 ui-card;
+  }
+
+  .ui-sidebar-row {
+    @apply flex items-center justify-between p-2 rounded-xl transition-all duration-300 relative overflow-hidden active:scale-[0.98];
+  }
+
+  .ui-sidebar-row:hover {
+    @apply bg-white/5;
+  }
+
+  .ui-sidebar-actions {
+    @apply absolute inset-0 bg-[#1c1c1e] flex items-center gap-2 px-2 translate-x-full transition-transform duration-300;
+  }
+
+  .ui-sidebar-row:hover .ui-sidebar-actions {
+    @apply translate-x-0;
+  }
+}
+
 /* Универсальный стиль для всех кнопок */
 button {
   border-radius: 9999px;

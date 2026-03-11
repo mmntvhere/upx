@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next"
 import { useLanguage } from "@/hooks/useLanguage"
 import { fetchSiteBySlug } from "../api/siteApi"
 import DOMPurify from "dompurify"
+import useLocalNavigate from "@/hooks/useLocalNavigate"
 import SEO from "@/components/SEO"
 import NotFound from "./NotFound"
 import Breadcrumbs from "../components/site/Breadcrumbs"
@@ -21,7 +22,8 @@ import MobileStickyBanner from "../components/site/MobileStickyBanner"
 const SitePage = () => {
   const { slug } = useParams()
   const { t } = useTranslation()
-  const { language } = useLanguage()
+  const language = useLanguage() // ✅ Fix: returns string, not object
+  const navigate = useLocalNavigate()
   const [site, setSite] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [selectedSite, setSelectedSite] = useState(null)
@@ -29,6 +31,7 @@ const SitePage = () => {
 
   useEffect(() => {
     setIsLoading(true)
+    setSite(null) // ✅ Reset site state before fetching new one
     fetchSiteBySlug(slug)
       .then((data) => setSite(data))
       .catch((err) => console.error("Error fetching site:", err))
@@ -44,7 +47,11 @@ const SitePage = () => {
     })
 
   const handleSiteClick = (s) => {
-    setSelectedSite(s)
+    if (window.innerWidth < 1024) {
+      setSelectedSite(s)
+    } else {
+      navigate(`/review/${s.slug}`)
+    }
   }
 
   return (
@@ -62,7 +69,7 @@ const SitePage = () => {
         <NotFound />
       ) : (
         <main className="bg-[#141415] text-white pb-10 relative">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+          <div className="ui-container pt-6">
             <Breadcrumbs site={site} />
             <MainImage site={site} />
             <SiteDisclaimer siteName={site.name} />
@@ -72,21 +79,23 @@ const SitePage = () => {
             <SimilarSitesHeader site={site} />
             
             {categorySites.length > 0 && (
-              <CategoryGridView 
-                sites={categorySites} 
-                viewType="grid" 
-                onSiteClick={handleSiteClick} 
-              />
+              <div className="mb-10">
+                <CategoryGridView 
+                  sites={categorySites} 
+                  viewType="grid" 
+                  onSiteClick={handleSiteClick} 
+                />
+              </div>
             )}
             
-            <div className="w-full h-px my-10 bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+            <div className="ui-line-gradient my-10" />
 
             {site.allCategories?.length > 0 && (
               <div className="mt-8">
-                <h2 className="text-xl font-semibold mb-6 text-white">
+                <h2 className="ui-title-section mb-6">
                   {t("sitePage.otherCategories")}
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="ui-seo-grid">
                   {site.allCategories.map((cat) => (
                     <AllCategoryCard key={cat.id} category={cat} />
                   ))}

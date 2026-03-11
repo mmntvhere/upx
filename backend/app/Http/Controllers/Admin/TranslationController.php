@@ -4,95 +4,95 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Site;
-use App\Services\DeeplTranslationService;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Artisan;
 
 class TranslationController extends Controller
 {
     public function autoTranslate(Request $request)
     {
-        set_time_limit(300);
+        // 🚀 Отключаем тайм-ауты
+        set_time_limit(0);
 
-        $deepl = new DeeplTranslationService();
+        $model = $request->input('model', 'all');
 
-        $languages = ['uk', 'es', 'de', 'fr', 'ru', 'tr', 'zh', 'ar', 'hi', 'ja', 'ko', 'pt', 'pl', 'it', 'nl', 'sv', 'fi', 'no', 'da', 'cs', 'ro', 'el', 'vi', 'id', 'he', 'hu', 'th'];
-        $failed = [];
+        try {
+            // Запускаем консольную команду программно и ждем её завершения
+            Artisan::call('translate:content', ['--model' => $model]);
+            
+            // Вытягиваем вывод консоли (прогресс-бар и логи)
+            $output = Artisan::output();
 
-        // 🔁 Переводим категории
-        foreach (Category::all() as $category) {
-            foreach ($languages as $lang) {
-                foreach ([
-                    'name',
-                    'description',
-                    'seo_title',
-                    'seo_description',
-                    'disclaimer'
-                ] as $field) {
+            return response()->json([
+                'success' => true,
+                'message' => "Успешно: контент ($model) переведен.",
+                'output' => $output
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
 
-                    $original = $category->getTranslation($field, 'en');
-                    if (!$original) continue;
+    /**
+     * Перевод конкретного объекта на один выбранный язык.
+     */
+    public function translateSingle(Request $request, \App\Services\DeeplTranslationService $deepl)
+    {
+        $validated = $request->validate([
+            'model_type' => 'required|in:site,category',
+            'model_id'   => 'required|integer',
+            'target_lang'=> 'required|string|size:2'
+        ]);
 
-                    if ($category->hasTranslation($field, $lang)) continue; // уже переведено
+        $modelClass = $validated['model_type'] === 'site' ? \App\Models\Site::class : \App\Models\Category::class;
+        $model = $modelClass::findOrFail($validated['model_id']);
+        $lang = $validated['target_lang'];
 
-                    try {
-                        $translated = $deepl->translateSingle($original, 'EN', $lang);
-                        $category->setTranslation($field, $lang, $translated);
-                    } catch (\Throwable $e) {
-                        $failed[] = "Category {$category->id} field {$field} lang {$lang}: {$e->getMessage()}";
-                        Log::error(end($failed));
-                    }
+        // Поля для перевода
+        $fields = $validated['model_type'] === 'site' 
+            ? ['description', 'review', 'seo_title', 'seo_description']
+            : ['name', 'description', 'seo_title', 'seo_description', 'disclaimer'];
 
-                    usleep(300000); // 0.3 сек
+        $results = [];
+
+        foreach ($fields as $field) {
+            $original = $model->getTranslation($field, 'en', false);
+            if (empty($original)) continue;
+
+            try {
+                $translated = $deepl->translateSingle($original, 'EN', $lang);
+                if ($translated) {
+                    $model->setTranslation($field, $lang, $translated);
+                    $results[$field] = $translated;
                 }
+            } catch (\Exception $e) {
+                // Игнорируем ошибки конкретных полей, чтобы перевести остальные
             }
-            $category->save();
         }
 
-        // 🔁 Переводим сайты
-        foreach (Site::all() as $site) {
-            foreach ($languages as $lang) {
-                foreach ([
-                    'description',
-                    'review',
-                    'pros',
-                    'cons',
-                    'seo_title',
-                    'seo_description'
-                ] as $field) {
+        // Плюсы/Минусы отдельно (для сайтов)
+        if ($validated['model_type'] === 'site') {
+            foreach (['pros', 'cons'] as $field) {
+                $original = $model->getTranslation($field, 'en', false);
+                if (empty($original)) continue;
 
-                    $original = $site->getTranslation($field, 'en');
-                    if (!$original) continue;
-
-                    if ($site->hasTranslation($field, $lang)) continue;
-
-                    try {
-                        if (is_array($original)) {
-                            $translatedArray = [];
-                            foreach ($original as $item) {
-                                $translatedArray[] = $deepl->translateSingle($item, 'EN', $lang);
-                                usleep(300000);
-                            }
-                            $site->setTranslation($field, $lang, $translatedArray);
-                        } else {
-                            $translated = $deepl->translateSingle($original, 'EN', $lang);
-                            $site->setTranslation($field, $lang, $translated);
-                            usleep(300000);
-                        }
-                    } catch (\Throwable $e) {
-                        $failed[] = "Site {$site->id} field {$field} lang {$lang}: {$e->getMessage()}";
-                        Log::error(end($failed));
+                try {
+                    $translated = $deepl->translateArray((array)$original, 'EN', $lang);
+                    if ($translated) {
+                        $model->setTranslation($field, $lang, $translated);
+                        $results[$field] = $translated;
                     }
-                }
+                } catch (\Exception $e) {}
             }
-            $site->save();
         }
+
+        $model->save();
 
         return response()->json([
             'success' => true,
-            'errors' => $failed,
-            'message' => count($failed) ? 'Переводы выполнены с ошибками' : 'Все успешно переведено'
+            'translations' => $results
         ]);
     }
 }

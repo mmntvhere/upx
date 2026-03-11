@@ -89,7 +89,7 @@ const CategoryPage = () => {
         <NotFound />
       ) : (
         <main className="bg-[#141415] text-white pb-10">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+          <div className="ui-container pt-6">
             {/* 🔗 Хлебные крошки */}
             <Breadcrumb basePath="/" baseLabel="categoryPage.breadcrumbHome" category={category} />
 
@@ -138,9 +138,9 @@ const CategoryPage = () => {
 
           {/* 🔗 SEO-перелинковка */}
           {otherCategories.length > 0 && (
-            <div className="mt-8 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-xl font-semibold mb-4 text-white">{otherCategoriesTitle}</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="mt-8 ui-container">
+              <h2 className="ui-title-section mb-4">{otherCategoriesTitle}</h2>
+              <div className="ui-seo-grid">
                 {otherCategories.map((cat) => (
                   <CategorySeoCard key={cat.id} category={cat} />
                 ))}

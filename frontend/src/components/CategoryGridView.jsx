@@ -15,17 +15,6 @@ const CategoryGridView = ({ sites, onSiteClick }) => {
     )
   }
 
-  // 🔍 Логируем язык и позиции
-  console.log(
-  "📊 Сайты с позициями:",
-  sites.map((s) => ({
-    name: s.name,
-    slug: s.slug,
-    pos: s.position_per_lang?.[currentLang] ?? "—",
-    langs: s.enabled_languages?.length ? s.enabled_languages : "Universal",
-    full: s.position_per_lang,
-  }))
-)
 
  // 🧼 Фильтруем сайты по языку
 const filteredSites = sites.filter((site) => {

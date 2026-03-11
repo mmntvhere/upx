@@ -23,7 +23,7 @@ class CategoryController extends Controller
                             ->orWhereNull('enabled_languages')
                             ->orWhere('enabled_languages', '[]');
                       })
-                      ->orderBy('position');
+                      ->orderByRaw("COALESCE(CAST(JSON_UNQUOTE(JSON_EXTRACT(position_per_lang, '$.\"{$locale}\"')) AS SIGNED), position) ASC");
             }])
             ->get();
 

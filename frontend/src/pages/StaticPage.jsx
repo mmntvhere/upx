@@ -92,7 +92,7 @@ const StaticPage = () => {
           </LocalLink>
         </div>
       ) : (
-        <div className="px-4 sm:px-6 lg:px-8 max-w-[1280px] mx-auto py-8 lg:py-12 flex flex-col min-h-[80vh]">
+        <div className="ui-container py-8 lg:py-12 flex flex-col min-h-[80vh]">
           {/* 📱 Mobile Fixed Navigation Wrapper */}
           <div className="md:hidden sticky top-[60px] z-40 -mx-4 mb-8">
             <div className="bg-[#141415]/95 backdrop-blur-md px-4 pb-6 border-b border-white/5 shadow-sm">
@@ -107,10 +107,7 @@ const StaticPage = () => {
                       to={`/${p.slug}`}
                       key={p.id}
                       data-active={isActive}
-                      className={`snap-center shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors ${isActive
-                        ? "bg-white text-black drop-shadow-md"
-                        : "bg-[#212122] text-white/70 hover:bg-[#2a2a2e] hover:text-white"
-                        }`}
+                      className={`ui-nav-link-mobile ${isActive ? "ui-nav-link-mobile-active" : "ui-nav-link-mobile-inactive"}`}
                     >
                       {getLocalizedField(p.title)}
                     </LocalLink>
@@ -132,13 +129,9 @@ const StaticPage = () => {
                       <LocalLink
                         to={`/${p.slug}`}
                         key={p.id}
-                        className={`px-4 py-3 rounded-xl transition-all flex items-center group ${isActive
-                          ? "bg-white/10 text-white font-semibold"
-                          : "text-white/60 hover:bg-white/5 hover:text-white"
-                          }`}
+                        className={`ui-nav-link-desktop group ${isActive ? "ui-nav-link-desktop-active" : ""}`}
                       >
-                        <div className={`w-1.5 h-1.5 rounded-full mr-3 transition-transform ${isActive ? "bg-primaryLink scale-100" : "bg-white/20 scale-0 group-hover:scale-75"
-                          }`} />
+                        <div className={`w-1.5 h-1.5 rounded-full mr-3 transition-transform ${isActive ? "bg-primaryLink scale-100" : "bg-white/20 scale-0 group-hover:scale-75"}`} />
                         {getLocalizedField(p.title)}
                       </LocalLink>
                     )
@@ -149,20 +142,13 @@ const StaticPage = () => {
 
             {/* 📝 Main Content Area */}
             <main className="flex-grow min-w-0">
-              <div className="bg-[#1c1c1e] rounded-[24px] sm:rounded-[32px] p-6 sm:p-8 lg:p-12 shadow-xl border border-white/5">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-8 lg:mb-12 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 leading-tight">
+              <div className="ui-card p-6 sm:p-8 lg:p-12">
+                <h1 className="ui-title-main mb-8 lg:mb-12">
                   {title}
                 </h1>
 
                 <div
-                  className="prose prose-invert prose-zinc max-w-none 
-                  prose-headings:text-white prose-headings:font-bold 
-                  prose-p:text-white/80 prose-p:leading-relaxed prose-p:text-lg
-                  prose-a:text-primaryLink hover:prose-a:text-primaryLinkHover prose-a:no-underline prose-a:font-semibold
-                  prose-strong:text-white prose-strong:font-bold
-                  prose-li:text-white/80 prose-li:text-lg
-                  prose-img:rounded-2xl prose-img:border prose-img:border-white/10
-                  prose-hr:border-white/10"
+                  className="ui-prose"
                   dangerouslySetInnerHTML={{ __html: cleanContent }}
                 />
               </div>

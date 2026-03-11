@@ -45,24 +45,52 @@ class DeeplTranslationService
     }
 
     /**
-     * Перевод текста на один язык
+     * Перевод текста или HTML на один язык
      */
     public function translateSingle(string $text, string $sourceLang, string $targetLang): ?string
     {
-        $response = Http::asForm()->timeout(15)->post($this->apiUrl, [
-            'auth_key'    => $this->apiKey,
-            'text'        => $text,
+        $response = Http::withHeaders([
+            'Authorization' => "DeepL-Auth-Key {$this->apiKey}",
+        ])->timeout(20)->post($this->apiUrl, [
+            'text'        => [$text],
             'source_lang' => strtoupper($sourceLang),
             'target_lang' => strtoupper($targetLang),
+            'tag_handling'=> 'html', // 🔴 КРИТИЧЕСКИ ВАЖНО: сохраняет структуру тегов
         ]);
 
         if ($response->successful()) {
             return $response->json()['translations'][0]['text'] ?? null;
         }
 
-        Log::error('DEEPL API error: ' . $response->body());
+        Log::error("DEEPL API error [{$targetLang}]: " . $response->body());
         return null;
     }
+
+    /**
+     * Оптимизированный перевод массива строк (например, плюсы/минусы) за 1 запрос
+     */
+    public function translateArray(array $texts, string $sourceLang, string $targetLang): array
+    {
+        if (empty($texts)) return [];
+
+        $response = Http::withHeaders([
+            'Authorization' => "DeepL-Auth-Key {$this->apiKey}",
+        ])->timeout(30)->post($this->apiUrl, [
+            'text'        => $texts,
+            'source_lang' => strtoupper($sourceLang),
+            'target_lang' => strtoupper($targetLang),
+            'tag_handling'=> 'html', 
+        ]);
+
+        if ($response->successful()) {
+            $translations = $response->json()['translations'] ?? [];
+            return array_column($translations, 'text');
+        }
+
+        Log::error("DEEPL API error [Array to {$targetLang}]: " . $response->body());
+        return [];
+    }
+
 
     /**
      * Получение списка языков, для которых перевод не удался

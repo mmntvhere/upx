@@ -24,6 +24,9 @@ class SiteSortController extends Controller
             $site = $sites->get($item['id']);
             if ($site) {
                 $site->setPositionForLocale($locale, $item['position']);
+                if ($locale === 'en') {
+                    $site->position = $item['position'];
+                }
                 $site->save();
             }
         }

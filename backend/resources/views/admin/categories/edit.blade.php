@@ -121,7 +121,15 @@
 <div id="translations-container">
 @foreach ($locales as $locale => $label)
     <div class="translation-block hidden bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md p-5 mb-4" data-locale="{{ $locale }}">
-        <h3 class="font-bold text-lg mb-4 text-gray-800 dark:text-white">Translating to: {{ $label }}</h3>
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-lg text-gray-800 dark:text-white">Translating to: {{ $label }}</h3>
+            <button type="button" 
+                    onclick="magicTranslate('category', {{ $category->id }}, '{{ $locale }}')"
+                    class="magic-translate-btn flex items-center gap-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300 px-3 py-1.5 rounded-lg text-sm font-semibold transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                Magic AI Translate
+            </button>
+        </div>
 
         <div class="space-y-4">
             {{-- Name --}}
@@ -130,7 +138,8 @@
                     Name ({{ $label }})
                 </label>
                 <input type="text" name="translations[name][{{ $locale }}]"
-                       value="{{ old("translations.name.$locale", $category->getTranslation('name', $locale)) }}"
+                       data-field="name"
+                       value="{{ old("translations.name.$locale", $category->getTranslation('name', $locale, false)) }}"
                        class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">
             </div>
 
@@ -140,7 +149,8 @@
                     Description ({{ $label }})
                 </label>
                 <textarea name="translations[description][{{ $locale }}]" rows="2"
-                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.description.$locale", $category->getTranslation('description', $locale)) }}</textarea>
+                          data-field="description"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.description.$locale", $category->getTranslation('description', $locale, false)) }}</textarea>
             </div>
 
             {{-- SEO Title --}}
@@ -149,7 +159,8 @@
                     SEO Title ({{ $label }})
                 </label>
                 <input type="text" name="translations[seo_title][{{ $locale }}]"
-                       value="{{ old("translations.seo_title.$locale", $category->getTranslation('seo_title', $locale)) }}"
+                       data-field="seo_title"
+                       value="{{ old("translations.seo_title.$locale", $category->getTranslation('seo_title', $locale, false)) }}"
                        class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">
             </div>
 
@@ -159,7 +170,8 @@
                     SEO Description ({{ $label }})
                 </label>
                 <textarea name="translations[seo_description][{{ $locale }}]" rows="2"
-                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.seo_description.$locale", $category->getTranslation('seo_description', $locale)) }}</textarea>
+                          data-field="seo_description"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.seo_description.$locale", $category->getTranslation('seo_description', $locale, false)) }}</textarea>
             </div>
 
             {{-- Disclaimer --}}
@@ -168,7 +180,8 @@
                     Disclaimer ({{ $label }})
                 </label>
                 <textarea name="translations[disclaimer][{{ $locale }}]" rows="2"
-                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.disclaimer.$locale", $category->getTranslation('disclaimer', $locale)) }}</textarea>
+                          data-field="disclaimer"
+                          class="w-full px-3 py-2 border dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 dark:text-white">{{ old("translations.disclaimer.$locale", $category->getTranslation('disclaimer', $locale, false)) }}</textarea>
             </div>
         </div>
     </div>
@@ -206,5 +219,50 @@
         updateVisibleTranslation();
     }
   });
+
+  async function magicTranslate(type, id, lang) {
+      if(!confirm('Translate this language using AI? It will overwrite current data in this tab.')) return;
+
+      const btn = event.currentTarget;
+      const originalHtml = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<svg class="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>';
+
+      try {
+          const res = await fetch("{{ route('admin.translate.single') }}", {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-TOKEN': '{{ csrf_token() }}'
+              },
+              body: JSON.stringify({ 
+                  model_type: type,
+                  model_id: id,
+                  target_lang: lang
+              })
+          });
+
+          const data = await res.json();
+          if (data.success) {
+              // Находим блок этого языка
+              const block = document.querySelector(`.translation-block[data-locale="${lang}"]`);
+              if(block) {
+                  // Обновляем все инпуты в этом блоке
+                  Object.entries(data.translations).forEach(([field, value]) => {
+                      const input = block.querySelector(`[data-field="${field}"]`);
+                      if(input) input.value = value;
+                  });
+              }
+              alert('✨ AI Translation successful!');
+          } else {
+              alert('Error: ' + data.message);
+          }
+      } catch (e) {
+          alert('Network error or timeout.');
+      } finally {
+          btn.innerHTML = originalHtml;
+          btn.disabled = false;
+      }
+  }
 </script>
 @endpush
