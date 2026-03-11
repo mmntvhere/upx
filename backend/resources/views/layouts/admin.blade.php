@@ -47,6 +47,11 @@
                         Banners
                     </a>
 
+                    <a href="{{ route('admin.pages.index') }}" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition {{ request()->routeIs('admin.pages.*') ? 'bg-gray-200 dark:bg-gray-800' : '' }}">
+                        <i data-lucide="file-text" class="w-5 h-5 mr-3"></i>
+                        Pages
+                    </a>
+
                     <a href="{{ route('admin.translate.form') }}" class="flex items-center px-4 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition">
                         <i data-lucide="globe" class="w-5 h-5 mr-3"></i>
                         Translate

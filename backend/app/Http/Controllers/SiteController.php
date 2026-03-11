@@ -10,37 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class SiteController extends Controller
 {
-    private array $supportedLanguages = [
-        'en' => 'English',
-        'uk' => 'Українська',
-        'fr' => 'Français',
-        'de' => 'Deutsch',
-        'es' => 'Español',
-        'it' => 'Italiano',
-        'pt' => 'Português',
-        'pl' => 'Polski',
-        'nl' => 'Nederlands',
-        'ru' => 'Русский',
-        'tr' => 'Türkçe',
-        'ro' => 'Română',
-        'sv' => 'Svenska',
-        'fi' => 'Suomi',
-        'no' => 'Norsk',
-        'da' => 'Dansk',
-        'cs' => 'Čeština',
-        'hu' => 'Magyar',
-        'el' => 'Ελληνικά',
-        'he' => 'עברית',
-        'hi' => 'हिन्दी',
-        'id' => 'Bahasa Indonesia',
-        'vi' => 'Tiếng Việt',
-        'th' => 'ไทย',
-        'ja' => '日本語',
-        'ko' => '한국어',
-        'zh' => '中文',
-        'ar' => 'العربية',
-    ];
-
     public function index(Request $request)
 {
     $query = Site::query();
@@ -74,7 +43,6 @@ class SiteController extends Controller
         'categories' => \App\Models\Category::all(),
         'categoryId' => $categoryId,
         'language' => $language,
-        'languages' => $this->supportedLanguages,
     ]);
 }
 
@@ -155,7 +123,7 @@ public function store(Request $request)
             'site' => $site,
             'categories' => \App\Models\Category::all(),
             'allTags' => Tag::all(),
-            'languages' => $this->supportedLanguages,
+            'languages' => config('languages.supported'),
             'enabledLanguages' => $site->enabled_languages, // null означает "на всех языках"
         ]);
     }
@@ -180,7 +148,7 @@ public function store(Request $request)
         'seo_title'   => 'nullable|string|max:255',
         'seo_description' => 'nullable|string',
         'enabled_languages' => ['nullable', 'array'],
-        'enabled_languages.*' => ['in:en,uk,fr,de,es,it,pt,pl,nl,ru,tr,ro,sv,fi,no,da,cs,hu,el,he,hi,id,vi,th,ja,ko,zh,ar'],
+        'enabled_languages.*' => ['in:' . implode(',', config('languages.codes'))],
     ]);
 
     // ✅ Логика поля is_active
@@ -230,7 +198,7 @@ public function create()
     return view('admin.sites.create', [
         'categories' => \App\Models\Category::all(),
         'allTags' => \App\Models\Tag::all(),
-        'languages' => $this->supportedLanguages,
+        'languages' => config('languages.supported'),
     ]);
 }
 
@@ -304,6 +272,10 @@ public function create()
     public function showBySlug($slug)
     {
         $locale = request()->header('Accept-Language', 'en');
+        if (!in_array($locale, config('languages.codes'))) {
+            $locale = 'en';
+        }
+        app()->setLocale($locale);
 
         $site = Site::with([
             'category.sites' => function ($query) use ($slug, $locale) {

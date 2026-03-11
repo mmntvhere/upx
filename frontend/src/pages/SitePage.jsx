@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { fetchSiteBySlug } from "../api/siteApi"
 import { useLanguage } from "@/hooks/useLanguage"
 import NotFound from "./NotFound"
+import DOMPurify from "dompurify"
 
 import { useTranslation } from "react-i18next"
 import Breadcrumbs from "../components/site/Breadcrumbs"
@@ -63,7 +64,7 @@ const SitePage = () => {
         <MainImage site={site} />
         <SiteDisclaimer siteName={site.name} />
         <SiteHeaderRow site={site} onGoToHidden={setShowMobileBanner} />
-        <SiteDescription review={review} className="mt-0" />
+        <SiteDescription review={DOMPurify.sanitize(review)} className="mt-0" />
         <SiteProsCons site={site} />
         <SimilarSitesHeader site={site} />
         {categorySites.length > 0 && (

@@ -14,9 +14,14 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        // Получаем параметры сортировки, по умолчанию — по ID
+        // ✅ Защита от SQL-инъекций: разрешаем сортировку только по конкретным полям
+        $allowedSort = ['id', 'name', 'slug', 'is_active', 'created_at'];
         $sort = $request->get('sort', 'id');
-        $direction = $request->get('direction', 'asc');
+        if (!in_array($sort, $allowedSort)) {
+            $sort = 'id';
+        }
+
+        $direction = strtolower($request->get('direction', 'asc')) === 'desc' ? 'desc' : 'asc';
 
         $categories = Category::orderBy($sort, $direction)->paginate(10);
 

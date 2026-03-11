@@ -1,5 +1,6 @@
 import React from "react"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
+import LocalLink from "@/components/LocalLink"
 
 const FooterDropdowns = () => {
   const infoTitle = useTranslateUniversal("footer.info", "Інформація")
@@ -7,10 +8,14 @@ const FooterDropdowns = () => {
 
   // Ссылки раздела "Інформація"
   const infoLinks = [
-    { text: useTranslateUniversal("footer.aboutMe", "Про мене"), href: "#" },
-    { text: useTranslateUniversal("footer.disclaimer", "Disclaimer"), href: "#" },
-    { text: useTranslateUniversal("footer.copyright", "Copyright policy"), href: "#" },
-    { text: useTranslateUniversal("footer.privacy", "Політика конфіденційності"), href: "#" },
+    { text: useTranslateUniversal("footer.aboutMe", "About Us"), href: "/about" },
+    { text: useTranslateUniversal("footer.faq", "FAQ"), href: "/faq" },
+    { text: useTranslateUniversal("footer.disclaimer", "Disclaimer"), href: "/disclaimer" },
+    { text: useTranslateUniversal("footer.2257", "2257"), href: "/2257" },
+    { text: useTranslateUniversal("footer.copyright", "Copyright Policy"), href: "/copyright" },
+    { text: useTranslateUniversal("footer.privacy", "Privacy Policy"), href: "/privacy" },
+    { text: useTranslateUniversal("footer.terms", "Terms of Service"), href: "/terms" },
+    { text: useTranslateUniversal("footer.rta", "RTA"), href: "/rta" },
   ]
 
   // Ссылки раздела "Категорії"
@@ -39,7 +44,7 @@ const FooterDropdowns = () => {
             <ul className="mt-2 space-y-2 text-[#9aa1b1] text-[14px]">
               {block.links.map((link, idx) => (
                 <li key={idx}>
-                  <a href={link.href} className="hover:underline">{link.text}</a>
+                  <LocalLink to={link.href} className="hover:underline">{link.text}</LocalLink>
                 </li>
               ))}
             </ul>
@@ -54,7 +59,7 @@ const FooterDropdowns = () => {
           <ul className="space-y-2 text-[#9aa1b1] text-[14px]">
             {infoLinks.map((link, idx) => (
               <li key={idx}>
-                <a href={link.href} className="hover:underline">{link.text}</a>
+                <LocalLink to={link.href} className="hover:underline">{link.text}</LocalLink>
               </li>
             ))}
           </ul>
@@ -64,7 +69,7 @@ const FooterDropdowns = () => {
           <ul className="space-y-2 text-[#9aa1b1] text-[14px]">
             {categoryLinks.map((link, idx) => (
               <li key={idx}>
-                <a href={link.href} className="hover:underline">{link.text}</a>
+                <LocalLink to={link.href} className="hover:underline">{link.text}</LocalLink>
               </li>
             ))}
           </ul>

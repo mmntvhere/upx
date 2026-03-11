@@ -9,22 +9,29 @@ export const CategoryProvider = ({ children }) => {
   const { language } = useContext(LanguageContext)
   const [categories, setCategories] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isUpdating, setIsUpdating] = useState(false) // Новое состояние для "фонового" обновления
   const [error, setError] = useState(null)
 
   const refreshCategories = async () => {
-    // Включаем лоадер только если данных еще нет совсем
-    if (categories.length === 0) {
+    // Показываем основной лоадер только при первом входе
+    const isInitialLoad = categories.length === 0
+    if (isInitialLoad) {
       setLoading(true)
+    } else {
+      setIsUpdating(true)
     }
+    setError(null) // ✅ Сбрасываем старую ошибку перед новой попыткой
+
     try {
       const data = await fetchCategories()
       setCategories(data)
       setError(null)
     } catch (err) {
       console.error("Failed to fetch categories:", err)
-      setError(err)
+      setError(err.message || "Failed to load categories")
     } finally {
       setLoading(false)
+      setIsUpdating(false)
     }
   }
 
@@ -34,7 +41,7 @@ export const CategoryProvider = ({ children }) => {
   }, [language])
 
   return (
-    <CategoryContext.Provider value={{ categories, loading, error, refreshCategories }}>
+    <CategoryContext.Provider value={{ categories, loading, isUpdating, error, refreshCategories }}>
       {children}
     </CategoryContext.Provider>
   )

@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react"
+import { motion } from "framer-motion"
 import useLocalNavigate from "@/hooks/useLocalNavigate"
-import { useTranslateUniversal } from "@/hooks/useTranslateUniversal" // 🔤 Подключаем мультиязычный перевод
+import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 import LangFlags from "./LangFlags"
 
 const SiteCard = ({ site, onClick, isGrid = false }) => {
@@ -8,6 +9,7 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
   const tNoPreview = useTranslateUniversal("site.noPreview", "No Preview")
   const [isPreviewError, setPreviewError] = useState(false)
   const [isFaviconError, setFaviconError] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   // 🖼️ Preview image
   const previewUrl = useMemo(() => {
@@ -34,7 +36,13 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
   }
 
   return (
-    <div
+    <motion.div
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -5 }}
+      whileTap={{ scale: 0.95 }}
       onClick={handleClick}
       className={`
         flex flex-col items-center relative cursor-pointer
@@ -47,18 +55,29 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
     >
       <div className="relative w-full aspect-[155/208] group overflow-visible">
         {/* Внутренний контейнер для обрезки при увеличении */}
-        <div className="w-full h-full rounded-2xl overflow-hidden relative">
+        <div className="w-full h-full rounded-2xl overflow-hidden relative bg-[#1c1c1e] border border-white/5 shadow-lg">
+          {/* Skeleton Shimmer while loading */}
+          {!imageLoaded && !isPreviewError && previewUrl && (
+            <div className="absolute inset-0 bg-[#212122] animate-pulse">
+               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
+            </div>
+          )}
+
           {!isPreviewError && previewUrl ? (
             <img
               src={previewUrl}
               alt={`Превью сайта ${site.name}`}
               loading="lazy"
-              onError={() => setPreviewError(true)}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              onLoad={() => setImageLoaded(true)}
+              onError={() => {
+                setPreviewError(true)
+                setImageLoaded(true)
+              }}
+              className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
             />
           ) : (
             <div
-              className="w-full h-full flex items-center justify-center bg-zinc-700 text-white text-xs"
+              className="w-full h-full flex items-center justify-center text-white/20 text-[10px] uppercase tracking-wider"
               aria-hidden="true"
             >
               {tNoPreview}
@@ -67,23 +86,28 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
         </div>
 
         {!isFaviconError && faviconUrl && (
-          <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 z-20">
+          <motion.div 
+            initial={{ scale: 0, x: "-50%", y: "50%" }}
+            animate={{ scale: 1, x: "-50%", y: "50%" }}
+            transition={{ delay: 0.2 }}
+            className="absolute left-1/2 bottom-0 z-20"
+          >
             <img
               src={faviconUrl}
               alt={`Favicon сайта ${site.name}`}
               loading="lazy"
               onError={() => setFaviconError(true)}
-              className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 object-contain drop-shadow-md"
+              className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
             />
-          </div>
+          </motion.div>
         )}
       </div>
 
-      <div className="flex items-center justify-center gap-1 mt-4 text-xs sm:text-sm font-medium text-white truncate w-full">
-        <span title={site.name}>{site.name}</span>
+      <div className="flex items-center justify-center gap-1 mt-4 text-[11px] sm:text-[13px] font-medium text-white/90 truncate w-full px-1">
+        <span className="truncate" title={site.name}>{site.name}</span>
         <LangFlags langs={site.enabled_languages} />
       </div>
-    </div>
+    </motion.div>
   )
 }
 

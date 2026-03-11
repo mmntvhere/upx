@@ -8,24 +8,26 @@ use Illuminate\Http\Response;
 
 class SitemapController extends Controller
 {
-    private array $supportedLanguages = [
-        'en', 'uk', 'fr', 'de', 'es', 'it', 'pt', 'pl', 'nl', 'ru', 'tr', 'ro', 'sv',
-        'fi', 'no', 'da', 'cs', 'hu', 'el', 'he', 'hi', 'id', 'vi', 'th', 'ja', 'ko', 'zh', 'ar'
-    ];
-
     public function index()
     {
         $domain = env('FRONTEND_URL', 'https://upx.com');
+        $supportedLanguages = config('languages.codes');
         
         $urls = [];
 
         // 1. Homepage Base
-        $this->addUrlGroup($urls, $domain, '', $this->supportedLanguages);
+        $this->addUrlGroup($urls, $domain, '', $supportedLanguages);
 
         // 2. Categories
         $categories = Category::where('is_active', true)->get();
         foreach ($categories as $category) {
-            $this->addUrlGroup($urls, $domain, '/' . $category->slug, $this->supportedLanguages);
+            $this->addUrlGroup($urls, $domain, '/' . $category->slug, $supportedLanguages);
+        }
+
+        // 2.5 Pages (FAQ, Terms, etc.)
+        $pages = \App\Models\Page::where('is_active', true)->get();
+        foreach ($pages as $page) {
+            $this->addUrlGroup($urls, $domain, '/' . $page->slug, $supportedLanguages);
         }
 
         // 3. Sites (Reviews)
@@ -33,7 +35,7 @@ class SitemapController extends Controller
         foreach ($sites as $site) {
             // Sites with specific enabled_languages should only generate those + 'en' fallback if null
             $languages = empty($site->enabled_languages) 
-                         ? $this->supportedLanguages 
+                         ? $supportedLanguages 
                          : $site->enabled_languages;
 
             $this->addUrlGroup($urls, $domain, '/review/' . $site->slug, $languages);

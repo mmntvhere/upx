@@ -10,6 +10,10 @@ class CategoryController extends Controller
     public function index()
     {
         $locale = request()->header('Accept-Language', 'en');
+        if (!in_array($locale, config('languages.codes'))) {
+            $locale = 'en';
+        }
+        app()->setLocale($locale);
 
         $categories = Category::where('is_active', true)
             ->with(['sites' => function ($query) use ($locale) {

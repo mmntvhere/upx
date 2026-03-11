@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('categories', CategoryController::class)->except(['show']);
         Route::resource('sites', SiteController::class)->except(['show']);
         Route::resource('tags', TagController::class)->except(['show']);
+        Route::resource('pages', \App\Http\Controllers\PageController::class)->except(['show']);
         Route::resource('banners', BannerController::class);
 
         // 🧩 Удаление изображений у сайтов

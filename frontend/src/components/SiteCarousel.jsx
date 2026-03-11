@@ -1,6 +1,7 @@
 import React from "react"
 import SiteCard from "./SiteCard"
 import { useLanguage } from "@/hooks/useLanguage"
+import { motion, LayoutGroup } from "framer-motion"
 /**
  * Компонент отображает горизонтальную карусель с сайтами.
  * Он умеет: 
@@ -37,15 +38,20 @@ const SiteCarousel = ({ categoryId, sites = [], sliders, onSiteClick }) => {
         {translatedCategoryName}
       </h3> */}
 
-      <div className="flex gap-4 items-start pl-4 sm:pl-0 pr-0">
-        {sortedSites.map((site) => (
-          <SiteCard
-            key={site.slug}
-            site={site}
-            onClick={() => onSiteClick && onSiteClick(site)}
-          />
-        ))}
-      </div>
+      <LayoutGroup id={`category-${categoryId}`}>
+        <motion.div 
+          layout
+          className="flex gap-4 items-start pl-4 sm:pl-0 pr-0"
+        >
+          {sortedSites.map((site) => (
+            <SiteCard
+              key={site.slug}
+              site={site}
+              onClick={() => onSiteClick && onSiteClick(site)}
+            />
+          ))}
+        </motion.div>
+      </LayoutGroup>
     </div>
   )
 }
