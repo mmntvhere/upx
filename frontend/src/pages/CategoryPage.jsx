@@ -103,7 +103,7 @@ const CategoryPage = () => {
     <>
       <SEO 
         title={category?.seo_title || category?.name || slug} 
-        description={category?.seo_description || `Best ${category?.name || slug} and reviews on UPX.`} 
+        description={category?.seo_description || `Best ${category?.name || slug} and reviews on BeInPorn.`} 
       />
       
       {loading && categories.length === 0 ? (

@@ -32,6 +32,7 @@ html, body, #root {
   width: 100%;
   min-height: 100vh;
   background-color: #141415;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -202,6 +203,46 @@ h1 {
 
 .animate-ui-pulse {
   animation: ui-pulse-red 2s infinite ease-in-out;
+}
+
+/* 🚀 UPX Premium Slider System */
+.ui-slider-container {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  will-change: transform;
+  gap: 1rem;
+  width: 100%;
+  list-style: none !important;
+  padding: 0;
+  margin: 0 !important;
+}
+
+.ui-slider-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.ui-slider-item {
+  flex: 0 0 auto !important;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0;
+}
+
+/* Base utility for hiding scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 /* 🌀 Core Resets & Modern Defaults */

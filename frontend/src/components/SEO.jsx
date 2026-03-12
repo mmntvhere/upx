@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { SUPPORTED_LANGUAGES } from '@/config/languages'
 
 /**
- * 👑 UPX Premium SEO Engine
+ * 👑 BeInPorn Premium SEO Engine
  * 
  * NOTE: Мы используем гибридный подход. 
  * Стандартные мета-теги управляются через Helmet (асинхронно), 
@@ -17,10 +17,10 @@ const SEO = ({
   image, 
   type = 'website',
   schemaData,
-  siteName = "UPX" 
+  siteName = "BeInPorn" 
 }) => {
   const { pathname } = useLocation()
-  const domain = "https://upx.com" // Base domain
+  const domain = import.meta.env.VITE_APP_URL || (typeof window !== 'undefined' ? window.location.origin : 'https://beinporn.com')
   
   // 🧩 Мемоизация данных для исключения лишних ререндеров
   const seoData = useMemo(() => {
@@ -44,7 +44,7 @@ const SEO = ({
 
     return {
       title: (title ? `${title} | ${siteName}` : siteName).trim(),
-      description: (description || "Best reviews and ratings on UPX.").trim(),
+      description: (description || "Best reviews and ratings on BeInPorn.").trim(),
       image: image || `${domain}/og-image.jpg`,
       canonical,
       alternates,

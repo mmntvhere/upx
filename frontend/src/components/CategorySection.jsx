@@ -39,8 +39,38 @@ const CategorySection = ({
   const scrollRightLabel = useTranslateUniversal("searchResultsByCategory.scroll.right", "Scroll right")
 
   // ✨ Теперь мы доверяем бэкенду. API уже фильтрует сайты по Accept-Language.
-  // Повторная фильтрация здесь приводила к багам при несинхронном обновлении контекста языка.
   const filteredSites = category.sites || []
+
+  // 🎯 Логика видимости стрелок (Smart Arrows)
+  const [canScrollLeft, setCanScrollLeft] = React.useState(false)
+  const [canScrollRight, setCanScrollRight] = React.useState(false)
+  const sliderRef = React.useRef(null)
+
+  const checkScroll = React.useCallback(() => {
+    const el = sliderRef.current
+    if (!el) return
+    
+    // Даем небольшой допуск в 5px для точности
+    const left = el.scrollLeft > 5
+    const right = el.scrollLeft + el.offsetWidth < el.scrollWidth - 5
+    
+    setCanScrollLeft(left)
+    setCanScrollRight(right)
+  }, [])
+
+  React.useEffect(() => {
+    const el = sliderRef.current
+    if (!el) return
+    
+    checkScroll()
+    el.addEventListener('scroll', checkScroll)
+    window.addEventListener('resize', checkScroll)
+    
+    return () => {
+      el.removeEventListener('scroll', checkScroll)
+      window.removeEventListener('resize', checkScroll)
+    }
+  }, [filteredSites, checkScroll])
 
   return (
     <section
@@ -76,7 +106,7 @@ const CategorySection = ({
             >
               {seeAllLabel}
               <svg
-                className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity"
+                className="w-3.5 h-3.5 opacity-50"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="3"
@@ -86,54 +116,62 @@ const CategorySection = ({
               </svg>
             </button>
 
-            {/* Стрелки прокрутки (десктоп) */}
-            <button
-              onClick={() => scrollByStep?.(category.id, "left")}
-              className="hidden lg:flex ui-icon-btn"
-              aria-label={scrollLeftLabel}
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                viewBox="0 0 24 24"
+            {/* ⬅️➡️ Стрелки прокрутки (Desktop) - Теперь расположены ПОСЛЕ кнопки */}
+            <div className="hidden lg:flex items-center gap-2 ml-1">
+              <button
+                onClick={() => {
+                  const el = sliderRef.current;
+                  if (el) el.scrollBy({ left: -el.offsetWidth * 0.4, behavior: 'smooth' });
+                }}
+                className="ui-icon-btn"
+                aria-label={scrollLeftLabel}
               >
-                <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
 
-            <button
-              onClick={() => scrollByStep?.(category.id, "right")}
-              className="hidden lg:flex ui-icon-btn"
-              aria-label={scrollRightLabel}
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                viewBox="0 0 24 24"
+              <button
+                onClick={() => {
+                  const el = sliderRef.current;
+                  if (el) el.scrollBy({ left: el.offsetWidth * 0.4, behavior: 'smooth' });
+                }}
+                className="ui-icon-btn"
+                aria-label={scrollRightLabel}
               >
-                <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* 🖥️ Карусель сайтов */}
-      <div className="w-full max-w-[1280px] mx-auto px-0 sm:px-6 lg:px-8">
+      {/* 🖥️ Карусель сайтов с внутренними стрелками и градиентами */}
+      <div className="w-full max-w-[1280px] mx-auto px-0 sm:px-6 lg:px-8 relative">
+        
+        {/* Градиенты (Desktop) */}
+        <div className="hidden lg:block pointer-events-none">
+          {canScrollLeft && (
+            <div className="absolute top-0 left-0 sm:left-6 lg:left-8 bottom-0 w-24 bg-gradient-to-r from-[#141415] to-transparent z-10" />
+          )}
+          {canScrollRight && (
+            <div className="absolute top-0 right-0 sm:right-6 lg:right-8 bottom-0 w-24 bg-gradient-to-l from-[#141415] to-transparent z-10" />
+          )}
+        </div>
+
+        {/* Навигация (Desktop) - Убрана отсюда, возвращена в заголовок */}
+
         <SiteCarousel
           categoryId={category.id}
           sites={filteredSites}
           onSiteClick={onSiteClick}
-          scrollByStep={scrollByStep}
-          sliders={sliders}
+          externalRef={sliderRef}
         />
       </div>
     </section>
   )
 }
 
-export default CategorySection
+export default React.memo(CategorySection)

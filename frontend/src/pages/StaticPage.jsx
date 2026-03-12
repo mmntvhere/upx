@@ -86,7 +86,7 @@ const StaticPage = () => {
         <>
           <SEO 
             title={seoTitle || title} 
-            description={seoDesc || `Read about ${title} on UPX.`} 
+            description={seoDesc || `Read about ${title} on BeInPorn.`} 
           />
           <div className="ui-container py-8 lg:py-12 flex flex-col min-h-[80vh]">
           {/* 📱 Mobile Fixed Navigation Wrapper */}

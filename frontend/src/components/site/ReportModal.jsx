@@ -55,21 +55,21 @@ const REPORT_REASONS = [
     icon: AlertTriangle, 
     defaultLabel: 'Website shows exploitation and abuse of people under 18', 
     color: 'text-orange-500',
-    description: "Reports alleging the exploitation or abuse of minors are addressed with the highest level of urgency and severity. Please provide any relevant URLs or accompanying context, understanding that UPX enforces a strict zero-tolerance policy and complies with all legal reporting obligations regarding such offenses."
+    description: "Reports alleging the exploitation or abuse of minors are addressed with the highest level of urgency and severity. Please provide any relevant URLs or accompanying context, understanding that BeInPorn enforces a strict zero-tolerance policy and complies with all legal reporting obligations regarding such offenses."
   },
   { 
     id: 'explicit', 
     icon: AlertOctagon, 
     defaultLabel: 'Nonconsensual explicit content distribution (revenge porn)', 
     color: 'text-red-600',
-    description: "Should you identify instances of nonconsensual explicit content distribution, please furnish the necessary details to substantiate the unauthorized posting. UPX is resolutely committed to protecting individual privacy rights and facilitating the immediate review of nonconsensual media."
+    description: "Should you identify instances of nonconsensual explicit content distribution, please furnish the necessary details to substantiate the unauthorized posting. BeInPorn is resolutely committed to protecting individual privacy rights and facilitating the immediate review of nonconsensual media."
   },
   { 
     id: 'general', 
     icon: MessageCircleQuestion, 
     defaultLabel: 'General feedback or suggestions', 
     color: 'text-stone-600',
-    description: "For any general inquiries, structural feedback, or procedural suggestions concerning the UPX platform, please elaborate in the text box below. Continuous improvement relies heavily on constructive external insights, and your observations will be thoroughly reviewed."
+    description: "For any general inquiries, structural feedback, or procedural suggestions concerning the BeInPorn platform, please elaborate in the text box below. Continuous improvement relies heavily on constructive external insights, and your observations will be thoroughly reviewed."
   },
 ]
 
@@ -196,10 +196,10 @@ const ReportModal = ({ isOpen, onClose, site }) => {
 
             <div className="bg-gray-50 p-5 rounded-xl mb-6 text-[14px] text-gray-800 border border-gray-100">
               <p className="mb-4">
-                If you wish to report any issues regarding the content found on <span className="font-semibold">{site.name}</span>, please reach out directly to the site owner. UPX is solely responsible for providing website reviews and cannot address concerns about specific content.
+                If you wish to report any issues regarding the content found on <span className="font-semibold">{site.name}</span>, please reach out directly to the site owner. BeInPorn is solely responsible for providing website reviews and cannot address concerns about specific content.
               </p>
               <p>
-                Disclaimer: The reviews and classifications on UPX are provided for informational purposes only. UPX operates as an independent review aggregator and directory; we do not host, produce, or control the content found on the external websites we evaluate.
+                Disclaimer: The reviews and classifications on BeInPorn are provided for informational purposes only. BeInPorn operates as an independent review aggregator and directory; we do not host, produce, or control the content found on the external websites we evaluate.
               </p>
             </div>
 

@@ -21,23 +21,38 @@ const SearchAndFilters = ({
   const searchLabel = useTranslateUniversal("searchAndFilters.search")
   const scrollRightLabel = useTranslateUniversal("searchAndFilters.scrollRight")
 
-  // 📐 Проверка, нужно ли показывать кнопку прокрутки (если контент выходит за пределы экрана)
+  // 📐 Проверка, нужно ли показывать кнопки прокрутки (Smart Arrows)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(false)
+
+  const checkScroll = React.useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    
+    // Порог 5px для более стабильного срабатывания
+    setCanScrollLeft(el.scrollLeft > 5)
+    setCanScrollRight(el.scrollLeft + el.offsetWidth < el.scrollWidth - 5)
+  }, [])
+
   useEffect(() => {
     const el = scrollRef.current
     if (!el) return
 
-    const updateScroll = () => {
-      setIsScrollable(el.scrollWidth > el.clientWidth)
+    checkScroll()
+    el.addEventListener("scroll", checkScroll)
+    window.addEventListener("resize", checkScroll)
+    return () => {
+      el.removeEventListener("scroll", checkScroll)
+      window.removeEventListener("resize", checkScroll)
     }
+  }, [categories, checkScroll])
 
-    updateScroll()
-    window.addEventListener("resize", updateScroll)
-    return () => window.removeEventListener("resize", updateScroll)
-  }, [categories])
-
-  // ⏩ Прокрутка вправо
-  const scrollRight = () => {
-    scrollRef.current?.scrollBy({ left: 200, behavior: "smooth" })
+  // ⏩ Прокрутка
+  const scroll = (direction) => {
+    const el = scrollRef.current
+    if (!el) return
+    const step = el.offsetWidth * 0.5
+    el.scrollBy({ left: direction === 'right' ? step : -step, behavior: "smooth" })
   }
 
   // 📍 Клик по категории
@@ -67,38 +82,42 @@ const SearchAndFilters = ({
         </div>
       </div>
 
-      {/* ⚡ Горизонтальный скролл категорий */}
-      <div className="relative pl-4 pr-0 sm:px-6 lg:px-8">
-        <div
+      {/* ⚡ Горизонтальный скролл категорий (Semantic List) */}
+      <div className="relative sm:px-6 lg:px-8 group">
+        <ul
           ref={scrollRef}
-          className="flex gap-2 overflow-x-auto scrollbar-hide scroll-smooth"
+          className="ui-slider-container px-4 sm:px-0 !gap-2"
+          role="list"
         >
-          {categories.map((category, index) => (
-            <button
-              key={category.id}
-              onClick={() => handleCategoryClick(category)}
-              className={`h-[38px] sm:h-[44px] rounded-full border text-sm font-medium flex items-center gap-2 shrink-0 transition-all
-                ${activeCategoryId === category.id
-                  ? "border-white text-white"
-                  : "border-[#404040] text-zinc-300 hover:border-[#666]"}
-                bg-transparent
-                ${index === 0 ? "pl-0 pr-4" : "px-4"}
-              `}
-              aria-label={category.name}
+          {categories.map((category) => (
+            <li 
+              key={category.id} 
+              className="ui-slider-item" 
+              role="listitem"
             >
-              {category.icon && (
-                <img
-                  src={`/storage/${category.icon}`}
-                  alt={category.name}
-                  className="w-5 h-5 object-contain"
-                />
-              )}
-              <span className="relative">
-                {category.name}
-                {category.sites?.some((site) => {
-                  const langs = site.enabled_languages
-                  return !langs || langs.length === 0 || langs.includes(currentLang)
-                }) && (
+              <button
+                onClick={() => handleCategoryClick(category)}
+                className={`h-[38px] sm:h-[44px] rounded-full border text-sm font-medium flex items-center gap-2 px-4 transition-all
+                  ${activeCategoryId === category.id
+                    ? "border-white text-white bg-white/10"
+                    : "border-white/10 text-zinc-300 hover:border-white/20 hover:bg-white/5"}
+                `}
+                aria-label={category.name}
+              >
+                {category.icon && (
+                  <img
+                    src={`/storage/${category.icon}`}
+                    alt={category.name}
+                    className="w-5 h-5 object-contain"
+                    loading="lazy"
+                  />
+                )}
+                <span className="relative">
+                  {category.name}
+                  {category.sites?.some((site) => {
+                    const langs = site.enabled_languages
+                    return !langs || langs.length === 0 || langs.includes(currentLang)
+                  }) && (
                     <sup className="ml-[2px] text-[10px] font-normal text-zinc-400">
                       {
                         category.sites.filter((site) => {
@@ -108,32 +127,44 @@ const SearchAndFilters = ({
                       }
                     </sup>
                   )}
-              </span>
-            </button>
+                </span>
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* 👉 Градиент + кнопка прокрутки */}
-        {isScrollable && (
-          <>
-            <div className="hidden md:block absolute top-0 right-0 h-full w-10 bg-gradient-to-l from-[#141415] to-transparent pointer-events-none z-10" />
-            <button
-              onClick={scrollRight}
-              className="hidden md:flex items-center justify-center absolute top-1/2 -translate-y-1/2 right-0 w-8 h-8 rounded-xl z-20 border border-zinc-600 bg-[#141415] hover:border-zinc-400 transition"
-              aria-label={scrollRightLabel}
-            >
-              <svg
-                className="w-4 h-4 text-zinc-300"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
+        {/* 👉 Навигационные стрелки с градиентами (Internal Navigation with Gradients) */}
+        <div className="hidden md:block">
+          {canScrollLeft && (
+            <>
+              <div className="absolute top-0 left-0 sm:left-6 lg:left-8 bottom-0 w-16 bg-gradient-to-r from-[#141415] to-transparent z-10 pointer-events-none" />
+              <button
+                onClick={() => scroll('left')}
+                className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-6 lg:left-8 w-10 h-10 rounded-full z-20 bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-all shadow-xl"
+                aria-label="Scroll left"
               >
-                <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </>
-        )}
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </>
+          )}
+
+          {canScrollRight && (
+            <>
+              <div className="absolute top-0 right-0 sm:right-6 lg:right-8 bottom-0 w-16 bg-gradient-to-l from-[#141415] to-transparent z-10 pointer-events-none" />
+              <button
+                onClick={() => scroll('right')}
+                className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-6 lg:right-8 w-10 h-10 rounded-full z-20 bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-all shadow-xl"
+                aria-label="Scroll right"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </div>
   )

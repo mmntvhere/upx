@@ -74,7 +74,7 @@ const Header = () => {
             className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 transition-transform hover:scale-105 active:scale-95"
             aria-label={t('header.homeLink', 'Go to home page')}
           >
-            <img src="/logo.svg" alt="UPX Catalog Logo" className="h-6 md:h-8" />
+            <img src="/logo.svg" alt="BeInPorn Logo" className="h-6 md:h-8" />
           </LocalLink>
 
           {/* 🔍 Поиск (Мобилка) */}

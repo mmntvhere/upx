@@ -9,7 +9,7 @@ import { motion, LayoutGroup } from "framer-motion"
  * – прокручивать сайты,
  * – обрабатывать клик по карточке сайта (если передан обработчик onSiteClick).
  */
-const SiteCarousel = ({ categoryId, sites = [], sliders, onSiteClick }) => {
+const SiteCarousel = ({ categoryId, sites = [], externalRef, onSiteClick }) => {
   const currentLang = useLanguage()
 
   // 🔽 Сортировка по position_per_lang для текущего языка
@@ -26,31 +26,26 @@ const SiteCarousel = ({ categoryId, sites = [], sliders, onSiteClick }) => {
   if (sortedSites.length === 0) return null;
 
   return (
-    <div
-      className="overflow-x-auto hide-scrollbar"
-      ref={(el) => {
-        if (sliders && sliders.current && categoryId) {
-          sliders.current[categoryId] = el
-        }
-      }}
-    >
-      {/* <h3 className="text-white text-lg font-semibold mb-3">
-        {translatedCategoryName}
-      </h3> */}
-
-      <LayoutGroup id={`category-${categoryId}`}>
-        <motion.div 
-          className="flex gap-4 items-start pl-4 sm:pl-0 pr-0"
-        >
-          {sortedSites.map((site) => (
+    <div className="relative">
+      <ul
+        ref={externalRef}
+        className="ui-slider-container !pl-4 sm:!pl-0 !pr-4 sm:!pr-0 scroll-pl-4 sm:scroll-pl-0"
+        role="list"
+        aria-label={`Carousel of sites for category ${categoryId}`}
+      >
+        {sortedSites.map((site) => (
+          <li
+            key={site.slug}
+            className="ui-slider-item"
+            role="listitem"
+          >
             <SiteCard
-              key={site.slug}
               site={site}
               onClick={() => onSiteClick && onSiteClick(site)}
             />
-          ))}
-        </motion.div>
-      </LayoutGroup>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

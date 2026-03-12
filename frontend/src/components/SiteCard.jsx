@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react"
 import { motion } from "framer-motion"
 import useLocalNavigate from "@/hooks/useLocalNavigate"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
+import { resolveImageUrl } from "@/utils/imageUrl"
 import LangFlags from "./LangFlags"
 
 const SiteCard = ({ site, onClick, isGrid = false }) => {
@@ -11,19 +12,8 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
   const [isFaviconError, setFaviconError] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
 
-  // 🖼️ Preview image
-  const previewUrl = useMemo(() => {
-    const raw = site.preview?.trim()
-    if (!raw) return null
-    return raw.startsWith("http") || raw.startsWith("/storage") ? raw : `/storage/${raw}`
-  }, [site.preview])
-
-  // 🌐 Favicon image
-  const faviconUrl = useMemo(() => {
-    const raw = site.favicon?.trim()
-    if (!raw) return null
-    return raw.startsWith("http") || raw.startsWith("/storage") ? raw : `/storage/${raw}`
-  }, [site.favicon])
+  const previewUrl = useMemo(() => resolveImageUrl(site.preview), [site.preview])
+  const faviconUrl = useMemo(() => resolveImageUrl(site.favicon), [site.favicon])
 
   // 🔗 Навигация или кастомный клик
   const handleClick = (e) => {

@@ -10,7 +10,7 @@ class SitemapController extends Controller
 {
     public function index()
     {
-        $domain = env('FRONTEND_URL', 'https://upx.com');
+        $domain = env('FRONTEND_URL', 'https://beinporn.com');
         $supportedLanguages = config('languages.codes');
         
         $urls = [];

@@ -61,7 +61,7 @@ const SitePage = () => {
     <>
       <SEO
         title={site?.seo_title || site?.name || slug}
-        description={site?.seo_description || `${site?.name || slug} review and ratings on UPX.`}
+        description={site?.seo_description || `${site?.name || slug} review and ratings on BeInPorn.`}
       />
 
       {isLoading ? (

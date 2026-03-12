@@ -3,14 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BannerResource;
 use App\Models\Banner;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class BannerController extends Controller
 {
     public function index()
     {
-        $banners = Banner::where('is_active', true)->get();
-        return response()->json($banners);
+        $banners = Cache::remember('banners.active', now()->addMinutes(10), function () {
+            return Banner::where('is_active', true)->get();
+        });
+
+        return BannerResource::collection($banners);
     }
 }

@@ -5,7 +5,7 @@
     <!-- 🚀 Hero Welcome Section -->
     <div class="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-indigo-600 via-purple-700 to-pink-600 p-10 text-white shadow-2xl">
         <div class="relative z-10">
-            <h1 class="text-4xl font-extrabold tracking-tight mb-2">Добро пожаловать в UPX, {{ Auth::user()->name ?? 'Admin' }}! ✨</h1>
+            <h1 class="text-4xl font-extrabold tracking-tight mb-2">Добро пожаловать в BeInPorn, {{ Auth::user()->name ?? 'Admin' }}! ✨</h1>
             <p class="text-indigo-100 text-lg opacity-90 max-w-2xl">
                 Ваша система управления контентом обновлена до премиальной версии. Все инструменты автоматизации и перевода теперь под рукой.
             </p>

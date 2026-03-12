@@ -14,7 +14,7 @@ class SiteResource extends JsonResource
      */
     public function toArray($request)
     {
-        $locale = strtolower(substr($request->header('Accept-Language', 'en'), 0, 2));
+        $locale = app()->getLocale();
 
         return [
             'id' => $this->id,

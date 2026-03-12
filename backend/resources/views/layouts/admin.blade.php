@@ -2,7 +2,7 @@
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <title>UPX — Premium Admin Experience</title>
+    <title>BeInPorn — Premium Admin Experience</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,7 +109,7 @@
                 <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30">
                     <i data-lucide="zap" class="text-white w-6 h-6"></i>
                 </div>
-                <span class="text-2xl font-extrabold tracking-tight liquid-gradient">UPX Admin</span>
+                <span class="text-2xl font-extrabold tracking-tight liquid-gradient">BeInPorn Admin</span>
             </div>
         </div>
 
@@ -237,7 +237,7 @@
         <!-- Footer -->
         <footer class="mt-auto p-8 border-t border-white/5 text-center">
             <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">
-                &copy; {{ date('Y') }} UPX High-Performance CMS. Crafted with Passion.
+                &copy; {{ date('Y') }} BeInPorn High-Performance CMS. Crafted with Passion.
             </p>
         </footer>
     </div>

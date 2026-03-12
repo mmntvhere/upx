@@ -14,8 +14,8 @@ class CategoryResource extends JsonResource
      */
     public function toArray($request)
     {
-        // Получаем язык из заголовка (или fallback на 'en')
-        $locale = strtolower(substr($request->header('Accept-Language', 'en'), 0, 2));
+        // Используем глобально установленную локаль
+        $locale = app()->getLocale();
 
         return [
             'id' => $this->id,
