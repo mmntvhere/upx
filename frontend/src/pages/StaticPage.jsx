@@ -7,6 +7,8 @@ import LocalLink from "@/components/LocalLink"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 import { LanguageContext } from "@/contexts/LanguageContext"
 
+import NotFound from "@/pages/NotFound"
+
 const StaticPage = () => {
   const { slug } = useParams()
   const { language } = useContext(LanguageContext)
@@ -74,25 +76,19 @@ const StaticPage = () => {
 
   return (
     <>
-      <SEO 
-        title={seoTitle || title} 
-        description={seoDesc || `Read about ${title} on UPX.`} 
-      />
-
       {loading && pages.length === 0 ? (
         <div className="flex justify-center items-center min-h-[50vh]">
           <div className="w-10 h-10 border-4 border-primaryLink border-t-transparent rounded-full animate-spin"></div>
         </div>
       ) : error || !currentPage ? (
-        <div className="text-center py-20">
-          <h1 className="text-3xl font-bold mb-4">Page Not Found</h1>
-          <p className="text-white/60 mb-8">The legal or informational page you're looking for doesn't exist.</p>
-          <LocalLink to="/" className="bg-[#2a2a2e] hover:bg-[#3a3a3e] px-6 py-3 rounded-full transition">
-            Return Home
-          </LocalLink>
-        </div>
+        <NotFound />
       ) : (
-        <div className="ui-container py-8 lg:py-12 flex flex-col min-h-[80vh]">
+        <>
+          <SEO 
+            title={seoTitle || title} 
+            description={seoDesc || `Read about ${title} on UPX.`} 
+          />
+          <div className="ui-container py-8 lg:py-12 flex flex-col min-h-[80vh]">
           {/* 📱 Mobile Fixed Navigation Wrapper */}
           <div className="md:hidden sticky top-[60px] z-40 -mx-4 mb-8">
             <div className="bg-[#141415]/95 backdrop-blur-md px-4 pb-6 border-b border-white/5 shadow-sm">
@@ -155,9 +151,10 @@ const StaticPage = () => {
             </main>
           </div>
         </div>
-      )}
-    </>
-  )
+      </>
+    )}
+  </>
+)
 }
 
 export default StaticPage

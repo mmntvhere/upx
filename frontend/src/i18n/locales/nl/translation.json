@@ -120,5 +120,13 @@
     "subTitle": "Pagina niet gevonden",
     "description": "De pagina die u zoekt is mogelijk verwijderd, heeft een andere naam gekregen of is tijdelijk niet beschikbaar.",
     "backHome": "Terug naar Startpagina"
+  },
+  "siteVerdict": {
+    "title": "UPX-oordeel",
+    "tag": "OORDEEL",
+    "poor": "Slecht",
+    "average": "Gemiddeld",
+    "excellent": "Uitstekend",
+    "description": "Deze site is geverifieerd door ons redactieteam. We hebben de functionaliteit, veiligheid en gebruikerservaring beoordeeld."
   }
 }

@@ -1,8 +1,9 @@
-// src/components/LanguageDropdown.jsx
+// src/components/footer/LanguageDropdown.jsx
 import React, { useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { LANGUAGES } from '@/i18n/languageConfig'
 import { useSwitchLanguage } from '@/i18n/switchLanguage'
+import LangFlags from '../LangFlags'
 
 const LanguageDropdown = ({ isOpen, onClose }) => {
   const { t, i18n } = useTranslation()
@@ -16,10 +17,13 @@ const LanguageDropdown = ({ isOpen, onClose }) => {
 
   const recommended = LANGUAGES.filter((l) => l.code === browserLang)
 
-  
   const otherLangs = LANGUAGES
     .filter((l) => l.code !== browserLang)
-    .sort((a, b) => a.nativeName.localeCompare(b.nativeName))
+    .sort((a, b) => {
+      if (a.code === 'en') return -1
+      if (b.code === 'en') return 1
+      return a.nativeName.localeCompare(b.nativeName)
+    })
 
   // Закрытие по клику вне
   useEffect(() => {
@@ -41,40 +45,41 @@ const LanguageDropdown = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className="absolute top-full mt-2 right-0 w-[320px] max-h-[425px] bg-white text-black shadow-lg rounded-xl overflow-hidden z-50 border border-gray-200"
+      className="absolute top-full mt-3 right-0 w-[280px] max-h-[450px] bg-[#1c1c1e]/80 backdrop-blur-2xl text-white shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[24px] overflow-hidden z-50 border border-white/10 ring-1 ring-white/5 animate-in fade-in zoom-in-95 duration-200"
       ref={dropdownRef}
+      onClick={(e) => e.stopPropagation()}
     >
-      {/* Header */}
-      <div className="sticky top-0 bg-white z-10 px-4 py-3 border-b border-gray-200 flex justify-between items-center">
-        <h2 className="text-lg font-bold">{t('footer.language', 'Мови')}</h2>
+      {/* 🔮 Header с эффектом стекла */}
+      <div className="sticky top-0 bg-white/[0.03] backdrop-blur-3xl z-10 px-4 py-2.5 border-b border-white/5 flex justify-between items-center">
+        <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">{t('footer.language', 'Language')}</h2>
         <button
-  onClick={onClose}
-  className="w-6 h-6 p-0 flex items-center justify-center bg-transparent border-none outline-none"
-  style={{ color: "rgb(111, 116, 128)" }}
-  aria-label={t('footer.close', 'Close language dropdown')}
->
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="18" y1="6" x2="6" y2="18" />
-    <line x1="6" y1="6" x2="18" y2="18" />
-  </svg>
-</button>
+          onClick={onClose}
+          className="w-8 h-8 flex items-center justify-center text-white/40 hover:text-white transition-all bg-white/5 hover:bg-white/10 rounded-full"
+          aria-label={t('footer.close', 'Close')}
+        >
+          <svg 
+            width="14" 
+            height="14" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="3.5" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            className="hover:rotate-90 transition-all duration-300"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
       </div>
 
-      <div className="overflow-y-auto max-h-[380px]">
+      <div className="overflow-y-auto max-h-[380px] py-3 scrollbar-hide">
         {/* Recommended */}
         {recommended.length > 0 && (
-          <div className="px-4 pt-4">
-            <p className="text-sm font-semibold text-gray-500 mb-2">
-              {t('footer.recommended', 'Рекомендовані')}
+          <div className="px-2.5 pb-4">
+            <p className="px-1 pb-2 text-[10px] font-black uppercase tracking-widest text-[#D80032]">
+              {t('footer.recommended', 'Recommended')}
             </p>
             {recommended.map((lang) => (
               <LanguageItem
@@ -88,18 +93,20 @@ const LanguageDropdown = ({ isOpen, onClose }) => {
         )}
 
         {/* All Languages */}
-        <div className="px-4 pt-4">
-          <p className="text-sm font-semibold text-gray-500 mb-2">
-            {t('footer.allLanguages', 'Всі мови')}
+        <div className="px-2.5">
+          <p className="px-1 pb-2 text-[10px] font-black uppercase tracking-widest text-white/30">
+            {t('footer.allLanguages', 'All Languages')}
           </p>
-          {otherLangs.map((lang) => (
-            <LanguageItem
-              key={lang.code}
-              lang={lang}
-              currentLang={currentLang}
-              onSelect={handleChange}
-            />
-          ))}
+          <div className="space-y-1">
+            {otherLangs.map((lang) => (
+              <LanguageItem
+                key={lang.code}
+                lang={lang}
+                currentLang={currentLang}
+                onSelect={handleChange}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -110,43 +117,30 @@ const LanguageItem = ({ lang, currentLang, onSelect }) => {
   const isActive = currentLang === lang.code
 
   return (
-    <div className="border-b border-gray-200 last:border-none">
-      <button
-        onClick={() => onSelect(lang.code)}
-        className={`btn-lang w-full flex justify-between items-center py-2 px-0 hover:bg-gray-100 transition-colors ${
-          isActive ? 'bg-gray-100 font-bold' : 'bg-white font-normal'
-        }`}
-      >
-        <div className="flex items-center gap-3">
-          <span className="text-xl">{lang.label}</span>
-          <div className="text-left">
-            <p className="text-sm text-black">{lang.name}</p>
-            <p className="text-xs text-gray-500">{lang.nativeName}</p>
-          </div>
-        </div>
-
-        {isActive && (
-  <span className="flex items-center justify-center w-5 h-5 rounded-full bg-blue-600">
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <button
+      onClick={() => onSelect(lang.code)}
+      className={`w-full flex justify-between items-center py-3 px-2.5 rounded-xl transition-all duration-200 group ${
+        isActive ? 'bg-[#D80032]/10 border border-[#D80032]/20' : 'hover:bg-white/5 border border-transparent'
+      }`}
     >
-      <polyline
-        points="20 6 9 17 4 12"
-        fill="none"
-        stroke="white"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </span>
-)}
-      </button>
-    </div>
+      <div className="flex items-center gap-3">
+        <div className="w-6 h-6 rounded-full overflow-hidden bg-white/5 flex items-center justify-center shrink-0">
+          <LangFlags langs={[lang.code]} />
+        </div>
+        <div className="text-left">
+          <p className={`text-sm ${isActive ? 'text-white font-bold' : 'text-white/70 group-hover:text-white'}`}>{lang.name}</p>
+          <p className="text-[10px] text-white/30 uppercase tracking-tighter">{lang.nativeName}</p>
+        </div>
+      </div>
+
+      {isActive && (
+        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#D80032] shadow-lg shadow-red-600/30 shrink-0 ml-2">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </span>
+      )}
+    </button>
   )
 }
 

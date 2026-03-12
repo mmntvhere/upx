@@ -48,7 +48,11 @@ const SiteListCard = ({ site, onClick }) => {
             />
           )}
           <span>{site.name}</span>
-          <LangFlags langs={site.enabled_languages} />
+          {site.enabled_languages?.length === 1 && (
+            <div className="w-5 h-5 rounded-full overflow-hidden bg-white/5 flex items-center justify-center shrink-0">
+              <LangFlags langs={site.enabled_languages} />
+            </div>
+          )}
         </div>
 
         {/* 📝 Описание */}

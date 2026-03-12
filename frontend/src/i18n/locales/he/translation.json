@@ -120,5 +120,13 @@
     "subTitle": "הדף לא נמצא",
     "description": "ייתכן שהדף שאתה מחפש הוסר, שמו שונה או שהוא לא זמין זמנית.",
     "backHome": "חזרה לדף הבית"
+  },
+  "siteVerdict": {
+    "title": "UPX Verdict",
+    "tag": "VERDICT",
+    "poor": "Poor",
+    "average": "Average",
+    "excellent": "Excellent",
+    "description": "This site has been verified by our editorial team. We assessed its functionality, security, and user experience."
   }
 }

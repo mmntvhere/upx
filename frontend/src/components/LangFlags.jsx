@@ -2,22 +2,43 @@ import React from "react"
 import { LANGUAGES } from "@/i18n/languageConfig"
 
 const LangFlags = ({ langs = [] }) => {
-  // Показываем флаг только если явно задан ровно один язык
   if (!langs || langs.length !== 1) return null
 
   const langCode = langs[0]?.toLowerCase()
   if (!langCode) return null
   
-  const langConfig = LANGUAGES.find(l => l.code === langCode)
-  const flag = langConfig ? langConfig.label : langCode.toUpperCase()
+  // Маппинг кодов языков в коды стран для флагов (ISO 3166-1 alpha-2)
+  const countryMapping = {
+    en: 'gb',
+    uk: 'ua',
+    hi: 'in',
+    ko: 'kr',
+    ja: 'jp',
+    zh: 'cn',
+    he: 'il',
+    da: 'dk',
+    sv: 'se',
+    no: 'no',
+    fi: 'fi',
+    el: 'gr',
+    cs: 'cz',
+    vi: 'vn',
+    ar: 'sa'
+  }
 
+  const countryCode = countryMapping[langCode] || langCode
+  const langConfig = LANGUAGES.find(l => l.code === langCode)
+  
   return (
-    <span
-      className="ml-1 text-sm inline-flex items-center justify-center leading-none"
-      title={`Current language: ${langCode.toUpperCase()}`}
-    >
-      {flag}
-    </span>
+    <img 
+      src={`https://flagcdn.com/w80/${countryCode}.png`}
+      alt={langConfig?.name || langCode}
+      className="w-full h-full object-cover scale-[1.3] pointer-events-none"
+      title={langConfig?.name || langCode}
+      onError={(e) => {
+        e.target.style.display = 'none'
+      }}
+    />
   )
 }
 

@@ -120,5 +120,13 @@
     "subTitle": "页面未找到",
     "description": "您寻找的页面可能已被移除、更改名称或暂时不可用。",
     "backHome": "返回首页"
+  },
+  "siteVerdict": {
+    "title": "UPX 裁定",
+    "tag": "裁定",
+    "poor": "差",
+    "average": "中等",
+    "excellent": "优秀",
+    "description": "本网站已由我们的编辑团队验证。我们评估了其功能、安全性和用户体验。"
   }
 }

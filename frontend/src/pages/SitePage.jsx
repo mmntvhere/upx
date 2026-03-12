@@ -16,14 +16,17 @@ import SiteProsCons from "../components/site/SiteProsCons"
 import SimilarSitesHeader from "../components/site/SimilarSitesHeader"
 import CategoryGridView from "../components/CategoryGridView"
 import MobileSiteModal from "../components/MobileSiteModal"
-import AllCategoryCard from "../components/AllCategoryCard"
+import CategorySeoCard from "../components/CategorySeoCard"
 import MobileStickyBanner from "../components/site/MobileStickyBanner"
+import SiteSummaryCard from "../components/site/SiteSummaryCard"
+import { useCategories } from "@/contexts/CategoryContext"
 
 const SitePage = () => {
   const { slug } = useParams()
   const { t } = useTranslation()
   const language = useLanguage() // ✅ Fix: returns string, not object
   const navigate = useLocalNavigate()
+  const { categories } = useCategories()
   const [site, setSite] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [selectedSite, setSelectedSite] = useState(null)
@@ -56,9 +59,9 @@ const SitePage = () => {
 
   return (
     <>
-      <SEO 
-        title={site?.seo_title || site?.name || slug} 
-        description={site?.seo_description || `${site?.name || slug} review and ratings on UPX.`} 
+      <SEO
+        title={site?.seo_title || site?.name || slug}
+        description={site?.seo_description || `${site?.name || slug} review and ratings on UPX.`}
       />
 
       {isLoading ? (
@@ -75,30 +78,49 @@ const SitePage = () => {
             <SiteDisclaimer siteName={site.name} />
             <SiteHeaderRow site={site} onGoToHidden={setShowMobileBanner} />
             <SiteDescription review={DOMPurify.sanitize(site.review || "")} className="mt-0" />
-            <SiteProsCons site={site} />
+            {/* 🏗 Super Section: Verdict & Pros/Cons Grid */}
+            <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-8 items-stretch mt-6 mb-14 lg:mt-6 lg:mb-10">
+              {/* Pros/Cons (1st on mobile, 2nd on desktop) */}
+              <div className="lg:col-span-4 flex flex-col h-full order-1 lg:order-2">
+                <SiteProsCons site={site} vertical={true} />
+              </div>
+
+              {/* Verdict (2nd on mobile, 1st on desktop) */}
+              <div className="lg:col-span-8 order-2 lg:order-1">
+                <SiteSummaryCard
+                  rating={site.rating || 4.5}
+                  title={site.name}
+                  favicon={site.favicon}
+                  description={t("siteVerdict.description")}
+                />
+              </div>
+            </div>
+
             <SimilarSitesHeader site={site} />
-            
+
             {categorySites.length > 0 && (
               <div className="mb-10">
-                <CategoryGridView 
-                  sites={categorySites} 
-                  viewType="grid" 
-                  onSiteClick={handleSiteClick} 
+                <CategoryGridView
+                  sites={categorySites}
+                  viewType="grid"
+                  onSiteClick={handleSiteClick}
                 />
               </div>
             )}
-            
+
             <div className="ui-line-gradient my-10" />
 
-            {site.allCategories?.length > 0 && (
+            {categories.length > 0 && (
               <div className="mt-8">
                 <h2 className="ui-title-section mb-6">
-                  {t("sitePage.otherCategories")}
+                  {t("categoryPage.otherCategories")}
                 </h2>
                 <div className="ui-seo-grid">
-                  {site.allCategories.map((cat) => (
-                    <AllCategoryCard key={cat.id} category={cat} />
-                  ))}
+                  {categories
+                    .filter((cat) => cat.id !== site?.category_id)
+                    .map((cat) => (
+                      <CategorySeoCard key={cat.id} category={cat} />
+                    ))}
                 </div>
               </div>
             )}
@@ -109,9 +131,9 @@ const SitePage = () => {
             <MobileSiteModal site={selectedSite} onClose={() => setSelectedSite(null)} />
           )}
 
-          {typeof window !== "undefined" && 
-           window.innerWidth < 1024 && 
-           showMobileBanner && <MobileStickyBanner site={site} />}
+          {typeof window !== "undefined" &&
+            window.innerWidth < 1024 &&
+            showMobileBanner && <MobileStickyBanner site={site} />}
         </main>
       )}
     </>

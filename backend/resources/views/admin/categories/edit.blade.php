@@ -144,6 +144,9 @@
                         </div>
                     @endif
                     <input type="file" name="icon" accept="image/*" class="w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-black file:bg-indigo-600/20 file:text-indigo-400">
+                    @error('icon')
+                        <p class="text-red-500 text-[10px] mt-1 font-bold italic">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- SEO (EN) -->

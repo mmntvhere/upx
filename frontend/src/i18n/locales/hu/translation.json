@@ -120,5 +120,13 @@
     "subTitle": "Az oldal nem található",
     "description": "Lehetséges, hogy a keresett oldalt eltávolították, megváltoztatták a nevét, vagy ideiglenesen nem elérhető.",
     "backHome": "Vissza a Főoldalra"
+  },
+  "siteVerdict": {
+    "title": "UPX ítélet",
+    "tag": "ÍTÉLET",
+    "poor": "Rossz",
+    "average": "Átlagos",
+    "excellent": "Kiváló",
+    "description": "Ezt az oldalt a szerkesztőségünk ellenőrizte. Értékeltük annak funkcionalitását, biztonságát és felhasználói élményét."
   }
 }

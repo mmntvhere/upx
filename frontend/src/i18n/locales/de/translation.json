@@ -120,5 +120,13 @@
     "subTitle": "Seite nicht gefunden",
     "description": "Die von Ihnen gesuchte Seite wurde möglicherweise entfernt, umbenannt oder ist vorübergehend nicht erreichbar.",
     "backHome": "Zurück zur Startseite"
+  },
+  "siteVerdict": {
+    "title": "UPX-Urteil",
+    "tag": "URTEIL",
+    "poor": "Schlecht",
+    "average": "Mittel",
+    "excellent": "Hervorragend",
+    "description": "Diese Website wurde von unserem Redaktionsteam geprüft. Wir haben die Funktionalität, Sicherheit und Benutzerfreundlichkeit bewertet."
   }
 }

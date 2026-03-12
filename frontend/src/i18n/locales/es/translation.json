@@ -117,5 +117,13 @@
     "subTitle": "Página no encontrada",
     "description": "La página que busca podría haber sido eliminada, haber cambiado de nombre o no estar disponible temporalmente.",
     "backHome": "Volver al inicio"
+  },
+  "siteVerdict": {
+    "title": "Veredicto UPX",
+    "tag": "VEREDICTO",
+    "poor": "Malo",
+    "average": "Medio",
+    "excellent": "Excelente",
+    "description": "Este sitio ha sido verificado por nuestro equipo editorial. Evaluamos su funcionalidad, seguridad y experiencia del usuario."
   }
 }

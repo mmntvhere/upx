@@ -120,5 +120,13 @@
     "subTitle": "Không tìm thấy trang",
     "description": "Trang bạn đang tìm kiếm có thể đã bị xóa, bị đổi tên hoặc tạm thời không truy cập được.",
     "backHome": "Quay lại Trang chủ"
+  },
+  "siteVerdict": {
+    "title": "Phán quyết UPX",
+    "tag": "PHÁN QUYẾT",
+    "poor": "Kém",
+    "average": "Trung bình",
+    "excellent": "Xuất sắc",
+    "description": "Trang web này đã được đội ngũ biên tập của chúng tôi xác minh. Chúng tôi đã đánh giá chức năng, tính bảo mật và trải nghiệm người dùng."
   }
 }

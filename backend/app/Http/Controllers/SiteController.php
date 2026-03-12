@@ -64,9 +64,9 @@ public function store(Request $request)
         'description' => 'nullable|string',
         'review'      => 'nullable|string',
         'rating'      => 'required|numeric|min:0|max:10',
-        'preview'     => 'nullable|image|mimes:jpeg,png,jpg,webp,svg,avif|max:2048',
-        'favicon'     => 'nullable|image|mimes:jpeg,png,jpg,ico,webp,svg,avif|max:1024',
-        'main_image'  => 'nullable|image|mimes:jpeg,png,jpg,webp,svg,avif|max:4096',
+        'preview'     => 'nullable|file|mimes:jpeg,png,jpg,webp,svg,avif|max:2048',
+        'favicon'     => 'nullable|file|mimes:jpeg,png,jpg,ico,webp,svg,avif|max:1024',
+        'main_image'  => 'nullable|file|mimes:jpeg,png,jpg,webp,svg,avif|max:4096',
         'pros'        => 'nullable|string',
         'cons'        => 'nullable|string',
         'link'        => 'required|url',
@@ -145,9 +145,9 @@ public function store(Request $request)
         'description' => 'nullable|string',
         'review'      => 'nullable|string',
         'rating'      => 'nullable|numeric|min:0|max:10',
-        'preview'     => 'nullable|image|mimes:jpeg,png,jpg,webp,svg,avif|max:2048',
-        'favicon'     => 'nullable|image|mimes:jpeg,png,jpg,ico,webp,svg,avif|max:1024',
-        'main_image'  => 'nullable|image|mimes:jpeg,png,jpg,webp,svg,avif|max:4096',
+        'preview'     => 'nullable|file|mimes:jpeg,png,jpg,webp,svg,avif|max:2048',
+        'favicon'     => 'nullable|file|mimes:jpeg,png,jpg,ico,webp,svg,avif|max:1024',
+        'main_image'  => 'nullable|file|mimes:jpeg,png,jpg,webp,svg,avif|max:4096',
         'pros'        => 'nullable|string',
         'cons'        => 'nullable|string',
         'link'        => 'required|url|max:255',
@@ -270,6 +270,10 @@ public function create()
                 }
 
                 $validated[$field] = $request->file($field)->store("sites/{$field}s", 'public');
+            } else {
+                // IMPORTANT: If no new file is uploaded, remove the field from $validated
+                // otherwise $site->update($validated) will set the field to null in DB.
+                unset($validated[$field]);
             }
         }
 

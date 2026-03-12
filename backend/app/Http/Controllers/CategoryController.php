@@ -23,32 +23,19 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(\App\Http\Requests\StoreCategoryRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:categories',
-            'description' => 'nullable|string',
-            'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp,avif|max:2048',
-            'disclaimer' => 'nullable|string',
-            'seo_title' => 'nullable|string|max:255',
-            'seo_description' => 'nullable|string',
-        ]);
-
-        $validated['is_active'] = $request->boolean('is_active', true);
-        $validated['slug'] = $validated['slug'] ?: Str::slug($validated['name']);
+        $data = $request->validated();
 
         if ($request->hasFile('icon')) {
-            $validated['icon'] = $request->file('icon')->store('categories', 'public');
+            $data['icon'] = $request->file('icon')->store('categories', 'public');
         }
 
-        $category = Category::create($validated);
-
-        // Translations handling
-        foreach ($request->input('translations', []) as $field => $locales) {
-            $category->setTranslations($field, $locales);
-        }
-        $category->save();
+        $category = Category::create($data);
+        $this->syncTranslations($category, $request);
 
         return redirect()->route('admin.categories.index')->with('success', 'Category created successfully.');
     }
@@ -58,35 +45,36 @@ class CategoryController extends Controller
         return view('admin.categories.edit', compact('category'));
     }
 
-    public function update(Request $request, Category $category)
+    /**
+     * Update the specified resource in storage (Senior-level implementation)
+     */
+    public function update(\App\Http\Requests\UpdateCategoryRequest $request, Category $category)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:categories,slug,' . $category->id,
-            'description' => 'nullable|string',
-            'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg,webp,avif|max:2048',
-            'disclaimer' => 'nullable|string',
-            'seo_title' => 'nullable|string|max:255',
-            'seo_description' => 'nullable|string',
-        ]);
+        $data = $request->validated();
 
-        $validated['is_active'] = $request->boolean('is_active');
-        $validated['slug'] = $validated['slug'] ?: Str::slug($validated['name']);
-
+        // Обработка иконки
         if ($request->hasFile('icon')) {
             if ($category->icon) Storage::disk('public')->delete($category->icon);
-            $validated['icon'] = $request->file('icon')->store('categories', 'public');
+            $data['icon'] = $request->file('icon')->store('categories', 'public');
         }
 
-        $category->update($validated);
-
-        // Translations update
-        foreach ($request->input('translations', []) as $field => $locales) {
-            $category->setTranslations($field, $locales);
-        }
-        $category->save();
+        $category->update($data);
+        $this->syncTranslations($category, $request);
 
         return redirect()->route('admin.categories.index')->with('success', 'Category updated successfully.');
+    }
+
+    /**
+     * Вспомогательный метод для синхронизации переводов
+     */
+    protected function syncTranslations(Category $category, Request $request)
+    {
+        if ($request->has('translations')) {
+            foreach ($request->input('translations') as $field => $locales) {
+                $category->setTranslations($field, $locales);
+            }
+            $category->save();
+        }
     }
 
     public function removeIcon(Category $category)

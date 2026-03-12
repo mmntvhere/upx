@@ -102,9 +102,13 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
         )}
       </div>
 
-      <div className="flex items-center justify-center gap-1 mt-4 text-[11px] sm:text-[13px] font-medium text-white/90 truncate w-full px-1">
+      <div className="flex items-center justify-center gap-2 mt-4 text-[11px] sm:text-[13px] font-medium text-white/90 truncate w-full px-1">
         <span className="truncate" title={site.name}>{site.name}</span>
-        <LangFlags langs={site.enabled_languages} />
+        {site.enabled_languages?.length === 1 && (
+          <div className="w-4 h-4 rounded-full overflow-hidden bg-white/5 flex items-center justify-center shrink-0">
+            <LangFlags langs={site.enabled_languages} />
+          </div>
+        )}
       </div>
     </motion.div>
   )

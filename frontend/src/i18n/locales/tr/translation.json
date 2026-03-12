@@ -120,5 +120,13 @@
     "subTitle": "Sayfa bulunamadı",
     "description": "Aradığınız sayfa kaldırılmış, adı değiştirilmiş veya geçici olarak kullanım dışı olabilir.",
     "backHome": "Ana Sayfaya Dön"
+  },
+  "siteVerdict": {
+    "title": "UPX Kararı",
+    "tag": "KARAR",
+    "poor": "Kötü",
+    "average": "Orta",
+    "excellent": "Mükemmel",
+    "description": "Bu site editör ekibimiz tarafından doğrulanmıştır. İşlevselliğini, güvenliğini ve kullanıcı deneyimini değerlendirdik."
   }
 }

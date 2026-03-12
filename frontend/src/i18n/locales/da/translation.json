@@ -120,5 +120,13 @@
     "subTitle": "Siden blev ikke fundet",
     "description": "Den side, du leder efter, er muligvis blevet fjernet, har fået ændret navn eller er midlertidigt utilgængelig.",
     "backHome": "Tilbage til forsiden"
+  },
+  "siteVerdict": {
+    "title": "UPX-dom",
+    "tag": "DOM",
+    "poor": "Dårlig",
+    "average": "Gennemsnitlig",
+    "excellent": "Fremragende",
+    "description": "Dette websted er blevet verificeret af vores redaktionsteam. Vi har vurderet dets funktionalitet, sikkerhed og brugeroplevelse."
   }
 }

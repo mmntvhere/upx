@@ -71,15 +71,15 @@ const CategorySection = ({
           <div className="flex items-center gap-2 flex-shrink-0">
             <button
               onClick={() => onSeeAllClick(category)}
-              className="flex items-center gap-1 text-sm text-white px-4 h-8 rounded-full bg-[rgba(179,182,189,0.12)] hover:bg-[rgba(179,182,189,0.2)] transition"
+              className="ui-button-glass min-w-[100px]"
               aria-label={ariaLabel}
             >
               {seeAllLabel}
               <svg
-                className="w-4 h-4"
+                className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="3"
                 viewBox="0 0 24 24"
               >
                 <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -89,14 +89,14 @@ const CategorySection = ({
             {/* Стрелки прокрутки (десктоп) */}
             <button
               onClick={() => scrollByStep?.(category.id, "left")}
-              className="hidden lg:flex w-8 h-8 p-0 rounded-lg bg-[rgba(179,182,189,0.12)] hover:bg-[rgba(179,182,189,0.2)] items-center justify-center transition"
+              className="hidden lg:flex ui-icon-btn"
               aria-label={scrollLeftLabel}
             >
               <svg
-                className="w-4 h-4 text-[#F0F2F5]"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 viewBox="0 0 24 24"
               >
                 <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
@@ -105,14 +105,14 @@ const CategorySection = ({
 
             <button
               onClick={() => scrollByStep?.(category.id, "right")}
-              className="hidden lg:flex w-8 h-8 p-0 rounded-lg bg-[rgba(179,182,189,0.12)] hover:bg-[rgba(179,182,189,0.2)] items-center justify-center transition"
+              className="hidden lg:flex ui-icon-btn"
               aria-label={scrollRightLabel}
             >
               <svg
-                className="w-4 h-4 text-[#F0F2F5]"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 viewBox="0 0 24 24"
               >
                 <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />

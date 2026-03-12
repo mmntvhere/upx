@@ -120,5 +120,13 @@
     "subTitle": "Page non trouvée",
     "description": "La page que vous recherchez a peut-être été supprimée, a changé de nom ou est temporairement indisponible.",
     "backHome": "Retour à l'accueil"
+  },
+  "siteVerdict": {
+    "title": "Verdict UPX",
+    "tag": "VERDICT",
+    "poor": "Mauvais",
+    "average": "Moyen",
+    "excellent": "Excellent",
+    "description": "Ce site a été vérifié par notre équipe éditoriale. Nous avons évalué sa fonctionnalité, sa sécurité et son expérience utilisateur."
   }
 }

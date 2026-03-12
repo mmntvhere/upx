@@ -120,5 +120,13 @@
     "subTitle": "Stránka nenalezena",
     "description": "Stránka, kterou hledáte, mohla být odstraněna, byl změněn její název nebo je dočasně nedostupná.",
     "backHome": "Zpět na hlavní stránku"
+  },
+  "siteVerdict": {
+    "title": "Verdikt UPX",
+    "tag": "VERDIKT",
+    "poor": "Špatné",
+    "average": "Průměrné",
+    "excellent": "Vynikající",
+    "description": "Tento web byl ověřen naším redakčním týmem. Posoudili jsme jeho funkčnost, bezpečnost a uživatelskou zkušenost."
   }
 }

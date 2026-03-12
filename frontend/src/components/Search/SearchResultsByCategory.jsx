@@ -55,10 +55,10 @@ const SearchResultsByCategory = ({
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => handleSeeAll(category)}
-                    className="flex items-center gap-1 text-[13px] sm:text-sm text-[#141415] px-4 h-8 rounded-full bg-[rgba(179,182,189,0.12)] hover:bg-[rgba(179,182,189,0.2)] transition"
+                    className="ui-button-glass min-w-[90px]"
                   >
                     {tAllSites}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                       <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
@@ -69,14 +69,14 @@ const SearchResultsByCategory = ({
                       <button
                         key={dir}
                         onClick={() => scroll(category.id, dir)}
-                        className="w-8 h-8 p-0 rounded-lg bg-[rgba(179,182,189,0.12)] hover:bg-[rgba(179,182,189,0.2)] flex items-center justify-center transition"
+                        className="ui-icon-btn h-7 w-7 sm:h-8 sm:w-8"
                         aria-label={dir === "left" ? tScrollLeft : tScrollRight}
                       >
                         <svg
-                          className="w-4 h-4 text-[#141415]"
+                          className="w-3.5 h-3.5"
                           fill="none"
                           stroke="currentColor"
-                          strokeWidth="2"
+                          strokeWidth="2.5"
                           viewBox="0 0 24 24"
                         >
                           <path

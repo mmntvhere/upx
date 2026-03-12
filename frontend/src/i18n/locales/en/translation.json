@@ -18,7 +18,12 @@
     "blogDesc": "About the company, business and more",
     "rights": "All rights reserved",
     "recommended": "Recommended",
-    "allLanguages": "All languages"
+    "allLanguages": "All languages",
+    "language": "Language",
+    "close": "Close",
+    "faq": "FAQ",
+    "terms": "Terms of Service",
+    "rta": "Parental Control (RTA)"
   },
   "searchAndFilters": {
     "search": "Search sites...",
@@ -116,6 +121,16 @@
     "title": "404",
     "subTitle": "Page not found",
     "description": "The page you are looking for might have been removed, had its name changed or is temporarily unavailable.",
-    "backHome": "Back to Home"
+    "backHome": "Back to Home",
+    "pageTitle": "Page Not Found",
+    "pageDescription": "The page you are looking for does not exist."
+  },
+  "siteVerdict": {
+    "title": "UPX Verdict",
+    "tag": "VERDICT",
+    "poor": "Poor",
+    "average": "Average",
+    "excellent": "Excellent",
+    "description": "This site has been verified by our editorial team. We assessed its functionality, security, and user experience."
   }
 }

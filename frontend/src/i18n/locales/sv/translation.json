@@ -120,5 +120,13 @@
     "subTitle": "Sidan hittades inte",
     "description": "Sidan du letar efter kan ha tagits bort, bytt namn eller är tillfälligt otillgänglig.",
     "backHome": "Tillbaka till Startsidan"
+  },
+  "siteVerdict": {
+    "title": "UPX-dom",
+    "tag": "DOM",
+    "poor": "Dålig",
+    "average": "Genomsnittlig",
+    "excellent": "Utmärkt",
+    "description": "Denna webbplats har verifierats av vår redaktion. Vi har bedömt dess funktionalitet, säkerhet och användarupplevelse."
   }
 }

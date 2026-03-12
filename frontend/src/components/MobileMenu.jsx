@@ -67,20 +67,23 @@ const MobileMenu = ({ isOpen, onClose, onOpenSearch }) => {
                   <ShoppingBag className="w-5 h-5" />
                   <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#121212]"></span>
                 </button>
-                <button className="w-10 h-10 p-0 rounded-full flex items-center justify-center text-[#ffbb00] bg-white/5 transition">
-                  <Moon className="w-5 h-5 fill-current" />
-                </button>
               </div>
 
               {/* Язык */}
               <div className="relative">
                 <button 
                   onClick={() => setLangOpen(!langOpen)}
-                  className="flex items-center gap-2 text-white/80 hover:text-white bg-white/5 px-3 py-2 rounded-lg"
+                  className={`flex items-center gap-2 px-2 py-1.5 rounded-full border transition-all duration-300 ${
+                    langOpen 
+                      ? 'bg-white/10 border-white/20 text-white' 
+                      : 'bg-white/5 border-white/5 text-white/70'
+                  }`}
                 >
-                  <LangFlags langs={[currentLang]} />
-                  <svg className={`w-4 h-4 transition-transform ${langOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <div className="w-6 h-6 rounded-full overflow-hidden bg-white/5 flex items-center justify-center shrink-0">
+                    <LangFlags langs={[currentLang]} />
+                  </div>
+                  <svg className={`w-3.5 h-3.5 transition-transform duration-300 ${langOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
 
@@ -92,7 +95,7 @@ const MobileMenu = ({ isOpen, onClose, onOpenSearch }) => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -10, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute right-0 top-full mt-2 w-48 max-h-[300px] overflow-y-auto bg-[#1c1c1e] border border-white/10 rounded-xl shadow-2xl z-30"
+                      className="absolute right-0 top-full mt-3 w-56 max-h-[320px] overflow-y-auto bg-[#1c1c1e]/80 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-30 ring-1 ring-white/5 scrollbar-hide py-2"
                     >
                       {LANGUAGES.map((lang) => (
                         <button
@@ -101,10 +104,21 @@ const MobileMenu = ({ isOpen, onClose, onOpenSearch }) => {
                             switchLanguage(lang.code);
                             setLangOpen(false);
                           }}
-                          className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition text-left ${currentLang === lang.code ? 'text-white bg-white/5 font-semibold' : 'text-white/70'}`}
+                          className={`w-[calc(100%-16px)] mx-2 flex items-center justify-between px-3 py-2.5 rounded-xl transition-all text-left group mb-1 last:mb-0 ${
+                            currentLang === lang.code 
+                              ? 'bg-[#D80032]/10 text-white font-bold border border-[#D80032]/20' 
+                              : 'text-white/70 hover:bg-white/5 hover:text-white border border-transparent'
+                          }`}
                         >
-                          <span className="text-xl">{lang.label}</span>
-                          <span className="text-sm">{lang.name}</span>
+                          <div className="flex items-center gap-3">
+                            <div className="w-7 h-7 rounded-full overflow-hidden bg-white/5 flex items-center justify-center shrink-0 transition-transform group-hover:scale-110">
+                              <LangFlags langs={[lang.code]} />
+                            </div>
+                            <span className="text-[13px] tracking-wide">{lang.name}</span>
+                          </div>
+                          {currentLang === lang.code && (
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#D80032] shadow-[0_0_10px_rgba(216,0,50,0.5)]" />
+                          )}
                         </button>
                       ))}
                     </motion.div>

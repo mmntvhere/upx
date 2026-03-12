@@ -120,5 +120,13 @@
     "subTitle": "Halaman tidak ditemukan",
     "description": "Halaman yang Anda cari mungkin telah dihapus, namanya diubah, atau sementara tidak tersedia.",
     "backHome": "Kembali ke Beranda"
+  },
+  "siteVerdict": {
+    "title": "Putusan UPX",
+    "tag": "PUTUSAN",
+    "poor": "Buruk",
+    "average": "Rata-rata",
+    "excellent": "Luar Biasa",
+    "description": "Situs ini telah diverifikasi oleh tim editorial kami. Kami menilai fungsionalitas, keamanan, dan pengalaman penggunanya."
   }
 }

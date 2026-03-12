@@ -120,5 +120,13 @@
     "subTitle": "Nie znaleziono strony",
     "description": "Strona, której szukasz, mogła zostać usunięta, zmieniła nazwę lub jest tymczasowo niedostępna.",
     "backHome": "Wróc do strony głównej"
+  },
+  "siteVerdict": {
+    "title": "Werdykt UPX",
+    "tag": "WERDYKT",
+    "poor": "Słabo",
+    "average": "Średnio",
+    "excellent": "Świetnie",
+    "description": "Ta strona została zweryfikowana przez nasz zespół redakcyjny. Oceniliśmy jej funkcjonalność, bezpieczeństwo i wrażenia użytkowników."
   }
 }

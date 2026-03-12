@@ -120,5 +120,13 @@
     "subTitle": "Sivua ei löytynyt",
     "description": "Etsimäsi sivu on saatettu poistaa, sen nimeä on muutettu tai se on väliaikaisesti poissa käytöstä.",
     "backHome": "Takaisin alkuun"
+  },
+  "siteVerdict": {
+    "title": "UPX-tuomio",
+    "tag": "TUOMIO",
+    "poor": "Huono",
+    "average": "Keskiarvoinen",
+    "excellent": "Erinomainen",
+    "description": "Toimitustiimimme on vahvistanak tähän sivuston. Arvioimme sen toimivuuden, turvallisuuden ja käyttäjäkokemuksen."
   }
 }

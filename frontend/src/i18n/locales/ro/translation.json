@@ -120,5 +120,13 @@
     "subTitle": "Pagina nu a fost găsită",
     "description": "Pagina pe care o căutați este posibil să fi fost eliminată, să i se fi schimbat numele sau este temporar indisponibilă.",
     "backHome": "Înapoi Acasă"
+  },
+  "siteVerdict": {
+    "title": "Verdict UPX",
+    "tag": "VERDICT",
+    "poor": "Slab",
+    "average": "Mediu",
+    "excellent": "Excelent",
+    "description": "Acest site a fost verificat de echipa noastră editorială. Am evaluat funcționalitatea, securitatea și experiența utilizatorului."
   }
 }

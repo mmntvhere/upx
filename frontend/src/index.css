@@ -157,33 +157,67 @@ h1 {
   .ui-sidebar-row:hover .ui-sidebar-actions {
     @apply translate-x-0;
   }
+
+  /* 🔘 Кнопки и Интерактив */
+  .ui-button-primary {
+    @apply px-6 py-2.5 rounded-full bg-primaryLink text-white font-bold transition-all hover:bg-primaryLinkHover active:scale-95 shadow-lg shadow-primaryLink/20 text-center;
+  }
+
+  .ui-button-secondary {
+    @apply px-4 py-2 rounded-full bg-white/5 text-white/80 text-sm font-medium transition-all hover:bg-white/10 hover:text-white active:scale-95 border border-white/5 text-center;
+  }
+
+  .ui-button-glass {
+    @apply px-3.5 h-[30px] rounded-full bg-white/[0.03] text-[13px] font-medium text-white/50 border border-white/5 transition-all hover:bg-white/[0.08] hover:text-white/90 hover:border-white/10 active:scale-[0.97] flex items-center justify-center gap-1.5;
+  }
+
+  .ui-icon-btn {
+    @apply w-[30px] h-[30px] flex items-center justify-center rounded-lg bg-white/[0.03] text-white/40 transition-all hover:bg-white/[0.08] hover:text-white/80 active:scale-[0.97] border border-white/[0.04];
+  }
+
+  /* 🏷 Бейджи и Теги */
+  .ui-badge {
+    @apply px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider inline-flex items-center justify-center;
+  }
+
+  .ui-badge-red {
+    @apply bg-primaryLink/20 text-primaryLink border border-primaryLink/30;
+  }
+
+  .ui-badge-glass {
+    @apply bg-white/5 text-white/40 border border-white/10;
+  }
+
+  /* 💎 Кнопки Хедера */
+  .ui-header-btn {
+    @apply w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.03] text-white/50 transition-all duration-300 hover:bg-white/[0.08] hover:text-white hover:shadow-[inset_0_0_15px_rgba(255,255,255,0.05)] active:scale-95 border border-white/5 hover:border-white/10 relative shrink-0;
+  }
 }
 
-/* Универсальный стиль для всех кнопок */
+@keyframes ui-pulse-red {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-ui-pulse {
+  animation: ui-pulse-red 2s infinite ease-in-out;
+}
+
+/* 🌀 Core Resets & Modern Defaults */
 button {
-  border-radius: 9999px;
-  border: none;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  color: #e5e5e5;
+  all: unset;
+  box-sizing: border-box;
   cursor: pointer;
-  transition: background-color 0.25s, color 0.25s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
 }
 
-/* Единый hover эффект */
-button:hover {
-  background-color: #2a2a2a;
-  color: #ffffff;
-  border-color: transparent;
-}
-
-/* Сброс фокуса */
-button:focus,
 button:focus-visible {
-  outline: none;
+  outline: 2px solid theme('colors.primaryLink');
+  outline-offset: 2px;
 }
 
 /* Стили для светлой темы */
@@ -284,10 +318,6 @@ button:focus-visible {
 
 button.search-term-btn {
   color: #141415 !important;
-}
-svg, svg path {
-  stroke: currentColor;
-  fill: none;
 }
 
 @layer utilities {
