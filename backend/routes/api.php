@@ -18,6 +18,7 @@ Route::middleware(['throttle:api'])->group(function () {
 
     // ✅ Публичный API
     Route::get('/categories', [CategoryController::class, 'index']);
+    Route::get('/categories/{slug}', [CategoryController::class, 'show']);
     Route::get('/banners', [BannerController::class, 'index']);
 
     // ✅ Маршрут для получения сайта по slug

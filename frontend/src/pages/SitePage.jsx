@@ -7,7 +7,7 @@ import DOMPurify from "dompurify"
 import useLocalNavigate from "@/hooks/useLocalNavigate"
 import SEO from "@/components/SEO"
 import NotFound from "./NotFound"
-import Breadcrumbs from "../components/site/Breadcrumbs"
+import Breadcrumbs from "@/components/common/Breadcrumbs"
 import MainImage from "../components/site/MainImage"
 import SiteDisclaimer from "../components/site/SiteDisclaimer"
 import SiteHeaderRow from "../components/site/SiteHeaderRow"
@@ -60,8 +60,26 @@ const SitePage = () => {
   return (
     <>
       <SEO
-        title={site?.seo_title || site?.name || slug}
-        description={site?.seo_description || `${site?.name || slug} review and ratings on BeInPorn.`}
+        title={site?.seo_title || site?.name}
+        description={site?.seo_description}
+        schemaData={{
+          "@context": "https://schema.org",
+          "@type": "Review",
+          "itemReviewed": {
+            "@type": "WebSite",
+            "name": site?.name,
+            "url": site?.link
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": site?.rating || 5,
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "BeInPorn"
+          }
+        }}
       />
 
       {isLoading ? (

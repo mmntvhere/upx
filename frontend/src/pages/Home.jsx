@@ -12,6 +12,8 @@ import { useCategories } from "@/contexts/CategoryContext"
 
 import { motion, AnimatePresence } from "framer-motion"
 import SEO from "@/components/SEO"
+import LazySection from "@/components/common/LazySection"
+import { resolveImageUrl } from "@/utils/imageUrl"
 
 /**
  * Placeholder shimmer shown while a banner slot is loading.
@@ -39,7 +41,7 @@ const RenderBanner = ({ banner, slotLabel, className, isLoading }) => {
       {banner ? (
         <a href={banner.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
           <img
-            src={banner.image}
+            src={resolveImageUrl(banner.image)}
             alt={banner.title || slotLabel}
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]"
             loading="lazy"
@@ -116,7 +118,7 @@ const Home = ({ setMobileModalOpen }) => {
       <main className="bg-[#141415] w-full text-white pb-[72px]">
       {/* 🎯 Баннеры */}
       <div className="ui-container">
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
           {/* Main Banner Slot */}
         <RenderBanner banner={mainBanner}   slotLabel="Main Selection" className="ui-banner-main col-span-1 lg:col-span-2" isLoading={bannersLoading} />
 
@@ -191,12 +193,13 @@ const Home = ({ setMobileModalOpen }) => {
           >
             {categories.length > 0 ? (
               categories.map((category) => (
-                <CategorySection
-                  key={category.id}
-                  category={category}
-                  onSeeAllClick={handleSeeAllClick}
-                  onSiteClick={handleSiteClick}
-                />
+                <LazySection key={category.id} height="300px">
+                  <CategorySection
+                    category={category}
+                    onSeeAllClick={handleSeeAllClick}
+                    onSiteClick={handleSiteClick}
+                  />
+                </LazySection>
               ))
             ) : (
                <div className="py-20 text-center text-white/30 italic">

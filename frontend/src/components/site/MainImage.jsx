@@ -4,6 +4,7 @@ import { ChevronRightIcon } from "@heroicons/react/20/solid"
 import SiteHeaderRow from "../site/SiteHeaderRow"
 import { useTranslateUniversal } from "@/hooks/useTranslateUniversal"
 import { useLanguage } from "@/hooks/useLanguage"
+import { resolveImageUrl } from "@/utils/imageUrl"
 
 const MainImage = ({ site }) => {
   const currentLang = useLanguage()
@@ -37,7 +38,7 @@ const MainImage = ({ site }) => {
         h-[180px] sm:h-[220px] md:h-[260px] lg:h-[460px] lg:w-[960px]"
       >
         <img
-          src={`/storage/${site.main_image}`}
+          src={resolveImageUrl(site.main_image)}
           alt={site.name}
           className="w-full h-full object-cover object-top"
         />
@@ -76,7 +77,7 @@ const MainImage = ({ site }) => {
           <div className="flex items-center gap-2 mb-4 px-1">
             {site.category?.icon && (
               <img
-                src={`/storage/${site.category.icon}`}
+                src={resolveImageUrl(site.category.icon)}
                 alt={site.category.name}
                 className="w-5 h-5 object-contain"
               />
@@ -94,7 +95,7 @@ const MainImage = ({ site }) => {
                 <div className="flex items-center gap-2.5 min-w-0">
                   {s.favicon ? (
                     <img
-                      src={`/storage/${s.favicon}`}
+                      src={resolveImageUrl(s.favicon)}
                       alt={s.name}
                       className="w-5 h-5 rounded-md shrink-0 shadow-sm"
                     />

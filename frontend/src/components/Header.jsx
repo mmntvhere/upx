@@ -46,8 +46,8 @@ const Header = () => {
     <>
       <header 
         role="banner"
-        className={`${isMobileMenuOpen ? 'fixed' : 'sticky md:relative'} top-0 z-[60] w-full transition-all duration-300 border-b ${
-        (isScrolled || isMobileMenuOpen) && !window.matchMedia('(min-width: 768px)').matches
+        className={`fixed top-0 left-0 right-0 z-[60] w-full transition-all duration-300 border-b ${
+        isScrolled || isMobileMenuOpen
           ? "bg-[#0a0a0a]/85 backdrop-blur-2xl border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
           : "bg-[#141415] border-transparent"
       }`}>

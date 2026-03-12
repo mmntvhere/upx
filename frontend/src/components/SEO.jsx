@@ -32,6 +32,9 @@ const SEO = ({
     // Формирование URL
     const canonical = `${domain}/${isLangInPath ? segments[0] + pathPart : purePath}`.replace(/\/+$/, '') || domain
     
+    // 🧱 Проверка на "грязный" заголовок (если данных еще нет)
+    const displayTitle = title && !title.includes('undefined') ? title : (siteName || 'BeInPorn')
+
     // Создание связей hreflang
     const alternates = [
       { lang: 'x-default', url: `${domain}${pathPart}`.replace(/\/+$/, '') || domain },
@@ -43,7 +46,7 @@ const SEO = ({
     ]
 
     return {
-      title: (title ? `${title} | ${siteName}` : siteName).trim(),
+      title: (displayTitle ? `${displayTitle} | ${siteName}` : siteName).trim(),
       description: (description || "Best reviews and ratings on BeInPorn.").trim(),
       image: image || `${domain}/og-image.jpg`,
       canonical,

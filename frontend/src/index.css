@@ -26,13 +26,25 @@ a:hover {
   color: #ffffff;
 }
 
-html, body, #root {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100vh;
   background-color: #141415;
   overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 60px; /* Высота мобильного хедера */
+}
+
+@media (min-width: 768px) {
+  #root {
+    padding-top: 72px; /* Высота десктопного хедера */
+  }
 }
 
 h1 {

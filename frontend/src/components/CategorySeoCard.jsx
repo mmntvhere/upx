@@ -1,4 +1,5 @@
 import LocalLink from "@/components/LocalLink"
+import { resolveImageUrl } from "@/utils/imageUrl"
 const CategorySeoCard = ({ category }) => {
 
   const name = category.name
@@ -16,7 +17,7 @@ const CategorySeoCard = ({ category }) => {
         <div className="flex items-center gap-2 mb-4">
           {category.icon && (
             <img
-              src={`/storage/${category.icon}`}
+              src={resolveImageUrl(category.icon)}
               alt={name}
               className="w-6 h-6"
             />
@@ -38,7 +39,7 @@ const CategorySeoCard = ({ category }) => {
               >
                 {site.favicon ? (
                   <img
-                    src={site.favicon.startsWith("http") ? site.favicon : `/storage/${site.favicon}`}
+                    src={resolveImageUrl(site.favicon)}
                     alt={site.name}
                     className="w-full h-full object-contain p-[2px]"
                   />

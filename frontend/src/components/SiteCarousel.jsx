@@ -10,20 +10,7 @@ import { motion, LayoutGroup } from "framer-motion"
  * – обрабатывать клик по карточке сайта (если передан обработчик onSiteClick).
  */
 const SiteCarousel = ({ categoryId, sites = [], externalRef, onSiteClick }) => {
-  const currentLang = useLanguage()
-
-  // 🔽 Сортировка по position_per_lang для текущего языка
-  const sortedSites = React.useMemo(() => {
-    if (!sites || sites.length === 0) return [];
-    
-    return [...sites].sort((a, b) => {
-      const aPos = a.position_per_lang?.[currentLang] ?? a.position ?? 999
-      const bPos = b.position_per_lang?.[currentLang] ?? b.position ?? 999
-      return aPos - bPos
-    });
-  }, [sites, currentLang]);
-
-  if (sortedSites.length === 0) return null;
+  if (!sites || sites.length === 0) return null;
 
   return (
     <div className="relative">
@@ -33,7 +20,7 @@ const SiteCarousel = ({ categoryId, sites = [], externalRef, onSiteClick }) => {
         role="list"
         aria-label={`Carousel of sites for category ${categoryId}`}
       >
-        {sortedSites.map((site) => (
+        {sites.map((site) => (
           <li
             key={site.slug}
             className="ui-slider-item"

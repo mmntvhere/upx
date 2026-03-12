@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Site;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class SiteSortController extends Controller
 {
@@ -30,6 +31,9 @@ class SiteSortController extends Controller
                 $site->save();
             }
         }
+
+        // 🚀 Очищаем кэш категорий для этого языка, чтобы изменения на главной были видны сразу
+        Cache::forget("categories.active.{$locale}.v2");
 
         return response()->json(['message' => 'Позиции обновлены для языка ' . $locale]);
     }
