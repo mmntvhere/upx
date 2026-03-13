@@ -45,12 +45,12 @@ const LanguageDropdown = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className="absolute top-full mt-3 right-0 w-[280px] max-h-[450px] bg-[#1c1c1e]/80 backdrop-blur-2xl text-white shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[24px] overflow-hidden z-50 border border-white/10 ring-1 ring-white/5 animate-in fade-in zoom-in-95 duration-200"
+      className="absolute top-full mt-3 right-0 w-[280px] max-h-[450px] bg-[#1c1c1e]/80 ui-glass-xl text-white shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[24px] overflow-hidden z-50 border border-white/10 ring-1 ring-white/5 animate-in fade-in zoom-in-95 duration-200"
       ref={dropdownRef}
       onClick={(e) => e.stopPropagation()}
     >
       {/* 🔮 Header с эффектом стекла */}
-      <div className="sticky top-0 bg-white/[0.03] backdrop-blur-3xl z-10 px-4 py-2.5 border-b border-white/5 flex justify-between items-center">
+      <div className="sticky top-0 bg-white/[0.03] ui-glass-xl z-10 px-4 py-2.5 border-b border-white/5 flex justify-between items-center">
         <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">{t('footer.language', 'Language')}</h2>
         <button
           onClick={onClose}

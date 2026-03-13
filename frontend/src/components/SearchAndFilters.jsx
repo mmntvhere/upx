@@ -140,7 +140,7 @@ const SearchAndFilters = ({
               <div className="absolute top-0 left-0 sm:left-6 lg:left-8 bottom-0 w-16 bg-gradient-to-r from-[#141415] to-transparent z-10 pointer-events-none" />
               <button
                 onClick={() => scroll('left')}
-                className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-6 lg:left-8 w-10 h-10 rounded-full z-20 bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-all shadow-xl"
+                className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-6 lg:left-8 w-10 h-10 rounded-full z-20 bg-white/5 ui-glass border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-all shadow-xl"
                 aria-label="Scroll left"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -155,7 +155,7 @@ const SearchAndFilters = ({
               <div className="absolute top-0 right-0 sm:right-6 lg:right-8 bottom-0 w-16 bg-gradient-to-l from-[#141415] to-transparent z-10 pointer-events-none" />
               <button
                 onClick={() => scroll('right')}
-                className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-6 lg:right-8 w-10 h-10 rounded-full z-20 bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-all shadow-xl"
+                className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-6 lg:right-8 w-10 h-10 rounded-full z-20 bg-white/5 ui-glass border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-all shadow-xl"
                 aria-label="Scroll right"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">

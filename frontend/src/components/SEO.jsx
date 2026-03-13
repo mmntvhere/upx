@@ -57,7 +57,7 @@ const SEO = ({
 
   // 🚀 DOM Injector: Синхронная прописка тегов
   useEffect(() => {
-    const tagId = 'upx-seo-manual';
+    const tagId = 'beinporn-seo-manual';
     
     const injectTags = () => {
       // 1. Очистка старой порции данных

@@ -91,7 +91,7 @@ const StaticPage = () => {
           <div className="ui-container py-8 lg:py-12 flex flex-col min-h-[80vh]">
           {/* 📱 Mobile Fixed Navigation Wrapper */}
           <div className="md:hidden sticky top-[60px] z-40 -mx-4 mb-8">
-            <div className="bg-[#141415]/95 backdrop-blur-md px-4 pb-6 border-b border-white/5 shadow-sm">
+            <div className="bg-[#141415]/95 ui-glass px-4 pb-6 border-b border-white/5 shadow-sm">
               <div
                 ref={carouselRef}
                 className="flex space-x-2 overflow-x-auto hide-scrollbar pt-6 items-center snap-x whitespace-nowrap"

@@ -25,12 +25,15 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
     }
   }
 
+  // Детекция возможности зависания курсора (чтобы избежать sticky hover на мобайле)
+  const isHoverable = typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
+      initial={{ scale: 0.95 }}
+      whileInView={{ scale: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      whileHover={isHoverable ? { y: -5, zIndex: 20 } : {}}
       whileTap={{ scale: 0.95 }}
       onClick={handleClick}
       className={`
@@ -62,7 +65,7 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
                 setPreviewError(true)
                 setImageLoaded(true)
               }}
-              className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+              className={`w-full h-full object-cover transition-transform duration-500 ui-img-hover ${imageLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
             />
           ) : (
             <div

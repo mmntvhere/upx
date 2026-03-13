@@ -11,11 +11,12 @@ const SiteListCard = ({ site, onClick }) => {
     : site?.preview || ""
 
   const navigate = useLocalNavigate()
+  const isHoverable = typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches
 
   return (
     <div
       onClick={onClick}
-      className="relative w-full h-[300px] rounded-[24px] overflow-hidden cursor-pointer shadow-lg group transition-transform duration-300 hover:-translate-y-1 bg-[#141415]"
+      className={`relative w-full h-[300px] rounded-[24px] overflow-hidden cursor-pointer shadow-lg group transition-transform duration-300 ${isHoverable ? "hover:-translate-y-1" : ""} bg-[#141415]`}
       style={{ isolation: "isolate" }}
     >
       {/* 🖼 Фоновое изображение */}
@@ -23,7 +24,7 @@ const SiteListCard = ({ site, onClick }) => {
         <img
           src={imageSrc}
           alt={site.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className={`w-full h-full object-cover transition-transform duration-500 ${isHoverable ? "group-hover:scale-110" : ""}`}
         />
       )}
 

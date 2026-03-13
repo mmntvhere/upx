@@ -39,7 +39,7 @@ const MobileStickyBanner = ({ site }) => {
   return (
     <div
       className={clsx(
-        "fixed bottom-0 inset-x-0 z-50 bg-[#141415]/80 backdrop-blur-md shadow-[0_-2px_20px_rgba(0,0,0,0.5)] p-4",
+        "fixed bottom-0 inset-x-0 z-50 bg-[#141415]/80 ui-glass shadow-[0_-2px_20px_rgba(0,0,0,0.5)] p-4",
         isVisible ? "animate-fadeIn" : "animate-fadeOut"
       )}
     >

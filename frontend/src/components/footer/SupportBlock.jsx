@@ -17,7 +17,7 @@ const SupportBlock = () => {
         <p className="text-sm text-gray-400 mb-4">{contactUs}</p>
       </div>
       <a 
-        href="mailto:support@upx.social" 
+        href="mailto:support@beinporn.com" 
         className="bg-[#D80032] hover:bg-[#b00029] text-white font-bold w-full py-2.5 rounded-xl text-xs uppercase tracking-widest text-center transition-all shadow-lg shadow-red-600/10"
       >
         {contactSupport}

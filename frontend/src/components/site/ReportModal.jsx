@@ -151,7 +151,7 @@ const ReportModal = ({ isOpen, onClose, site }) => {
   }
 
   return createPortal(
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 sm:p-6 opacity-100 transition-opacity">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 ui-glass p-4 sm:p-6 opacity-100 transition-opacity">
       <div 
         ref={modalRef}
         className="w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] animate-slideUp sm:animate-fadeIn"

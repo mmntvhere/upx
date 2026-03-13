@@ -51,7 +51,7 @@ const MobileMenu = ({ isOpen, onClose, onOpenSearch }) => {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="fixed top-[60px] md:top-[72px] inset-x-0 bottom-0 z-50 flex flex-col bg-[#0a0a0a]/85 backdrop-blur-2xl"
+          className="fixed top-[60px] md:top-[72px] inset-x-0 bottom-0 z-50 flex flex-col bg-[#0a0a0a]/85 ui-glass-xl"
         >
           <div className="flex-1 overflow-y-auto pb-8 hide-scrollbar">
             {/* 🛠 Функциональные иконки и Язык */}
@@ -95,7 +95,7 @@ const MobileMenu = ({ isOpen, onClose, onOpenSearch }) => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -10, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute right-0 top-full mt-3 w-56 max-h-[320px] overflow-y-auto bg-[#1c1c1e]/80 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-30 ring-1 ring-white/5 scrollbar-hide py-2"
+                      className="absolute right-0 top-full mt-3 w-56 max-h-[320px] overflow-y-auto bg-[#1c1c1e]/80 ui-glass-xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-30 ring-1 ring-white/5 scrollbar-hide py-2"
                     >
                       {LANGUAGES.map((lang) => (
                         <button

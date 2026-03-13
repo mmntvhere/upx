@@ -40,7 +40,7 @@ const AllCategoryCard = ({ category }) => {
             {displayedSites.map((site) => (
               <div
                 key={site.id}
-                className="w-9 h-9 rounded-full border-2 border-[#141415] bg-gray-200 overflow-hidden"
+                className="w-9 h-9 rounded-full border-2 border-[#141415] bg-white/5 overflow-hidden"
                 title={site.name}
               >
                 {site.favicon ? (
@@ -63,7 +63,7 @@ const AllCategoryCard = ({ category }) => {
 
             {/* ➕ Если больше 4 сайтов — выводим "+X" */}
             {category.sites && category.sites.length > displayedSites.length && (
-              <div className="w-9 h-9 rounded-full bg-[#E4E6EA] border-2 border-[#141415] flex items-center justify-center text-xs text-[#141415] font-medium">
+              <div className="w-9 h-9 rounded-full bg-white/10 border-2 border-[#141415] flex items-center justify-center text-xs text-white/50 font-medium">
                 +{category.sites.length - displayedSites.length}
               </div>
             )}

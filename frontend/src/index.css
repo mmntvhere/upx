@@ -58,7 +58,18 @@ h1 {
   }
   
   .ui-card-hover {
-    @apply hover:border-white/10 hover:shadow-2xl hover:shadow-primaryLink/5 active:scale-[0.98];
+    @apply transition-all duration-300;
+  }
+
+  @media (hover: hover) {
+    .ui-card-hover:hover {
+      @apply border-white/10 shadow-2xl;
+      box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.05); /* shadow-primaryLink/5 */
+    }
+  }
+
+  .ui-card-hover:active {
+    @apply scale-[0.98];
   }
 
   /* 🏗 Контейнер секции */
@@ -305,7 +316,9 @@ h1 {
   }
 
   .ui-header-glass {
-    @apply bg-[#0a0a0a]/85 backdrop-blur-2xl border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] md:bg-[#141415] md:backdrop-blur-none md:border-transparent md:shadow-none;
+    @apply bg-[#0a0a0a]/85 border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] md:bg-[#141415] md:border-transparent md:shadow-none;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
   }
 
   .ui-header-inner {
@@ -314,6 +327,8 @@ h1 {
 
   .ui-header-lang-btn {
     @apply h-[40px] px-2.5 pl-1.5 rounded-full bg-white/[0.03] border border-white/5 flex items-center gap-2.5 transition-all duration-300 active:scale-95 text-white/50 hover:bg-white/[0.08] hover:text-white hover:border-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)];
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .ui-header-lang-btn-active {
@@ -339,7 +354,7 @@ h1 {
   animation: ui-pulse-red 2s infinite ease-in-out;
 }
 
-/* 🚀 UPX Premium Slider System */
+/* 🚀 BeInPorn Premium Slider System */
 .ui-slider-container {
   display: flex !important;
   flex-direction: row !important;
@@ -353,8 +368,8 @@ h1 {
   gap: 1rem;
   width: 100%;
   list-style: none !important;
-  padding: 0;
-  margin: 0 !important;
+  padding: 20px 0 !important; /* Space for hover lift */
+  margin: -20px 0 !important; /* Compensate for the padding */
 }
 
 .ui-slider-container::-webkit-scrollbar {
@@ -388,27 +403,7 @@ button {
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease-in-out;
-}
-
-button:focus-visible {
-  outline: 2px solid theme('colors.primaryLink');
-  outline-offset: 2px;
-}
-
-/* Стили для светлой темы */
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
+  background-color: transparent;
 }
 
 /* Скрытие скроллбара */
@@ -524,9 +519,10 @@ button.search-term-btn {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+}
 
 
-  .icon-glow-button {
+.icon-glow-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -573,36 +569,23 @@ button.search-term-btn {
 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-  .loader {
+
+@media (hover: hover) {
+  .ui-img-hover:hover {
+    transform: scale(1.1);
+  }
+}
+
+.active-scale:active {
+  transform: scale(0.95);
+}
+
+.loader {
     border-color: #D80032;
     border-top-color: transparent;
   }
 
 
-
-.btn-lang {
-  all: unset;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0.5rem 0rem;
-  border-radius: 0.5rem;
-  background-color: white;
-  color: #141415; /* текст всегда чёрный */
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.btn-lang:hover {
-  background-color: #f2f2f2; /* только фон */
-  color: #141415; /* ✨ фиксируем цвет текста */
-}
-
-.btn-lang .text-blue-600 {
-  color: #3b82f6;
-}
-}
+/* ✅ End of index.css */
+.ui-glass { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.ui-glass-xl { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
