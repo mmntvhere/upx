@@ -67,7 +67,7 @@ const SiteHeaderRow = ({ site, onGoToHidden }) => {
           <a
             href={site.link}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             className="ui-site-btn-main"
           >
             <svg

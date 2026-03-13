@@ -77,11 +77,11 @@ const SiteListCard = ({ site, onClick }) => {
 
           {/* Кнопка Open (Исправленный эффект выдвижения) */}
           {site.link && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                window.open(site.link, "_blank")
-              }}
+            <a
+              href={site.link}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="group relative flex items-center h-[36px] w-[36px] hover:w-auto max-w-[36px] lg:hover:max-w-[240px] bg-transparent border border-white/30 rounded-full overflow-hidden transition-all duration-300 ease-in-out lg:hover:pr-4"
             >
               {/* 🔴 Неподвижный красный круг */}
@@ -95,7 +95,7 @@ const SiteListCard = ({ site, onClick }) => {
               <span className="flex items-center text-white text-sm whitespace-nowrap opacity-0 transition-all duration-300 ease-in-out pl-10 pr-1 group-hover:opacity-100">
                 Open <span className="font-bold ml-1">{site.name}</span>
               </span>
-            </button>
+            </a>
           )}
         </div>
       </div>

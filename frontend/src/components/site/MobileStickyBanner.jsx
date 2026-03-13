@@ -47,7 +47,7 @@ const MobileStickyBanner = ({ site }) => {
       <a
         href={site.link}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
         className="flex items-center justify-center gap-2 bg-[#D80032] text-white text-sm font-medium h-11 rounded-full hover:bg-[#b50029] transition w-full mb-3"
       >
         <ArrowUpRight className="w-4 h-4" />

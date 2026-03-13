@@ -6,7 +6,8 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\SiteSortController;
 use App\Http\Controllers\SiteController;
-use App\Http\Controllers\Api\PageController; // Added this use statement
+use App\Http\Controllers\Api\PageController;
+use App\Http\Controllers\Api\RedirectController;
 
 Route::middleware(['throttle:api'])->group(function () {
     // ✅ Системный конфиг (языки и т.д.)
@@ -27,6 +28,9 @@ Route::middleware(['throttle:api'])->group(function () {
     // ✅ Маршруты для страниц
     Route::get('/pages', [PageController::class, 'index']);
     Route::get('/pages/{slug}', [PageController::class, 'show']);
+
+    // 🔥 Профессиональный Редиректор
+    Route::get('/go/{slug}', [RedirectController::class, 'go'])->name('site.go');
 });
 
 // ✅ POST-запрос для сохранения порядка сайтов в админке (защищён аутентификацией)

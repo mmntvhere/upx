@@ -38,6 +38,7 @@ class Site extends Model
         'seo_description',
         'enabled_languages', 
         'position_per_lang',
+        'affiliate_url',
     ];
 
     protected $casts = [
@@ -104,5 +105,29 @@ class Site extends Model
         $data = $this->position_per_lang ?? [];
         $data[$locale] = $position;
         $this->position_per_lang = $data;
+    }
+
+    /**
+     * 🔥 Генерирует финальную ссылку по "Умной логике"
+     */
+    public function getSmartUrl(): string
+    {
+        $affUrl = trim((string)$this->affiliate_url);
+        
+        // 1. Если пусто — клеим стандартный ref
+        if (empty($affUrl)) {
+            $separator = str_contains($this->link, '?') ? '&' : '?';
+            return $this->link . $separator . 'ref=beinporn';
+        }
+
+        // 2. Если это полный URL (начинается с http)
+        if (str_starts_with($affUrl, 'http')) {
+            // В будущем здесь будет bnprn.link, а пока отдаем как есть через прокси
+            return route('site.go', ['slug' => $this->slug]);
+        }
+
+        // 3. Если это хэш (просто строка без http)
+        $separator = str_contains($this->link, '?') ? '&' : '?';
+        return $this->link . $separator . 'ref=' . $affUrl;
     }
 }
