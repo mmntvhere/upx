@@ -149,7 +149,7 @@ const CategorySection = ({
       </div>
 
       {/* 🖥️ Карусель сайтов с внутренними стрелками и градиентами */}
-      <div className="w-full max-w-[1280px] mx-auto px-0 sm:px-6 lg:px-8 relative">
+      <div className="w-full max-w-[1280px] mx-auto px-0 relative">
         
         {/* Градиенты (Desktop) */}
         <div className="hidden lg:block pointer-events-none">

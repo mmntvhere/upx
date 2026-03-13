@@ -30,7 +30,7 @@ const SiteHeaderRow = ({ site, onGoToHidden }) => {
     return () => observer.disconnect()
   }, [onGoToHidden])
 
-  const domain = site.link?.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, "")
+  const domain = (site.raw_link || site.link)?.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, "")
 
   return (
     <div className="w-full py-4 px-0">

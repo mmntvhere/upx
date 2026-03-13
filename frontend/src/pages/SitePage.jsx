@@ -68,7 +68,7 @@ const SitePage = () => {
           "itemReviewed": {
             "@type": "WebSite",
             "name": site?.name,
-            "url": site?.link
+            "url": site?.raw_link || site?.link
           },
           "reviewRating": {
             "@type": "Rating",
@@ -83,9 +83,47 @@ const SitePage = () => {
       />
 
       {isLoading ? (
-        <div className="flex items-center justify-center min-h-[60vh]">
-          <div className="w-8 h-8 border-2 border-primaryLink border-t-transparent rounded-full animate-spin"></div>
-        </div>
+        <main className="bg-[#141415] text-white pb-10 relative min-h-screen">
+          <div className="ui-container pt-6 animate-pulse">
+            {/* Breadcrumbs Skeleton */}
+            <div className="h-4 bg-white/5 w-48 mb-6 rounded-md" />
+            
+            {/* Main Image Skeleton */}
+            <div className="flex flex-col lg:flex-row gap-4 mb-2">
+              <div className="ui-site-image-container bg-white/5" />
+              <div className="ui-site-sidebar-container bg-white/5" />
+            </div>
+
+            {/* Header Skeleton */}
+            <div className="py-4 flex flex-col gap-2">
+              <div className="h-8 bg-white/5 w-64 rounded-xl" />
+              <div className="h-4 bg-white/5 w-32 rounded-lg" />
+            </div>
+
+            {/* Description Skeleton */}
+            <div className="space-y-2 mt-4">
+              <div className="h-4 bg-white/5 w-full rounded" />
+              <div className="h-4 bg-white/5 w-full rounded" />
+              <div className="h-4 bg-white/5 w-2/3 rounded" />
+            </div>
+
+            {/* Verdict & Pros/Cons Skeleton */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-10">
+               <div className="lg:col-span-8 h-48 bg-white/5 rounded-3xl" />
+               <div className="lg:col-span-4 h-48 bg-white/5 rounded-3xl" />
+            </div>
+
+            {/* Similar Sites Section Skeleton */}
+            <div className="mt-20">
+              <div className="h-8 bg-white/5 w-48 mb-6 rounded-xl" />
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {[1, 2, 3, 4, 5].map(i => (
+                  <div key={i} className="aspect-[155/208] bg-white/5 rounded-2xl" />
+                ))}
+              </div>
+            </div>
+          </div>
+        </main>
       ) : !site ? (
         <NotFound />
       ) : (

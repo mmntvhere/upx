@@ -18,7 +18,13 @@ const Footer = () => {
 
         {/* 🔝 HEADER LINE */}
         <div className="flex items-center justify-between relative">
-          <img src="/logo.svg" alt="BeInPorn" className="h-6" />
+          <img 
+            src="/logo.svg" 
+            alt="BeInPorn" 
+            className="h-6 w-auto" 
+            width="112" 
+            height="24" 
+          />
           <div className="flex-grow border-t border-white/5 mx-6" />
           <div className="flex items-center space-x-4">
             <LanguageSelect />

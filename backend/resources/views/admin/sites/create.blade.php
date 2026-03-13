@@ -50,6 +50,14 @@
                                    placeholder="https://...">
                         </div>
 
+                        <div class="md:col-span-2 space-y-2">
+                            <label for="affiliate_url" class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest px-1">Партнерская ссылка / Хэш</label>
+                            <input type="text" name="affiliate_url" id="affiliate_url" value="{{ old('affiliate_url') }}"
+                                   class="w-full px-4 py-3 bg-indigo-500/5 border border-indigo-500/20 rounded-xl focus:border-indigo-400 transition-all outline-none"
+                                   placeholder="Полный URL или только ID (например: ?ref=...)">
+                            <p class="text-[10px] text-slate-500 px-1 italic">Если пусто — добавится ?ref=beinporn автоматически. Если хэш — добавится ?ref={хэш}.</p>
+                        </div>
+
                         <div class="space-y-2">
                             <label for="category_id" class="text-[10px] font-bold text-slate-500 uppercase tracking-widest px-1">Категория</label>
                             <select name="category_id" id="category_id"

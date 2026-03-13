@@ -139,7 +139,7 @@ h1 {
 
   /* 🦴 Скелетоны для контента */
   .ui-skeleton-card {
-    @apply min-w-[280px] h-[320px] bg-white/5 rounded-2xl animate-pulse;
+    @apply w-[130px] h-[220px] sm:w-[150px] sm:h-[260px] bg-white/5 rounded-2xl animate-pulse shrink-0;
   }
 
   .ui-skeleton-text {
@@ -368,8 +368,26 @@ h1 {
   gap: 1rem;
   width: 100%;
   list-style: none !important;
-  padding: 20px 0 !important; /* Space for hover lift */
-  margin: -20px 0 !important; /* Compensate for the padding */
+  @apply px-4 sm:px-6 lg:px-8;
+  scroll-padding-left: 1rem;
+  scroll-padding-right: 1rem;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+  margin: -24px 0 !important;
+}
+
+@media (min-width: 640px) {
+  .ui-slider-container {
+    scroll-padding-left: 1.5rem;
+    scroll-padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ui-slider-container {
+    scroll-padding-left: 2rem;
+    scroll-padding-right: 2rem;
+  }
 }
 
 .ui-slider-container::-webkit-scrollbar {

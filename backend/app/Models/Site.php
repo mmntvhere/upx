@@ -114,20 +114,14 @@ class Site extends Model
     {
         $affUrl = trim((string)$this->affiliate_url);
         
-        // 1. Если пусто — клеим стандартный ref
-        if (empty($affUrl)) {
-            $separator = str_contains($this->link, '?') ? '&' : '?';
-            return $this->link . $separator . 'ref=beinporn';
-        }
-
-        // 2. Если это полный URL (начинается с http)
-        if (str_starts_with($affUrl, 'http')) {
-            // В будущем здесь будет bnprn.link, а пока отдаем как есть через прокси
+        // 🚀 TODO: Когда купим bnprn.link, заменить здесь генерацию пути
+        // Сейчас используем основной домен /api/go/ для трекинга кликов
+        if (!empty($affUrl)) {
             return route('site.go', ['slug' => $this->slug]);
         }
 
-        // 3. Если это хэш (просто строка без http)
+        // Если партнерки нет — отдаем прямую ссылку (но тоже с ref=beinporn)
         $separator = str_contains($this->link, '?') ? '&' : '?';
-        return $this->link . $separator . 'ref=' . $affUrl;
+        return $this->link . $separator . 'ref=beinporn';
     }
 }

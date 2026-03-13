@@ -79,8 +79,8 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
 
         {!isFaviconError && faviconUrl && (
           <motion.div 
-            initial={{ scale: 0, x: "-50%", y: "50%" }}
-            animate={{ scale: 1, x: "-50%", y: "50%" }}
+            initial={{ scale: 0, x: "-50%", y: "40%" }}
+            animate={{ scale: 1, x: "-50%", y: "40%" }}
             transition={{ delay: 0.2 }}
             className="absolute left-1/2 bottom-0 z-20"
           >
@@ -89,13 +89,13 @@ const SiteCard = ({ site, onClick, isGrid = false }) => {
               alt={`Favicon сайта ${site.name}`}
               loading="lazy"
               onError={() => setFaviconError(true)}
-              className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
+              className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 object-contain drop-shadow-[0_4px_8px_rgba(0,0,0,0.7)]"
             />
           </motion.div>
         )}
       </div>
 
-      <div className="flex items-center justify-center gap-2 mt-4 text-[11px] sm:text-[13px] font-medium text-white/90 truncate w-full px-1">
+      <div className="flex items-center justify-center gap-1.5 mt-6 text-[11px] sm:text-[13px] font-bold text-white/90 truncate w-full px-1">
         <span className="truncate" title={site.name}>{site.name}</span>
         {site.enabled_languages?.length === 1 && (
           <div className="w-4 h-4 rounded-full overflow-hidden bg-white/5 flex items-center justify-center shrink-0">

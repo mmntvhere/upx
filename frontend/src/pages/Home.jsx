@@ -158,8 +158,8 @@ const Home = ({ setMobileModalOpen }) => {
                    <div className="ui-skeleton-text w-48 h-8" />
                    <div className="ui-skeleton-text w-24 h-8 rounded-full" />
                 </div>
-                <div className="flex gap-4 overflow-hidden">
-                   {[1, 2, 3, 4].map((j) => (
+                <div className="flex gap-4 overflow-hidden px-4 md:px-0">
+                   {[1, 2, 3, 4, 5, 6].map((j) => (
                      <div key={j} className="ui-skeleton-card" />
                    ))}
                 </div>
@@ -193,7 +193,7 @@ const Home = ({ setMobileModalOpen }) => {
           >
             {categories.length > 0 ? (
               categories.map((category) => (
-                <LazySection key={category.id} height="300px">
+                <LazySection key={category.id} height="340px">
                   <CategorySection
                     category={category}
                     onSeeAllClick={handleSeeAllClick}

@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Название категории
-            $table->string('slug')->nullable()->unique(); // Уникальный slug для URL
-            $table->text('description')->nullable(); // Описание
-            $table->string('icon')->nullable(); // Иконка категории
-            $table->string('disclaimer')->nullable(); // Дисклеймер
-            $table->boolean('is_active')->default(true); // Активна ли категория
-            $table->timestamps(); // created_at и updated_at
+            $table->json('name'); // Translatable name
+            $table->string('slug')->nullable()->unique();
+            $table->json('description')->nullable(); // Translatable description
+            $table->string('icon')->nullable();
+            $table->json('disclaimer')->nullable(); // Translatable disclaimer
+            $table->json('seo_title')->nullable(); // Translatable SEO title
+            $table->json('seo_description')->nullable(); // Translatable SEO description
+            $table->boolean('is_active')->default(true);
+            $table->timestamps();
         });
     }
 

@@ -21,6 +21,7 @@ class SiteResource extends JsonResource
             'slug' => $this->slug,
             'name' => $this->name,
             'link' => $this->getSmartUrl(),
+            'raw_link' => $this->link,
             'favicon' => $this->favicon,
             'preview' => $this->preview,
             'main_image' => $this->main_image,

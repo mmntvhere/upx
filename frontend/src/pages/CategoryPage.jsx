@@ -30,10 +30,11 @@ const CategoryPage = () => {
   const [error, setError] = useState(null)
   const [sortBy, setBy] = useState("popular")
   
+  const initialIsMobile = typeof window !== 'undefined' ? window.innerWidth < 1024 : false
   const [selectedSite, setSelectedSite] = useState(null)
   const [showModal, setShowModal] = useState(false)
-  const [viewType, setViewType] = useState("list")
-  const [isMobile, setIsMobile] = useState(false)
+  const [viewType, setViewType] = useState(initialIsMobile ? "grid" : "list")
+  const [isMobile, setIsMobile] = useState(initialIsMobile)
 
   // 💬 Переводы UI
   const noSites = useTranslateUniversal("categoryPage.noSites")
@@ -101,7 +102,25 @@ const CategoryPage = () => {
   }, [showModal])
 
   if (loading && !category) {
-    return <div className="min-h-screen bg-[#141415] flex items-center justify-center text-white/50">Loading...</div>
+    return (
+      <main className="bg-[#141415] text-white pb-20 min-h-screen">
+        <div className="ui-container pt-6 animate-pulse">
+          <div className="h-4 bg-white/5 w-48 mb-8 rounded-md" />
+          <div className="h-10 bg-white/5 w-2/3 mb-10 rounded-xl" />
+          <div className="flex items-center justify-between mb-10">
+            <div className="h-8 bg-white/5 w-40 rounded-full" />
+            <div className="h-8 bg-white/5 w-24 rounded-full" />
+          </div>
+
+          {/* Adaptive Skeleton Grid/List */}
+          <div className={`grid gap-6 ${viewType === 'grid' ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-2'}`}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
+              <div key={i} className={viewType === 'grid' ? 'aspect-[155/208] bg-white/5 rounded-2xl' : 'h-[100px] bg-white/5 rounded-2xl'} />
+            ))}
+          </div>
+        </div>
+      </main>
+    )
   }
 
   if (error || (!loading && !category)) {

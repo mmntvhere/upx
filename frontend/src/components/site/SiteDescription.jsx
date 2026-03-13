@@ -10,7 +10,10 @@ const SiteDescription = ({ review, className = "" }) => {
   const [expanded, setExpanded] = useState(false)
   const contentRef = useRef(null)
   const [shouldTruncate, setShouldTruncate] = useState(false)
-  const [maxHeight, setMaxHeight] = useState("22.5em") // 15 строк по умолчанию
+  
+  // ✅ Инициализируем высоту сразу, чтобы избежать скачка (CLS)
+  const initialMaxLines = typeof window !== 'undefined' && window.innerWidth < 1024 ? 10 : 15
+  const [maxHeight, setMaxHeight] = useState(`${initialMaxLines * 1.5}em`) 
 
   useEffect(() => {
     const handleResize = () => {

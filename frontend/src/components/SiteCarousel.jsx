@@ -16,7 +16,7 @@ const SiteCarousel = ({ categoryId, sites = [], externalRef, onSiteClick }) => {
     <div className="relative">
       <ul
         ref={externalRef}
-        className="ui-slider-container !pl-4 sm:!pl-0 !pr-4 sm:!pr-0 scroll-pl-4 sm:scroll-pl-0"
+        className="ui-slider-container"
         role="list"
         aria-label={`Carousel of sites for category ${categoryId}`}
       >

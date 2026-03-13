@@ -73,6 +73,7 @@ public function store(Request $request)
         'category_id' => 'nullable|exists:categories,id',
         'seo_title'   => 'nullable|string|max:255',
         'seo_description' => 'nullable|string',
+        'affiliate_url' => 'nullable|string',
 
         // 🌍 Массив включённых языков
         'enabled_languages' => ['nullable', 'array'],
@@ -155,6 +156,7 @@ public function store(Request $request)
         'category_id' => 'nullable|exists:categories,id',
         'seo_title'   => 'nullable|string|max:255',
         'seo_description' => 'nullable|string',
+        'affiliate_url' => 'nullable|string',
         'enabled_languages' => ['nullable', 'array'],
         'enabled_languages.*' => ['in:' . implode(',', config('languages.codes'))],
     ]);
