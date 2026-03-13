@@ -46,17 +46,16 @@ const Header = () => {
     <>
       <header 
         role="banner"
-        className={`fixed top-0 left-0 right-0 z-[60] w-full transition-all duration-300 border-b ${
-        isScrolled || isMobileMenuOpen
-          ? "bg-[#0a0a0a]/85 backdrop-blur-2xl border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
-          : "bg-[#141415] border-transparent"
-      }`}>
-        <div className="px-4 sm:px-6 lg:px-8 max-w-[1280px] mx-auto h-[60px] md:h-[72px] flex items-center justify-between relative">
+        className={`ui-header ${isMobileMenuOpen ? 'ui-header-fixed' : 'ui-header-mobile-fixed'} ${
+          (isScrolled || isMobileMenuOpen) ? "ui-header-glass" : ""
+        }`}
+      >
+        <div className="ui-header-inner">
           
           {/* 🍔 Бургер меню (Мобилка) */}
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden flex flex-col justify-center items-center w-10 h-10 p-2 -ml-2 text-white/80 hover:text-white transition bg-transparent border-none outline-none focus:outline-none"
+            className="ui-header-burger"
             style={{ WebkitTapHighlightColor: "transparent" }}
             aria-label={t('header.toggleMenu', 'Toggle menu')}
           >
@@ -71,7 +70,7 @@ const Header = () => {
           <LocalLink 
             to="/" 
             onClick={() => setIsMobileMenuOpen(false)} 
-            className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 transition-transform hover:scale-105 active:scale-95"
+            className="ui-header-logo-link"
             aria-label={t('header.homeLink', 'Go to home page')}
           >
             <img src="/logo.svg" alt="BeInPorn Logo" className="h-6 md:h-8" />
@@ -80,7 +79,7 @@ const Header = () => {
           {/* 🔍 Поиск (Мобилка) */}
           <button 
             onClick={() => setIsSearchOpen(true)}
-            className="md:hidden p-2 -mr-2 text-white/80 hover:text-white transition bg-transparent border-none outline-none focus:outline-none"
+            className="md:hidden p-2 -mr-2 text-white/80 hover:text-white transition bg-transparent border-none outline-none"
             style={{ WebkitTapHighlightColor: "transparent" }}
             aria-label={t('header.search', 'Search')}
           >
@@ -127,11 +126,7 @@ const Header = () => {
             <div className="relative">
               <button 
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className={`h-[40px] px-2.5 pl-1.5 rounded-full bg-white/[0.03] border border-white/5 flex items-center gap-2.5 transition-all duration-300 group active:scale-95 ${
-                  isLangOpen 
-                    ? 'bg-white/10 text-white border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)]' 
-                    : 'text-white/50 hover:bg-white/[0.08] hover:text-white hover:border-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]'
-                }`}
+                className={`ui-header-lang-btn group ${isLangOpen ? 'ui-header-lang-btn-active' : ''}`}
                 title={t('header.language', 'Language')}
                 aria-label={t('header.language', 'Language')}
               >

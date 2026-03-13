@@ -33,14 +33,13 @@ const MainImage = ({ site }) => {
   return (
     <div className="flex flex-col lg:flex-row gap-4 mb-2">
       {/* 🖼 Главное изображение */}
-      <div
-        className="w-full rounded-[12px] sm:rounded-[16px] md:rounded-[20px] lg:rounded-[25px] overflow-hidden relative group
-        h-[180px] sm:h-[220px] md:h-[260px] lg:h-[460px] lg:w-[960px]"
-      >
+      <div className="ui-site-image-container group">
         <img
           src={resolveImageUrl(site.main_image)}
           alt={site.name}
           className="w-full h-full object-cover object-top"
+          fetchpriority="high"
+          loading="eager"
         />
 
         {/* 🚀 Hover Overlay (десктоп) */}
@@ -72,7 +71,7 @@ const MainImage = ({ site }) => {
 
       {/* 📦 Сайты той же категории */}
       {relatedSites.length > 0 && (
-        <div className="ui-site-sidebar">
+        <div className="ui-site-sidebar-container">
           {/* Заголовок */}
           <div className="flex items-center gap-2 mb-4 px-1">
             {site.category?.icon && (
@@ -90,7 +89,7 @@ const MainImage = ({ site }) => {
           {/* Список сайтов */}
           <div className="space-y-1.5 flex-1 overflow-auto hide-scrollbar">
             {relatedSites.map((s) => (
-              <div key={s.id} className="ui-sidebar-row group">
+              <div key={s.id} className="ui-site-sidebar-row group">
                 {/* Левая часть: фавикон и имя */}
                 <div className="flex items-center gap-2.5 min-w-0">
                   {s.favicon ? (
@@ -112,7 +111,7 @@ const MainImage = ({ site }) => {
                 <ChevronRightIcon className="w-4 h-4 text-white/20 shrink-0" />
 
                 {/* ⚡️ Кнопки при наведении (Анимация из CSS) */}
-                <div className="ui-sidebar-actions">
+                <div className="ui-site-sidebar-actions">
                   <LocalLink
                     to={`/review/${s.slug}`}
                     className="flex-1 text-center py-1.5 text-[11px] bg-white/10 text-white rounded-lg font-semibold hover:bg-white/20 transition-colors"
@@ -135,18 +134,16 @@ const MainImage = ({ site }) => {
           </div>
 
           {/* Кнопка See All */}
-          <div className="mt-4">
-            <LocalLink
-              to={`/${site.category?.slug}`}
-              className="ui-card bg-white/5 hover:bg-white/10 py-2.5 text-xs text-white text-center block font-medium transition-colors"
-            >
-              {tSeeAll}{" "}
-              <span className="text-primaryLink font-bold">
-                {allRelatedSitesForLang.length}
-              </span>{" "}
-              {tSites}
-            </LocalLink>
-          </div>
+          <LocalLink
+            to={`/${site.category?.slug}`}
+            className="ui-site-see-all-btn"
+          >
+            {tSeeAll}{" "}
+            <span className="text-primaryLink font-bold">
+              {allRelatedSitesForLang.length}
+            </span>{" "}
+            {tSites}
+          </LocalLink>
         </div>
       )}
     </div>

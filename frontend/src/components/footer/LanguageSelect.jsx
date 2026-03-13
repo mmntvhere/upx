@@ -11,7 +11,11 @@ const LanguageSelect = () => {
 
   return (
     <div className="relative">
-      <LanguageSwitcher currentLang={currentLang} onOpen={() => setIsOpen((prev) => !prev)} />
+      <LanguageSwitcher 
+        currentLang={currentLang} 
+        isOpen={isOpen}
+        onOpen={() => setIsOpen((prev) => !prev)} 
+      />
       <LanguageDropdown isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   )

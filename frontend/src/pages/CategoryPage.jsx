@@ -39,16 +39,21 @@ const CategoryPage = () => {
   const noSites = useTranslateUniversal("categoryPage.noSites")
   const otherCategoriesTitle = useTranslateUniversal("categoryPage.otherCategories")
 
-  // 📱 Определение мобильности (один раз при монтировании + ресайз)
+  // 📱 Определение мобильности
   useEffect(() => {
-    const checkMobile = () => {
+    const mobile = window.innerWidth < 1024
+    setIsMobile(mobile)
+    setViewType(mobile ? "grid" : "list")
+
+    const handleResize = () => {
       const mobile = window.innerWidth < 1024
       setIsMobile(mobile)
-      setViewType(mobile ? "grid" : "list")
+      // Мы НЕ меняем viewType при ресайзе, чтобы не перебивать выбор пользователя 
+      // (особенно важно на мобилках, где скрытие панели адреса вызывает resize)
     }
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
 
   // 🚀 Загрузка данных категории

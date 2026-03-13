@@ -37,7 +37,7 @@ const SiteHeaderRow = ({ site, onGoToHidden }) => {
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 w-full">
         {/* Левая часть */}
         <div className="flex flex-col gap-2 w-full">
-          <h1 className="relative text-white text-2xl font-bold w-fit leading-snug after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-gradient-to-r after:from-zinc-300 after:to-transparent">
+          <h1 className="ui-site-title">
             {site.name} <span className="text-zinc-400 font-normal">{tReview}</span>
           </h1>
 
@@ -68,7 +68,7 @@ const SiteHeaderRow = ({ site, onGoToHidden }) => {
             href={site.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 bg-[#D80032] text-white text-sm font-medium h-11 rounded-full hover:bg-[#b50029] transition flex-grow lg:flex-grow-0 lg:whitespace-nowrap px-5"
+            className="ui-site-btn-main"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -12,14 +12,14 @@ const SiteSummaryCard = ({ rating, title, description, favicon }) => {
   const scorePercent = Math.min(Math.max((rating / 5) * 100, 0), 100)
 
   return (
-    <div className="bg-[#141415] border border-white/5 rounded-[32px] p-6 lg:p-8 overflow-hidden relative shadow-2xl group transition-all duration-500 hover:border-white/10 h-full">
+    <div className="ui-site-summary-card group">
       
       {/* 🔴 Atmospheric Red Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,_rgba(238,82,83,0.15)_0%,_transparent_75%)] pointer-events-none mix-blend-screen transition-opacity duration-700 group-hover:opacity-40" />
+      <div className="ui-site-glow-negative group-hover:opacity-40 transition-opacity duration-700" />
       <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#ee5253]/5 blur-[100px] rounded-full pointer-events-none" />
       
       {/* Subtle top edge highlight */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="ui-site-glow-top-line" />
 
       <div className="flex flex-col lg:flex-row lg:items-center lg:gap-10 relative z-10">
         
@@ -27,7 +27,7 @@ const SiteSummaryCard = ({ rating, title, description, favicon }) => {
         <div className="w-full lg:w-[40%] order-1 lg:order-1 mb-8 lg:mb-0">
            {/* Verdict Tag */}
            <div className="flex justify-between items-center mb-5 lg:mb-6">
-            <span className="bg-white/5 text-white/50 text-[10px] uppercase font-black tracking-[0.25em] px-3 py-1.5 rounded-full border border-white/5 backdrop-blur-md">
+            <span className="ui-site-verdict-tag">
               {t("siteVerdict.tag")}
             </span>
           </div>
@@ -45,9 +45,9 @@ const SiteSummaryCard = ({ rating, title, description, favicon }) => {
             </div>
 
             {/* The Continuous Bar */}
-            <div className="h-[10px] lg:h-[12px] w-full bg-white/5 rounded-full relative overflow-hidden ring-1 ring-white/10">
+            <div className="ui-site-rating-bar-bg">
               <div 
-                className="h-full rounded-full transition-all duration-1000 ease-out relative"
+                className="ui-site-rating-bar-fill"
                 style={{ 
                   width: `${scorePercent}%`,
                   background: 'linear-gradient(90deg, #ff4d4d 0%, #ffd700 50%, #2ecc71 100%)',

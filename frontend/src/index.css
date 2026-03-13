@@ -38,12 +38,11 @@ html, body {
 #root {
   width: 100%;
   min-height: 100vh;
-  padding-top: 60px; /* Высота мобильного хедера */
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   #root {
-    padding-top: 72px; /* Высота десктопного хедера */
+    padding-top: 60px; /* Только для мобилок, где хедер fixed */
   }
 }
 
@@ -204,6 +203,129 @@ h1 {
   /* 💎 Кнопки Хедера */
   .ui-header-btn {
     @apply w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.03] text-white/50 transition-all duration-300 hover:bg-white/[0.08] hover:text-white hover:shadow-[inset_0_0_15px_rgba(255,255,255,0.05)] active:scale-95 border border-white/5 hover:border-white/10 relative shrink-0;
+  }
+
+  /* --- SITE REVIEW PAGE COMPONENTS --- */
+  
+  /* Base Card for review page */
+  .ui-site-card {
+    @apply bg-[#141415] rounded-[24px] lg:rounded-[32px] border border-white/5 relative overflow-hidden transition-all duration-500 hover:border-white/10;
+  }
+
+  /* Pros & Cons Containers */
+  .ui-site-pros-container {
+    @apply ui-site-card p-5 lg:p-6 flex gap-4 items-center flex-1;
+  }
+
+  /* Atmospheric Glows */
+  .ui-site-glow-positive {
+    @apply absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,_rgba(34,197,94,0.12)_0%,_transparent_75%)] pointer-events-none mix-blend-screen opacity-70;
+  }
+
+  .ui-site-glow-negative {
+    @apply absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,_rgba(239,68,68,0.12)_0%,_transparent_75%)] pointer-events-none mix-blend-screen opacity-70;
+  }
+
+  .ui-site-glow-top-line {
+    @apply absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent;
+  }
+
+  /* Pros/Cons Icons */
+  .ui-site-icon-circle-pros {
+    @apply w-10 h-10 min-w-[40px] border-2 border-green-500/50 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(34,197,94,0.15)] relative z-10;
+  }
+
+  .ui-site-icon-circle-cons {
+    @apply w-10 h-10 min-w-[40px] border-2 border-red-500/50 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(239,68,68,0.15)] relative z-10;
+  }
+
+  /* Main Image Wrapper */
+  .ui-site-image-container {
+    @apply w-full rounded-[12px] sm:rounded-[16px] md:rounded-[20px] lg:rounded-[25px] overflow-hidden relative h-[180px] sm:h-[220px] md:h-[260px] lg:h-[460px] lg:w-[960px];
+  }
+
+  /* Sidebars & Lists */
+  .ui-site-sidebar-container {
+    @apply hidden lg:flex flex-col w-full lg:w-[305px] bg-[#141415] rounded-[24px] lg:rounded-[32px] border border-white/5 p-4 lg:p-6 h-[460px];
+  }
+
+  .ui-site-sidebar-row {
+    @apply flex items-center justify-between p-2 rounded-xl transition-all duration-300 relative overflow-hidden border border-transparent hover:bg-white/5 hover:border-white/5 active:scale-[0.98];
+  }
+
+  .ui-site-sidebar-actions {
+    @apply absolute inset-0 bg-[#141415] flex items-center gap-2 px-2 translate-x-full transition-transform duration-300;
+  }
+
+  .ui-site-sidebar-row:hover .ui-site-sidebar-actions {
+    @apply translate-x-0;
+  }
+
+  /* Summary / Verdict Card */
+  .ui-site-summary-card {
+    @apply ui-site-card p-6 lg:p-8 shadow-2xl h-full;
+  }
+
+  .ui-site-verdict-tag {
+    @apply bg-white/5 text-white/50 text-[10px] uppercase font-black tracking-[0.25em] px-3 py-1.5 rounded-full border border-white/5 backdrop-blur-md;
+  }
+
+  .ui-site-rating-bar-bg {
+    @apply h-[10px] lg:h-[12px] w-full bg-white/5 rounded-full relative overflow-hidden ring-1 ring-white/10;
+  }
+
+  .ui-site-rating-bar-fill {
+    @apply h-full rounded-full transition-all duration-1000 ease-out relative;
+  }
+
+  .ui-site-title {
+    @apply relative text-white text-2xl font-bold w-fit leading-snug after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-gradient-to-r after:from-zinc-300 after:to-transparent;
+  }
+
+  .ui-site-btn-main {
+    @apply flex items-center justify-center gap-2 bg-[#D80032] text-white text-sm font-medium h-11 rounded-full hover:bg-[#b50029] transition flex-grow lg:flex-grow-0 lg:whitespace-nowrap px-5;
+  }
+
+  .ui-site-grid-section {
+    @apply flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-8 items-stretch mt-6 mb-14 lg:mt-10 lg:mb-14;
+  }
+
+  /* --- HEADER COMPONENTS --- */
+
+  .ui-header {
+    @apply top-0 left-0 right-0 z-[60] w-full transition-all duration-300 border-b border-transparent bg-[#141415];
+  }
+
+  .ui-header-fixed {
+    @apply fixed;
+  }
+
+  .ui-header-mobile-fixed {
+    @apply fixed md:relative;
+  }
+
+  .ui-header-glass {
+    @apply bg-[#0a0a0a]/85 backdrop-blur-2xl border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] md:bg-[#141415] md:backdrop-blur-none md:border-transparent md:shadow-none;
+  }
+
+  .ui-header-inner {
+    @apply px-4 sm:px-6 lg:px-8 max-w-[1280px] mx-auto h-[60px] md:h-[72px] flex items-center justify-between relative;
+  }
+
+  .ui-header-lang-btn {
+    @apply h-[40px] px-2.5 pl-1.5 rounded-full bg-white/[0.03] border border-white/5 flex items-center gap-2.5 transition-all duration-300 active:scale-95 text-white/50 hover:bg-white/[0.08] hover:text-white hover:border-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)];
+  }
+
+  .ui-header-lang-btn-active {
+    @apply bg-white/10 text-white border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.05)];
+  }
+
+  .ui-header-logo-link {
+    @apply absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 transition-transform hover:scale-105 active:scale-95;
+  }
+
+  .ui-header-burger {
+    @apply md:hidden flex flex-col justify-center items-center w-10 h-10 p-2 -ml-2 text-white/80 hover:text-white transition bg-transparent border-none outline-none;
   }
 }
 

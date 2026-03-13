@@ -97,7 +97,7 @@ const SitePage = () => {
             <SiteHeaderRow site={site} onGoToHidden={setShowMobileBanner} />
             <SiteDescription review={DOMPurify.sanitize(site.review || "")} className="mt-0" />
             {/* 🏗 Super Section: Verdict & Pros/Cons Grid */}
-            <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-8 items-stretch mt-6 mb-14 lg:mt-6 lg:mb-10">
+            <div className="ui-site-grid-section">
               {/* Pros/Cons (1st on mobile, 2nd on desktop) */}
               <div className="lg:col-span-4 flex flex-col h-full order-1 lg:order-2">
                 <SiteProsCons site={site} vertical={true} />
